@@ -1,0 +1,7 @@
+# Users listed will be automatically added as reviewers for PRs touch their files
+# Order is important. The last matching pattern has the most precedence.
+# You can also use email addresses instead of github names.
+
+
+# Default owners for everything in the repo
+*       @mmaherwelsh @davidkoski

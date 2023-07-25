@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Welsh"
+  given-names: "Megan Maher"
+- family-names: "Koski"
+  given-names: "David"
+- family-names: "Sarabia"
+  given-names: "Miguel"
+- family-names: "Sivakumar"
+  given-names: "Niv"
+- family-names: "Arawjo"
+  given-names: "Ian"
+- family-names: "Joshi"
+  given-names: "Aparna"
+- family-names: "Doumbouya"
+  given-names: "Moussa"
+- family-names: "Suau"
+  given-names: "Xavier"
+- family-names: "Zappella"
+  given-names: "Luca"
+- family-names: "Apostoloff"
+  given-names: "Nicholas"
+title: "Data and Network Introspection Kit"
+version: 2.0.0
+date-released: 2023-06-19
+url: "https://github.com/apple/dnikit"

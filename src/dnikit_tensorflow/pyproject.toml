@@ -1,0 +1,62 @@
+# Tell pip to use flit to build this package
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "dnikit_tensorflow"
+home-page = "https://github.com/apple/dnikit"
+license = "Apache-2.0"
+description-file="README.md"
+
+author = "Apple, Inc."
+author-email = "dnikit-symphony-oss@group.apple.com"
+classifiers = [
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+    'Topic :: Scientific/Engineering :: Information Analysis',
+    'Development Status :: 5 - Production/Stable',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Operating System :: MacOS',
+    'Operating System :: POSIX :: Linux',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Education',
+    'Intended Audience :: Science/Research'
+]
+
+requires-python = ">=3.7"
+requires = [
+    # Internal
+    "dnikit==2.0.0",
+]
+
+[tool.flit.metadata.requires-extra]
+tf2 = ["tensorflow"]
+tf1 = [
+    # Requirement of tensorflow 1:
+    "numpy<1.19",
+    "protobuf<4.0",
+
+    # External
+    "Keras<2.4",
+    "h5py<3.0",
+
+    "tensorflow<2.0"
+]
+tf1-gpu = [
+    # Requirement of tensorflow 1:
+    "numpy<1.19",
+    "protobuf<4.0",
+
+    # External
+    "Keras<2.4",
+    "h5py<3.0",
+
+    "tensorflow-gpu<2.0"
+]
+
+[tool.flit.metadata.urls]
+Documentation = "https://apple.github.io/dnikit"
+Changelog = "https://github.com/apple/dnikit/blob/main/CHANGELOG.md"
