@@ -1,0 +1,808 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Familiarity &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introspectors/data_introspection/familiarity';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DNIKit Familiarity: Dataset Errors and Rare Samples" href="../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html" />
+    <link rel="prev" title="Dataset Report: CIFAR10 Example" href="../../notebooks/data_introspection/dataset_report.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../data_introspection.html">Data Introspectors</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Familiarity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/introspectors/data_introspection/familiarity.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Familiarity</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-usage">General Usage</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-example">Full example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-results">Exploring results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#familiarity-strategies">Familiarity strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gmm-gaussian-mixture-model">GMM (Gaussian Mixture Model)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-strategy">Custom Strategy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-finding-dataset-errors">Use Case - Finding Dataset Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-comparing-dataset-distributions">Use Case - Comparing Dataset Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-api">Relevant API</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-external-links">Useful external links</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="familiarity">
+<span id="id1"></span><h1>Familiarity<a class="headerlink" href="#familiarity" title="Permalink to this heading">#</a></h1>
+<p>Familiarity quantifies how <em>familiar</em> a data point is to a specific dataset
+or subset, by fitting a probability distribution to the activations of the specified layer(s),
+and then evaluating the probability of any data sample according to the distribution.</p>
+<p>Familiarity can be used to:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#use-case-finding-dataset-errors"><span class="std std-ref">Discover the least and most representative data samples in a dataset or subset</span></a></p></li>
+<li><p><a class="reference internal" href="#use-case-comparing-dataset-distributions"><span class="std std-ref">Compare distributions of different datasets to analyze test / train splits, evaluate synthetic datasets, and more</span></a></p></li>
+<li><p><strong>Active learning</strong>: Use familiarity score to guide data sampling for training.</p></li>
+<li><p><strong>Dataset sampling</strong>: Modify the sampling strategy during training by sampling data
+according the the familiarity score (sample more frequently points with low score,
+and less frequently those that have high familiarity)</p></li>
+<li><p><strong>Weighted model training</strong>: Compute a weight that is inversely proportional to the
+familiarity score for each data sample so that such score can be used in the loss function
+(this can be used for training DNNs with unbalanced datasets).</p></li>
+</ul>
+<p><cite>Familiarity</cite> is also used in the <a class="reference internal" href="dataset_report.html#dataset-report"><span class="std std-ref">Dataset Report</span></a> to find the least and most
+representative data samples, in order to spot outliers, find dataset errors, and analyze data bias.
+<cite>Familiarity</cite> can be used on the overall dataset, or applied to subgroups of the data.</p>
+<p>Please see the <a class="reference internal" href="#alg-familiarity"><span class="std std-ref">full description of the algorithm below</span></a>.</p>
+<section id="general-usage">
+<h2>General Usage<a class="headerlink" href="#general-usage" title="Permalink to this heading">#</a></h2>
+<p>For getting started with DNIKit code, please see the <a class="reference internal" href="../../how_to/connect_model.html#connect-your-model"><span class="std std-ref">how-to pages</span></a>.</p>
+<p>Assuming a <a class="reference internal" href="../../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipeline</span></code></a> is
+set up to produce responses from a model,
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Familiarity" title="dnikit.introspectors.Familiarity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Familiarity</span></code></a> can be run like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">Familiarity</span>
+
+<span class="n">producer</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># pipeline setup here</span>
+
+<span class="c1"># Run Familiarity analysis on responses from a producer</span>
+<span class="n">familiarity</span> <span class="o">=</span> <span class="n">Familiarity</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Preparing input to introspection usually requires two things:</p>
+<ul class="simple">
+<li><p>introspect on <strong>intermediate layer responses</strong> (rather than the final outputs of a network).
+For <cite>Familiarity</cite>, the layer used will affect what kinds of features the probability
+distribution will represent. For example, a layer at the end of the network for a classification
+model will yield a Familiarity model that looks at the high level representation of the data
+sample: e.g. grouping similar classes together. A layer extracted from the beginning of the
+network might lead to a Familiarity model built around lower-level data sample information,
+e.g., sensor artifacts, image brightness, shape, etc. for visual data.</p></li>
+<li><p><strong>reduce the dimensions</strong> of outputs
+with a <a class="reference internal" href="dimension_reduction.html#dimension-reduction"><span class="std std-ref">dimension reduction algorithm</span></a>.
+This helps with the performance of the <a class="reference internal" href="#alg-familiarity"><span class="std std-ref">Familiarity algorithm</span></a>,
+which tries to capture the “dense” areas of a dataset.</p></li>
+</ul>
+<p><cite>Familiarity</cite> is slightly different than other introspectors, in that it returns
+a probability <em>model</em> instead of a concrete result (a Gaussian mixture model (GMM) built around the
+input data, see <a class="reference internal" href="#alg-familiarity"><span class="std std-ref">below</span></a>).
+To compute <cite>Familiarity</cite> score for each data sample, or the probability of a data sample according
+to the GMM, the built model in a DNIKit
+<a class="reference internal" href="../../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">pipeline</span></code></a> will need to be applied to the data to be scored.</p>
+<section id="full-example">
+<h3>Full example<a class="headerlink" href="#full-example" title="Permalink to this heading">#</a></h3>
+<p>A full example pipeline for the CIFAR10 dataset, using <cite>Familiarity</cite> to fit a probability
+distribution to the data samples with label “deer”, and then computing familiarity
+scores for all “deer” data. This is an example of applying <cite>Familiarity</cite> to analyzing a dataset
+for the least and most representative data samples, using a model not trained on the target data
+(MobileNet model trained on the ImageNet dataset).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit_tensorflow</span> <span class="kn">import</span> <span class="n">TFDatasetExamples</span><span class="p">,</span> <span class="n">TFModelExamples</span>
+<span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">Familiarity</span><span class="p">,</span> <span class="n">DimensionReduction</span>
+<span class="kn">from</span> <span class="nn">dnikit.processors</span> <span class="kn">import</span> <span class="n">Cacher</span><span class="p">,</span> <span class="n">ImageResizer</span>
+<span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">pipeline</span>
+
+<span class="c1"># Load CIFAR10 dataset and feed into MobileNet,</span>
+<span class="c1"># observing responses from layer conv_pw_13</span>
+<span class="n">cifar10</span> <span class="o">=</span> <span class="n">TFDatasetExamples</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">attach_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cifar10_deers</span> <span class="o">=</span> <span class="n">cifar10</span><span class="o">.</span><span class="n">subset</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;deer&quot;</span><span class="p">])</span>
+<span class="n">mobilenet</span> <span class="o">=</span> <span class="n">TFModelExamples</span><span class="o">.</span><span class="n">MobileNet</span><span class="p">()</span>
+<span class="n">producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+   <span class="n">cifar10_deers</span><span class="p">,</span>
+   <span class="n">ImageResizer</span><span class="p">(</span><span class="n">pixel_format</span><span class="o">=</span><span class="n">ImageResizer</span><span class="o">.</span><span class="n">Format</span><span class="o">.</span><span class="n">HWC</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)),</span>
+   <span class="n">mobilenet</span><span class="p">(</span><span class="n">requested_responses</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;conv_pw_13/convolution:0&#39;</span><span class="p">]),</span>
+   <span class="n">Cacher</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># Create a processor that reduces dimensions of</span>
+<span class="c1"># model responses down to 40, using PCA</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">DimensionReduction</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span>
+    <span class="n">producer</span><span class="p">,</span>
+    <span class="n">strategies</span><span class="o">=</span><span class="n">DimensionReduction</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Create a new producer that outputs the reduced data:</span>
+<span class="n">reduced_producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">pca</span><span class="p">)</span>
+
+<span class="c1"># Run Familiarity introspector</span>
+<span class="n">familiarity</span> <span class="o">=</span> <span class="n">Familiarity</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">reduced_producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All data samples could also be scored according to the Familiarity model instead of just
+the deer data, which would indicate which data samples in the overall dataset are most similar to
+deer according to the model and which data samples are least similar.</p>
+</div>
+</section>
+<section id="exploring-results">
+<h3>Exploring results<a class="headerlink" href="#exploring-results" title="Permalink to this heading">#</a></h3>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Familiarity.introspect</span></code> returns
+a <em>model</em> instead of a concrete result. For the result to be useful, data must be <em>scored</em>
+by feeding it through the familiarity model; e.g., in the context of the earlier example code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scored_producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">reduced_producer</span><span class="p">,</span> <span class="n">familiarity</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will attach metadata to each <a class="reference internal" href="../../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of data
+containing the scores for each sample, accessed via the metadata <code class="code docutils literal notranslate"><span class="pre">familiarity.meta_key</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">scored_producer</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">response_name</span><span class="p">,</span> <span class="n">scores</span> <span class="ow">in</span> <span class="n">batch</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">familiarity</span><span class="o">.</span><span class="n">meta_key</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response_name</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The scoring is a separate step from the initial <cite>Familiarity</cite> model creation because:</p>
+<ol class="arabic simple">
+<li><p>Data can be scored in batches, improving efficiency for large datasets</p></li>
+<li><p>The Familiarity model can score alternative data to what the model was fit on; for instance,
+to determine the most “five-like” threes in MNIST, or how close non-car CIFAR10 classes appear
+to “automobiles” (it’s likely trucks will come first, animal classes last).</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Familiarity may also be run as part of the
+<a class="reference internal" href="dataset_report.html#dataset-report"><span class="std std-ref">Dataset Report</span></a> and explored interactively with the <a class="reference external" href="https://github.com/apple/ml-symphony">Symphony UI</a>.</p>
+</div>
+</section>
+<section id="familiarity-strategies">
+<h3>Familiarity strategies<a class="headerlink" href="#familiarity-strategies" title="Permalink to this heading">#</a></h3>
+<p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Familiarity.introspect" title="dnikit.introspectors.Familiarity.introspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Familiarity.introspect</span></code></a> accepts
+a <code class="docutils literal notranslate"><span class="pre">strategy</span></code> keyword argument that can be either the
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Familiarity.Strategy.GMM" title="dnikit.introspectors.Familiarity.Strategy.GMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">Familiarity.Strategy.GMM</span></code></a> strategy
+or a custom strategy that follows the
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.FamiliarityStrategyType" title="dnikit.introspectors.FamiliarityStrategyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FamiliarityStrategyType</span></code></a> protocol.
+See below for more information about each.</p>
+<section id="gmm-gaussian-mixture-model">
+<h4>GMM (Gaussian Mixture Model)<a class="headerlink" href="#gmm-gaussian-mixture-model" title="Permalink to this heading">#</a></h4>
+<p>Fits a multivariate Gaussian Mixture Model.
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Familiarity.Strategy.GMM" title="dnikit.introspectors.Familiarity.Strategy.GMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">GMM</span></code></a> is a parametric density
+estimation method.</p>
+<p>The most important parameter is the number of gaussians (<code class="docutils literal notranslate"><span class="pre">gaussian_count</span></code>) to be learned. A
+<code class="docutils literal notranslate"><span class="pre">convergence_threshold</span></code> can also be set that will indicate at which accuracy level the
+fitting should stop (the lower the more accurate, but longer fitting time). Additionally, the
+number of fitting iterations can be set through <code class="docutils literal notranslate"><span class="pre">max_iterations</span></code>.</p>
+<p>The <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Familiarity.Strategy.GMM" title="dnikit.introspectors.Familiarity.Strategy.GMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">GMM</span></code></a> strategy is suitable when it’s
+known that the underlying PDF might be Gaussian (or close). However, for PDFs that are strongly
+non-gaussian, a non-parametric approach might be more suitable.</p>
+<p>It’s recommended to fit a DMM with diagonal covariance
+(<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.GMMCovarianceType.DIAG" title="dnikit.introspectors.GMMCovarianceType.DIAG"><code class="xref py py-class docutils literal notranslate"><span class="pre">DIAG</span></code></a>) when the data dimensionality is high,
+to avoid overfitting and numerical instabilities. Else, use full covariance
+(<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.GMMCovarianceType.FULL" title="dnikit.introspectors.GMMCovarianceType.FULL"><code class="xref py py-class docutils literal notranslate"><span class="pre">FULL</span></code></a>).</p>
+<p>Code sample for <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Familiarity.Strategy.GMM" title="dnikit.introspectors.Familiarity.Strategy.GMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">GMM</span></code></a> familiarity
+with typical parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">familiarity</span> <span class="o">=</span> <span class="n">Familiarity</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span>
+    <span class="n">producer</span><span class="o">=</span><span class="n">response_producer</span><span class="p">,</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">Familiarity</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">GMM</span><span class="p">(</span>
+        <span class="n">gaussian_count</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">covariance_type</span><span class="o">=</span><span class="n">GMMCovarianceType</span><span class="o">.</span><span class="n">DIAG</span><span class="p">,</span>
+        <span class="n">convergence_threshold</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+        <span class="n">max_iterations</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-strategy">
+<h4>Custom Strategy<a class="headerlink" href="#custom-strategy" title="Permalink to this heading">#</a></h4>
+<p>It is also possible to define a custom Familiarity strategy that follows the
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.FamiliarityStrategyType" title="dnikit.introspectors.FamiliarityStrategyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FamiliarityStrategyType</span></code></a> protocol.</p>
+</section>
+</section>
+</section>
+<section id="description">
+<span id="description-familiarity"></span><h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<section id="use-case-finding-dataset-errors">
+<h3>Use Case - Finding Dataset Errors<a class="headerlink" href="#use-case-finding-dataset-errors" title="Permalink to this heading">#</a></h3>
+<p>Knowing which data points are seen as rare by a ML model and which data
+points have been wrongly annotated is crucial to improve model accuracy
+and robustness. However, inspecting datasets can become an overwhelming
+task as their size and complexity grows. Moreover, an ML dataset is
+coupled with the model that <em>learns</em> from it, and this dependency
+should not be omitted during data inspection, since it is the model that
+will make the final decisions.</p>
+<p>DNIKit’s <cite>Familiarity</cite> introspector finds the most/least
+representative data samples in a given dataset or within a certain class.
+Instead of learning the distribution of the raw data, it learns the
+<strong>distribution of the embedding space</strong> generated by a layer of a DNN
+when performing inference on the dataset. Different layers capture different
+levels of information about the input data, and therefore, Familiarity will
+perform differently depending on the layer chosen.</p>
+<p>Sometimes, for practical reasons, it is advisable to reduce the
+dimensionality of the representations using a
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DimensionReduction" title="dnikit.introspectors.DimensionReduction"><code class="xref py py-class docutils literal notranslate"><span class="pre">dimension</span> <span class="pre">reduction</span></code></a>
+algorithm. Typical values for the reduced dimensionality are between 40 and 100,
+but it depends on the use case.</p>
+<p>The Familiarity model is fit using a dataset’s representation in embedding space,
+known as the model responses. The fitted model can evaluate (<em>score</em>) the
+probability for each data sample (or new data samples),
+where each data point <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span> gets a score
+(negative log likelihood) that tells us how dense the dataset is at embedding
+space position <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span>.</p>
+<p>Familiarity scores are useful to identify anomalies in a dataset, such as:</p>
+<ul class="simple">
+<li><p>Wrongly labelled data, typically have a very low familiarity score.</p></li>
+<li><p>Rare data / edge cases:</p>
+<ul>
+<li><p>can be data that is not wanted in the dataset (eg. noisy data),</p></li>
+<li><p>or data that should be better represented in the dataset, in that case
+the anomalies can guide new annotation rounds.</p></li>
+</ul>
+</li>
+</ul>
+<p>For finding errors within a subgroup of data, it is helpful to perform familiarity analysis
+for that given subgroup alone, instead of evaluating the entire dataset at once.</p>
+</section>
+<section id="use-case-comparing-dataset-distributions">
+<h3>Use Case - Comparing Dataset Distributions<a class="headerlink" href="#use-case-comparing-dataset-distributions" title="Permalink to this heading">#</a></h3>
+<p>If the train and test sets are from different distributions, then the model would be learning on
+data that are not representative of the real world scenario that are being tested. Similarly, a gap
+in distributions from two different datasets, e.g. synthetic vs. real datasets, or a new batch of
+data collection, can introduce problems during model training or evaluation.</p>
+<p>Comparing the distribution of two (or more) different datasets can help to expose a hidden problem,
+such as with the following comparisons:</p>
+<ol class="arabic simple">
+<li><p><strong>Train &amp; test datasets</strong>: A gap indicates that the model will be / has been trained on data that
+are not representative of the real world scenario, as defined by the test dataset.</p></li>
+<li><p><strong>Original dataset with new data</strong>: A gap indicates that it’s necessary to review the datasets to
+learn why their distributions are different, if they’re intended to have the same distribution.</p></li>
+<li><p><strong>Real &amp; synthetic datasets</strong>: A gap indicates that the synthetic data is not similar enough
+to the real data, as seen through the eyes of the network.</p></li>
+</ol>
+<p>To understand the root of these problems, <cite>Familiarity</cite> is one tool available, which
+finds the data samples that are most unfamiliar in one dataset, when compared to the other:
+<a class="reference internal" href="#use-case-finding-dataset-errors"><span class="std std-ref">Dataset errors / rare samples</span></a>.</p>
+<p>To quantify the distribution, familiarity likelihood is measured as
+(<span class="math notranslate nohighlight">\(\mathcal{L}_{f \rightarrow p}\)</span>) from <span class="math notranslate nohighlight">\(D_f=\)</span> <cite>DATASET_FIT</cite>
+to <span class="math notranslate nohighlight">\(D_p=\)</span> <cite>DATASET_PREDICT</cite>:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}_{f \rightarrow p} = \frac{\mathcal{F}(D_f, D_p)}{\mathcal{F}(D_f, D_f)}\qquad\mathcal{L}_{f \rightarrow p} &gt; 0\]</div>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\mathcal{L}_{f \rightarrow p}\)</span> is below 0.6, there is a huge gap, and one of the
+datasets is likely in need of being re-collected.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\mathcal{L}_{f \rightarrow p}\)</span> is between 0.6 and 0.8, then there’s a small gap,
+but worth further inspection.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\mathcal{L}_{f \rightarrow p}\)</span> is between 0.8 and 1.2, then there is not a
+significant gap between the datasets, and all looks good.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\mathcal{L}_{f \rightarrow p}\)</span> exceeds 1.2, there is a gap, and worth further
+inspection, with a possible re-collection of one of the datasets.</p></li>
+</ul>
+<p>For the comparisons listed, here are some possible actions to take if there is a gap
+in the distributions:</p>
+<ol class="arabic simple">
+<li><p><strong>Train &amp; test datasets</strong>: In order to bridge the gap, one solution could be reshuffling
+of data samples across training and test sets, or collecting more data to bring the
+distributions together. <strong>Note:</strong> this evaluation will not help if both the training and test
+sets are poor representations of the target use case, but hopefully other dataset errors can be
+caught with some of the other dataset analysis tools in DNIKit.</p></li>
+<li><p><strong>Original dataset with new data</strong>: More data can be collected to bring the distributions
+together, and further inspect the root cause of the distribution gap using <cite>Familiarity</cite>’s
+<a class="reference internal" href="#use-case-finding-dataset-errors"><span class="std std-ref">Dataset errors / rare samples analysis</span></a>.</p></li>
+<li><p><strong>Real &amp; synthetic datasets</strong>: To bridge the gap, one solution would be to adjust the way that
+the synthetic data is generated, and further inspect the most unfamiliar samples using
+Familiarity’s <a class="reference internal" href="#use-case-finding-dataset-errors"><span class="std std-ref">Dataset errors / rare samples analysis</span></a>.</p></li>
+</ol>
+<p>To more concretely identify where there are gaps in the distribution, for datasets with class
+labels, compute Familiarity likelihood for each class independently.</p>
+</section>
+<section id="algorithm">
+<span id="alg-familiarity"></span><h3>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h3>
+<p>Knowing the probability density function (PDF or <span class="math notranslate nohighlight">\(p(x)\)</span>) underlying the observed data is of
+great importance for many ML domains. For example, the key idea behind algorithms like GAN or VAE
+is to estimate the PDF of the data as accurately as possible. However, learning a PDF in high
+dimensions is not trivial; furthermore the data available is typically limited. DNIKit provides
+different strategies to learn the probability density function of a dataset, designed to work with
+1D data (i.e. responses from a DNN layer). This set of strategies is called <strong>Familiarity</strong>.</p>
+<p>Let the response of a DNN to a data point <span class="math notranslate nohighlight">\(x_i\)</span> be <span class="math notranslate nohighlight">\(r_i = \phi(x_i)\)</span>, where
+<span class="math notranslate nohighlight">\(\phi\)</span> represents the DNN. Familiarity can fit a density estimation model to a
+dataset <span class="math notranslate nohighlight">\(D\)</span> (expressed as the responses <span class="math notranslate nohighlight">\(\{r_i\}\)</span>). Such model learns an estimated
+<span class="math notranslate nohighlight">\(\tilde{p}_{D}(r) = \tilde{p}_{D}(\phi(x))\)</span>. Note that using the responses implies learning
+a distribution created <em>through the eyes of a DNN</em>.</p>
+<p>The trained Familiarity model can then be used to assign a score to any data point
+<span class="math notranslate nohighlight">\(x_i\)</span>, either from the same training dataset or from a new one. The familiarity score
+tells whether a specific data point lies in a dense or
+non-dense area, which will be helpful for many applications.</p>
+<p>The typical Familiarity workflow is then the following:</p>
+<ul class="simple">
+<li><p>Run inference on a dataset <span class="math notranslate nohighlight">\(\{x_i\}\)</span> and obtain the corresponding responses
+<span class="math notranslate nohighlight">\(\{r_i\}\)</span> from a given DNN layer.</p></li>
+<li><p>Fit a Familiarity model using <span class="math notranslate nohighlight">\(\{r_i\}\)</span> and the Familiarity strategy of choice.</p></li>
+<li><p>Score new data (or the data used for fitting) using the model.</p></li>
+</ul>
+<p>Being precise, the familiarity score is the negative log likelihood of the response <span class="math notranslate nohighlight">\(r_i\)</span>
+of a given data point <span class="math notranslate nohighlight">\(x_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{fam_score}(x_i) = -\log\tilde{p}_{D}(r_i) = -\log\tilde{p}_{D}(\phi(x_i)).\]</div>
+<a class="reference internal image-reference" href="../../_images/fam2.png"><img alt="Familiarity workflow showing two stages. First, fitting the Familiarity model. Second, scoring data according to the model to produce Familiarity scores." class="align-center" src="../../_images/fam2.png" style="width: 700.0px; height: 322.0px;" /></a>
+</section>
+</section>
+<section id="example">
+<span id="familiarity-example"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</div>
+</section>
+<section id="relevant-api">
+<h2>Relevant API<a class="headerlink" href="#relevant-api" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Familiarity" title="dnikit.introspectors.Familiarity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Familiarity</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Familiarity.Strategy.GMM" title="dnikit.introspectors.Familiarity.Strategy.GMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">GMM</span> <span class="pre">strategy</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.FamiliarityStrategyType" title="dnikit.introspectors.FamiliarityStrategyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FamiliarityStrategyType</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DimensionReduction" title="dnikit.introspectors.DimensionReduction"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimensionReduction</span></code></a></p></li>
+</ul>
+<section id="useful-external-links">
+<h3>Useful external links<a class="headerlink" href="#useful-external-links" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://machinelearningmastery.com/probability-density-estimation/">A Gentle Introduction to Probability Density Estimation</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../notebooks/data_introspection/dataset_report.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dataset Report: CIFAR10 Example</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DNIKit Familiarity: Dataset Errors and Rare Samples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-usage">General Usage</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-example">Full example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-results">Exploring results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#familiarity-strategies">Familiarity strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gmm-gaussian-mixture-model">GMM (Gaussian Mixture Model)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-strategy">Custom Strategy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-finding-dataset-errors">Use Case - Finding Dataset Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-comparing-dataset-distributions">Use Case - Comparing Dataset Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-api">Relevant API</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-external-links">Useful external links</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

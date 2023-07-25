@@ -1,0 +1,997 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Batch Processors &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'utils/pipeline_stages';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DNIKit API" href="../api/index.html" />
+    <link rel="prev" title="Data Producers" href="data_producers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data_producers.html">Data Producers</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/utils/pipeline_stages.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Batch Processors</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-filtering-and-concatenation">Batch filtering and concatenation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composer-for-filtering"><code class="xref py py-class docutils literal notranslate"><span class="pre">Composer</span></code> for filtering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenator-for-merging-fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">Concatenator</span></code> for merging fields</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-fields-and-metadata">Renaming fields and metadata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fieldrenamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldRenamer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadatarenamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRenamer</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-fields-and-metadata">Removing fields and metadata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fieldremover"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldRemover</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadataremover"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRemover</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snapshotremover"><code class="xref py py-class docutils literal notranslate"><span class="pre">SnapshotRemover</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-transforms">General data transforms</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanstdnormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeanStdNormalizer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pooler-max-pooling"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pooler</span></code> (Max Pooling)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transposer</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-operations">Image operations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imageresizer-to-resize-images"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageResizer</span></code> to resize images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imagerotationprocessor-to-rotate-images"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageRotationProcessor</span></code> to rotate images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmentations">Augmentations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#imagegaussianblurprocessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageGaussianBlurProcessor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#imagegammacontrastprocessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageGammaContrastProcessor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-processors">Utility processors</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cacher-to-cache-responses-from-pipelines"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cacher</span></code> to cache responses from pipelines</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="batch-processors">
+<span id="id1"></span><h1>Batch Processors<a class="headerlink" href="#batch-processors" title="Permalink to this heading">#</a></h1>
+<p>DNIKit provides a large number of various
+<a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Processor" title="dnikit.processors.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processors</span></code></a> for batches. For instance,
+a processor might resize the images in a batch, perform data augmentation,
+remove batch fields, attach metadata, rename labels, etc. These processors
+are chained together in <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipelines</span></code></a>,
+acting as <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.PipelineStage" title="dnikit.base.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStages</span></code></a>. Note that
+<a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Processor" title="dnikit.processors.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processors</span></code></a>
+always come after a data <a class="reference internal" href="data_producers.html#data-producers"><span class="std std-ref">Producer</span></a>,
+which is what generates batches to begin with.</p>
+<p>Here are most of the available batch processors and data loaders,
+and links to their API for more information.</p>
+<section id="batch-filtering-and-concatenation">
+<h2>Batch filtering and concatenation<a class="headerlink" href="#batch-filtering-and-concatenation" title="Permalink to this heading">#</a></h2>
+<section id="composer-for-filtering">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Composer" title="dnikit.processors.Composer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Composer</span></code></a> for filtering<a class="headerlink" href="#composer-for-filtering" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">Composer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_processors.html#Composer"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Apply a filter function to all <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">batches</span></code></a>, e.g. composing filter(b).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filter</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><em>Callable</em></a><em>[</em><em>[</em><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base._batch._batch.Batch"><em>Batch</em></a><em>]</em><em>, </em><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base._batch._batch.Batch"><em>Batch</em></a><em> | </em><em>None</em><em>]</em>) – The filter function to apply to every <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">batch</span></code></a> in the
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipeline</span></code></a>. The <code class="docutils literal notranslate"><span class="pre">filter</span></code> should take a single
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> as input and return a transformed
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">batch</span></code></a> (e.g. a subset) or <code class="docutils literal notranslate"><span class="pre">None</span></code>
+(to produce an empty <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">batch</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="concatenator-for-merging-fields">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Concatenator" title="dnikit.processors.Concatenator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Concatenator</span></code></a> for merging fields<a class="headerlink" href="#concatenator-for-merging-fields" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">Concatenator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_processors.html#Concatenator"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>This <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.PipelineStage" title="dnikit.base.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a> will concatenate 2 or more
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a> in the <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Batch</span></code></a> and produce
+a new field with the given <code class="docutils literal notranslate"><span class="pre">output_field</span></code>.</p>
+<p class="rubric">Example</p>
+<p>If there were fields <code class="docutils literal notranslate"><span class="pre">M</span></code> and <code class="docutils literal notranslate"><span class="pre">N</span></code> with dimensions <code class="docutils literal notranslate"><span class="pre">BxM1xZ</span></code> and <code class="docutils literal notranslate"><span class="pre">BxN1xZ</span></code> and
+they were concatenated along dimension 1,
+the result will have a new field of size <code class="docutils literal notranslate"><span class="pre">Bx(M1+N1)xZ</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – see <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Concatenator.dim" title="dnikit.processors.Concatenator.dim"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dim</span></code></a></p></li>
+<li><p><strong>output_field</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – see <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Concatenator.output_field" title="dnikit.processors.Concatenator.output_field"><code class="xref py py-attr docutils literal notranslate"><span class="pre">output_field</span></code></a></p></li>
+<li><p><strong>fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – see <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Concatenator.fields" title="dnikit.processors.Concatenator.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="renaming-fields-and-metadata">
+<h2>Renaming fields and metadata<a class="headerlink" href="#renaming-fields-and-metadata" title="Permalink to this heading">#</a></h2>
+<section id="fieldrenamer">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.FieldRenamer" title="dnikit.processors.FieldRenamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldRenamer</span></code></a><a class="headerlink" href="#fieldrenamer" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">FieldRenamer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_processors.html#FieldRenamer"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>A <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.PipelineStage" title="dnikit.base.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a> that renames some
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a> from a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Mapping" title="(in Python v3.11)"><em>Mapping</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – a dictionary (or similar) whose keys are the old
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names
+and values are the new <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="metadatarenamer">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.MetadataRenamer" title="dnikit.processors.MetadataRenamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRenamer</span></code></a><a class="headerlink" href="#metadatarenamer" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">MetadataRenamer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_metadata_processors.html#MetadataRenamer"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>A <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.PipelineStage" title="dnikit.base.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a> that renames some
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.metadata" title="dnikit.base.Batch.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">metadata</span></code></a> fields in a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.
+This only works with metadata that has key type
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.DictMetaKey</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Mapping" title="(in Python v3.11)"><em>Mapping</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – a dictionary (or similar) whose keys are the old metadata
+field names and values are the new metadata field names.</p></li>
+<li><p><strong>meta_keys</strong> (<em>None</em><em> | </em><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base._batch._batch.Batch.DictMetaKey"><em>DictMetaKey</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base._batch._batch.Batch.DictMetaKey"><em>DictMetaKey</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> either a single instance or an iterable of
+metadata keys of type <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.DictMetaKey</span></code></a> whose
+<code class="docutils literal notranslate"><span class="pre">key-fields</span></code> will be renamed. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (the default case), all <code class="docutils literal notranslate"><span class="pre">key-fields</span></code>
+for all metadata keys will be renamed.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">MetadataRenamer</span></code> only works with
+class:<cite>Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;</cite> (which has entries
+that can be renamed).</p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+<section id="removing-fields-and-metadata">
+<h2>Removing fields and metadata<a class="headerlink" href="#removing-fields-and-metadata" title="Permalink to this heading">#</a></h2>
+<section id="fieldremover">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.FieldRemover" title="dnikit.processors.FieldRemover"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldRemover</span></code></a><a class="headerlink" href="#fieldremover" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">FieldRemover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_processors.html#FieldRemover"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>A <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.PipelineStage" title="dnikit.base.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a> that removes some
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a> from a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[keyword arg]</strong> a single <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> name, or an
+iterable of <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names, to be removed.</p></li>
+<li><p><strong>keep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – <strong>[keyword arg, optional]</strong> if True, the <code class="docutils literal notranslate"><span class="pre">fields</span></code> input will be kept and all other
+will be removed</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="metadataremover">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.MetadataRemover" title="dnikit.processors.MetadataRemover"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRemover</span></code></a><a class="headerlink" href="#metadataremover" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">MetadataRemover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_metadata_processors.html#MetadataRemover"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>A <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.PipelineStage" title="dnikit.base.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a> that removes some
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.metadata" title="dnikit.base.Batch.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">metadata</span></code></a> from a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>meta_keys</strong> (<em>None</em><em> | </em><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base._batch._batch.Batch.MetaKey"><em>MetaKey</em></a><em> | </em><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base._batch._batch.Batch.DictMetaKey"><em>DictMetaKey</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base._batch._batch.Batch.MetaKey"><em>MetaKey</em></a><em> | </em><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base._batch._batch.Batch.DictMetaKey"><em>DictMetaKey</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> either a single instance or an iterable of
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base.Batch.MetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.MetaKey</span></code></a> /
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.DictMetaKey</span></code></a> that
+may be removed. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (the default case), this processor will operate on all
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.metadata" title="dnikit.base.Batch.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">metadata</span></code></a> keys.</p></li>
+<li><p><strong>keys</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a>) – <strong>[keyword arg, optional]</strong> key within metadata to be removed.
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.metadata" title="dnikit.base.Batch.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">metadata</span></code></a> with metadata key type
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.DictMetaKey</span></code></a> is a mapping from
+<code class="docutils literal notranslate"><span class="pre">str:</span> <span class="pre">data-type</span></code>. This argument specifies the str <code class="docutils literal notranslate"><span class="pre">key-field</span></code> that will be removed
+from the batch’s metadata, where the metadata must have metadata key type
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.DictMetaKey</span></code></a>. If
+<code class="docutils literal notranslate"><span class="pre">None</span></code> (the default case), this processor will operate on all <code class="docutils literal notranslate"><span class="pre">key-fields</span></code> for
+metadata with type <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.DictMetaKey</span></code></a>
+metadata key.</p></li>
+<li><p><strong>keep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – <strong>[keyword arg, optional]</strong> if True, the selected <code class="docutils literal notranslate"><span class="pre">meta_keys</span></code> and <code class="docutils literal notranslate"><span class="pre">keys</span></code> now
+specify what to <strong>keep</strong>, and all other data will be removed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="snapshotremover">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.SnapshotRemover" title="dnikit.processors.SnapshotRemover"><code class="xref py py-class docutils literal notranslate"><span class="pre">SnapshotRemover</span></code></a><a class="headerlink" href="#snapshotremover" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">SnapshotRemover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snapshots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_processors.html#SnapshotRemover"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>A <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.PipelineStage" title="dnikit.base.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a> that removes snapshots from a
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>. If used with no arguments, this
+will remove <em>all</em> <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.snapshots" title="dnikit.base.Batch.snapshots"><code class="xref py py-attr docutils literal notranslate"><span class="pre">snapshots</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>snapshots</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[optional]</strong> see <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.SnapshotRemover.snapshots" title="dnikit.processors.SnapshotRemover.snapshots"><code class="xref py py-attr docutils literal notranslate"><span class="pre">snapshots</span></code></a> attribute</p></li>
+<li><p><strong>keep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – <strong>[optional]</strong> see <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.SnapshotRemover.keep" title="dnikit.processors.SnapshotRemover.keep"><code class="xref py py-attr docutils literal notranslate"><span class="pre">keep</span></code></a> attribute</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="general-data-transforms">
+<h2>General data transforms<a class="headerlink" href="#general-data-transforms" title="Permalink to this heading">#</a></h2>
+<section id="meanstdnormalizer">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.MeanStdNormalizer" title="dnikit.processors.MeanStdNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeanStdNormalizer</span></code></a><a class="headerlink" href="#meanstdnormalizer" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">MeanStdNormalizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_processors.html#MeanStdNormalizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>A <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Processor" title="dnikit.processors.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processor</span></code></a> that standardizes a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> of
+a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> by subtracting the mean and adjusting the standard
+deviation to 1.</p>
+<p>More precisely, if <code class="docutils literal notranslate"><span class="pre">x</span></code> is the data to be processed, the following processing
+is applied: <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">-</span> <span class="pre">mean)</span> <span class="pre">/</span> <span class="pre">std</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mean</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – <strong>[keyword arg]</strong> The mean to be applied</p></li>
+<li><p><strong>std</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – <strong>[keyword arg]</strong> The standard deviation to be applied</p></li>
+<li><p><strong>fields</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> a single <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> name,
+or an iterable of <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names, to be processed.
+If <code class="docutils literal notranslate"><span class="pre">fields</span></code> param is <code class="docutils literal notranslate"><span class="pre">None</span></code>, then all <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a>
+will be processed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="pooler-max-pooling">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Pooler" title="dnikit.processors.Pooler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pooler</span></code></a> (Max Pooling)<a class="headerlink" href="#pooler-max-pooling" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">Pooler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_processors.html#Pooler"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>A <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Processor" title="dnikit.processors.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processor</span></code></a> that pools the axes of a data field from a
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> with a specific method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – <strong>[keyword arg]</strong> The dimension (one or many) to be pooled.
+E.g., Spatial pooling is generally <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code>.</p></li>
+<li><p><strong>method</strong> (<a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Pooler.Method" title="dnikit.processors._processors.Pooler.Method"><em>Method</em></a>) – <strong>[keyword arg]</strong> Pooling method. See <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Pooler.Method" title="dnikit.processors.Pooler.Method"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pooler.Method</span></code></a> for full list
+of options.</p></li>
+<li><p><strong>fields</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> a single <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a>
+name, or an iterable of <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names, to be pooled.
+If the <code class="docutils literal notranslate"><span class="pre">fields</span></code> param is <code class="docutils literal notranslate"><span class="pre">None</span></code>, then all the
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a> in the
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">batch</span></code></a> will be pooled.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="transposer">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Transposer" title="dnikit.processors.Transposer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transposer</span></code></a><a class="headerlink" href="#transposer" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">Transposer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_processors.html#Transposer"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>A <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Processor" title="dnikit.processors.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processor</span></code></a> that transposes dimensions in a data
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> from a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.
+This processor will reorder the dimensions of the data as specified in the <code class="xref py py-attr docutils literal notranslate"><span class="pre">dim</span></code> param.</p>
+<p class="rubric">Example</p>
+<p>To reorder <code class="docutils literal notranslate"><span class="pre">NCHW</span></code> to <code class="docutils literal notranslate"><span class="pre">NHWC</span></code> (or vice versa), specify
+<code class="docutils literal notranslate"><span class="pre">Transposer(dim=[0,3,1,2])</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – <strong>[keyword arg]</strong> the new order of the dimensions.  It is illegal to reorder the
+0th dimension.</p></li>
+<li><p><strong>fields</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> a single <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> name,
+or an iterable of <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names, to be transposed.
+If <code class="docutils literal notranslate"><span class="pre">fields</span></code> param is <code class="docutils literal notranslate"><span class="pre">None</span></code>, then all <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a>
+will be transposed.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.transpose.html#numpy.transpose" title="(in NumPy v1.25)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.transpose()</span></code></a></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> – if input specifies reordering the 0th dimension</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – </p></li>
+<li><p><strong>fields</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="image-operations">
+<h2>Image operations<a class="headerlink" href="#image-operations" title="Permalink to this heading">#</a></h2>
+<section id="imageresizer-to-resize-images">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.ImageResizer" title="dnikit.processors.ImageResizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageResizer</span></code></a> to resize images<a class="headerlink" href="#imageresizer-to-resize-images" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">ImageResizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_image_processors.html#ImageResizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Initialize an <code class="docutils literal notranslate"><span class="pre">ImageResizer</span></code>.  This uses <a class="reference external" href="https://docs.opencv.org">OpenCV</a> to
+resize images.  This can convert  responses with the structure <code class="docutils literal notranslate"><span class="pre">BxHxWxC</span></code>
+(see <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.ImageFormat" title="dnikit.base.ImageFormat"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageFormat</span></code></a> for alternatives) to a
+new <code class="docutils literal notranslate"><span class="pre">HxW</span></code> value.  This does not honor aspect ratio – the new image will be exactly the
+size given. This uses the default <a class="reference external" href="https://docs.opencv.org">OpenCV</a> interpolation,
+<code class="docutils literal notranslate"><span class="pre">INTER_LINEAR</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pixel_format</strong> (<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.ImageFormat" title="dnikit.base._image_producer.ImageFormat"><em>ImageFormat</em></a>) – <strong>[keyword arg]</strong> the layout of the pixel data, see
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.ImageFormat" title="dnikit.base.ImageFormat"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageFormat</span></code></a></p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><em>Tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – <strong>[keyword arg]</strong> the size to scale to, <code class="docutils literal notranslate"><span class="pre">(width,</span> <span class="pre">height)</span></code></p></li>
+<li><p><strong>fields</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> a single <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a>
+name, or an iterable of <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names, to be
+processed. If <code class="docutils literal notranslate"><span class="pre">fields</span></code> param is <code class="docutils literal notranslate"><span class="pre">None</span></code>, then all
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a> will be resized.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../api/dnikit/exceptions.html#dnikit.exceptions.DNIKitException" title="dnikit.exceptions.DNIKitException"><strong>DNIKitException</strong></a> – <p>if <a class="reference external" href="https://docs.opencv.org">OpenCV</a> is not installed.</p>
+</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> – if <code class="docutils literal notranslate"><span class="pre">size</span></code> elements (<code class="docutils literal notranslate"><span class="pre">(width,</span> <span class="pre">height)</span></code>) are not positive</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="imagerotationprocessor-to-rotate-images">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.ImageRotationProcessor" title="dnikit.processors.ImageRotationProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageRotationProcessor</span></code></a> to rotate images<a class="headerlink" href="#imagerotationprocessor-to-rotate-images" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">ImageRotationProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ImageFormat.HWC</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_image_processors.html#ImageRotationProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Processor" title="dnikit.processors.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processor</span></code></a> that performs image rotation along y-axis on data in a data field from a
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>. <code class="docutils literal notranslate"><span class="pre">BxCHW</span></code> and <code class="docutils literal notranslate"><span class="pre">BxHWC</span></code> images accepted with non-normalized
+values (between 0 and 255).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – <strong>[optional]</strong> angle (in degrees) of image rotation; positive values mean
+counter-clockwise rotation</p></li>
+<li><p><strong>pixel_format</strong> (<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.ImageFormat" title="dnikit.base._image_producer.ImageFormat"><em>ImageFormat</em></a>) – <strong>[optional]</strong> the layout of the pixel data, see
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.ImageFormat" title="dnikit.base.ImageFormat"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageFormat</span></code></a></p></li>
+<li><p><strong>cval</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><em>Tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> RGB color value to fill areas outside image; defaults
+to <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></code> (black)</p></li>
+<li><p><strong>fields</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> a single <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> name,
+or an iterable of <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names, to be processed.
+If <code class="docutils literal notranslate"><span class="pre">fields</span></code> param is <code class="docutils literal notranslate"><span class="pre">None</span></code>, then all <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a>
+will be processed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../api/dnikit/exceptions.html#dnikit.exceptions.DNIKitException" title="dnikit.exceptions.DNIKitException"><strong>DNIKitException</strong></a> – <p>if <a class="reference external" href="https://docs.opencv.org">OpenCV</a> is not installed.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="augmentations">
+<h3>Augmentations<a class="headerlink" href="#augmentations" title="Permalink to this heading">#</a></h3>
+<section id="imagegaussianblurprocessor">
+<h4><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.ImageGaussianBlurProcessor" title="dnikit.processors.ImageGaussianBlurProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageGaussianBlurProcessor</span></code></a><a class="headerlink" href="#imagegaussianblurprocessor" title="Permalink to this heading">#</a></h4>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">ImageGaussianBlurProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_image_processors.html#ImageGaussianBlurProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Processor" title="dnikit.processors.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processor</span></code></a> that blurs images in a data field from a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.
+<code class="docutils literal notranslate"><span class="pre">BxCHW</span></code> and <code class="docutils literal notranslate"><span class="pre">BxHWC</span></code> images accepted with non-normalized values (between 0 and 255).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – <strong>[optional]</strong> blur filter size; recommended values between 0 and 3, but values
+beyond this range are acceptable.</p></li>
+<li><p><strong>fields</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> a single <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> name,
+or an iterable of <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names, to be processed. If
+<code class="docutils literal notranslate"><span class="pre">fields</span></code> param is <code class="docutils literal notranslate"><span class="pre">None</span></code>, then all <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a>
+will be processed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../api/dnikit/exceptions.html#dnikit.exceptions.DNIKitException" title="dnikit.exceptions.DNIKitException"><strong>DNIKitException</strong></a> – <p>if <a class="reference external" href="https://docs.opencv.org">OpenCV</a> is not installed.</p>
+</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> – if <code class="docutils literal notranslate"><span class="pre">sigma</span></code> is not positive</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="imagegammacontrastprocessor">
+<h4><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.ImageGammaContrastProcessor" title="dnikit.processors.ImageGammaContrastProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageGammaContrastProcessor</span></code></a><a class="headerlink" href="#imagegammacontrastprocessor" title="Permalink to this heading">#</a></h4>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">ImageGammaContrastProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/processors/_image_processors.html#ImageGammaContrastProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Processor" title="dnikit.processors.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processor</span></code></a> that gamma corrects images in a data field from a
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>. <code class="docutils literal notranslate"><span class="pre">BxCHW</span></code> and <code class="docutils literal notranslate"><span class="pre">BxHWC</span></code> images accepted with
+non-normalized values (between 0 and 255). Image (I) is contrasting using formula
+<code class="docutils literal notranslate"><span class="pre">(I/255)^gamma*255</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – <strong>[optional]</strong> contrast filter</p></li>
+<li><p><strong>fields</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> a single <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> name,
+or an iterable of <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> names, to be processed. If
+<code class="docutils literal notranslate"><span class="pre">fields</span></code> param is <code class="docutils literal notranslate"><span class="pre">None</span></code>, then all <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code></a> will be
+processed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../api/dnikit/exceptions.html#dnikit.exceptions.DNIKitException" title="dnikit.exceptions.DNIKitException"><strong>DNIKitException</strong></a> – <p>if <a class="reference external" href="https://docs.opencv.org">OpenCV</a> is not installed.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+<section id="utility-processors">
+<h2>Utility processors<a class="headerlink" href="#utility-processors" title="Permalink to this heading">#</a></h2>
+<section id="cacher-to-cache-responses-from-pipelines">
+<h3><a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Cacher" title="dnikit.processors.Cacher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cacher</span></code></a> to cache responses from pipelines<a class="headerlink" href="#cacher-to-cache-responses-from-pipelines" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.processors.</span></span><span class="sig-name descname"><span class="pre">Cacher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/base/_cached_producer.html#Cacher"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">Cacher</span></code> is a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.PipelineStage" title="dnikit.base.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a> that will cache to disk
+the batches produced by the previous <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a> in a pipeline
+created with <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipeline()</span></code></a>.</p>
+<p>The first time a pipeline with a <code class="docutils literal notranslate"><span class="pre">Cacher</span></code> is executed, <code class="docutils literal notranslate"><span class="pre">Cacher</span></code> store the batches to disk.
+Every time the pipeline is called after that, batches will be read directly from disk, without
+doing any computation for previous stages.</p>
+<p>Note that batches may be quite large and this may require a large portion of available
+disk space. Be mindful when using <code class="docutils literal notranslate"><span class="pre">Cacher</span></code>.</p>
+<p>If the data from the <code class="docutils literal notranslate"><span class="pre">producer</span></code> does not have
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch.StdKeys.IDENTIFIER" title="dnikit.base.Batch.StdKeys.IDENTIFIER"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Batch.StdKeys.IDENTIFIER</span></code></a>, this class
+will assign a numeric identifier.  This cannot be used across calls to <code class="docutils literal notranslate"><span class="pre">Cacher</span></code>
+but will be consistent for all uses of the <code class="docutils literal notranslate"><span class="pre">pipelined_producer</span></code>.</p>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">producer</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># create a valid dnikit Producer</span>
+<span class="n">processor</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># create a valid dnikit Processor</span>
+<span class="n">cacher</span> <span class="o">=</span> <span class="n">Cacher</span><span class="p">()</span>
+
+<span class="c1"># Pipeline everything</span>
+<span class="n">pipelined_producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">processor</span><span class="p">,</span> <span class="n">cacher</span><span class="p">)</span>
+
+<span class="c1"># No results have been cached</span>
+<span class="n">cacher</span><span class="o">.</span><span class="n">cached</span>  <span class="c1"># returns False</span>
+
+<span class="c1"># Trigger pipeline</span>
+<span class="n">batches</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pipelined_producer</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">))</span> <span class="c1"># producer and processor are invoked.</span>
+
+<span class="c1"># Results have been cached</span>
+<span class="n">cacher</span><span class="o">.</span><span class="n">cached</span>  <span class="c1"># returns True</span>
+
+<span class="c1"># Trigger pipeline again (fast, because batch_size has the same value as before)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">pipelined_producer</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">))</span>  <span class="c1"># producer and processor are NOT invoked</span>
+
+<span class="c1"># Trigger pipeline once more (slower, because batch_size is different from first time)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">pipelined_producer</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">48</span><span class="p">))</span>  <span class="c1"># producer and processor are NOT invoked</span>
+</pre></div>
+</div>
+<p>The typical use-case for this class is to cache the results of expensive computation (such as
+inference and post-processing) to avoid re-doing said computation more than once.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Just as with <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Model" title="dnikit.base.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>, and <a class="reference internal" href="../api/dnikit/processors.html#dnikit.processors.Processor" title="dnikit.processors.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processor</span></code></a> no computation
+(or in this case, caching) will be executed until the pipeline is triggered.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.multi_introspect" title="dnikit.base.multi_introspect"><code class="xref py py-func docutils literal notranslate"><span class="pre">dnikit.base.multi_introspect()</span></code></a> which allows several introspectors to
+use the same batches without storing them in the file-system.
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.multi_introspect" title="dnikit.base.multi_introspect"><code class="xref py py-func docutils literal notranslate"><span class="pre">multi_introspect()</span></code></a> may
+be a better option for very large datasets.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">Cacher</span></code> has the ability to resize batches if batches of different sizes are requested
+(see example). However, doing so is relatively computationally expensive since it involves
+concatenating and splitting batches. Therefore it’s recommended to use this feature
+sparingly.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike other <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.PipelineStage" title="dnikit.base.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a>, <code class="docutils literal notranslate"><span class="pre">Cacher</span></code> will raise
+a <a class="reference internal" href="../api/dnikit/exceptions.html#dnikit.exceptions.DNIKitException" title="dnikit.exceptions.DNIKitException"><code class="xref py py-class docutils literal notranslate"><span class="pre">DNIKitException</span></code></a> if it is used
+with more than one pipeline. This is to avoid
+reading batches generated from another pipeline with different characteristics.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>storage_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><em>Path</em></a><em> | </em><em>None</em>) – <strong>[optional ]</strong> If set, <code class="docutils literal notranslate"><span class="pre">Cacher</span></code> will store batches in <cite>storage_path</cite>,
+otherwise it will create a random temporary directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="data_producers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Producers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../api/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DNIKit API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-filtering-and-concatenation">Batch filtering and concatenation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composer-for-filtering"><code class="xref py py-class docutils literal notranslate"><span class="pre">Composer</span></code> for filtering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenator-for-merging-fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">Concatenator</span></code> for merging fields</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-fields-and-metadata">Renaming fields and metadata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fieldrenamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldRenamer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadatarenamer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRenamer</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-fields-and-metadata">Removing fields and metadata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fieldremover"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldRemover</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadataremover"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRemover</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snapshotremover"><code class="xref py py-class docutils literal notranslate"><span class="pre">SnapshotRemover</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-transforms">General data transforms</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanstdnormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeanStdNormalizer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pooler-max-pooling"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pooler</span></code> (Max Pooling)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transposer</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-operations">Image operations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imageresizer-to-resize-images"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageResizer</span></code> to resize images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imagerotationprocessor-to-rotate-images"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageRotationProcessor</span></code> to rotate images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmentations">Augmentations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#imagegaussianblurprocessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageGaussianBlurProcessor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#imagegammacontrastprocessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageGammaContrastProcessor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-processors">Utility processors</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cacher-to-cache-responses-from-pipelines"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cacher</span></code> to cache responses from pipelines</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

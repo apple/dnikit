@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>DNIKit Familiarity: Dataset Distribution &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/data_introspection/familiarity_for_dataset_distribution';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Duplicates" href="../../introspectors/data_introspection/duplicates.html" />
+    <link rel="prev" title="DNIKit Familiarity: Dataset Errors and Rare Samples" href="familiarity_for_rare_data_discovery.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../introspectors/data_introspection.html">Data Introspectors</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../introspectors/data_introspection/familiarity.html">Familiarity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/data_introspection/familiarity_for_dataset_distribution.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DNIKit Familiarity: Dataset Distribution</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Optional:-Download-MobileNet-and-CIFAR-10">Optional: Download MobileNet and CIFAR-10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Put-it-all-together-to-produce-familiarity-scores">Put it all together to produce familiarity scores</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#A.-Define-user-variables">A. Define user variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#B.-Create-producers">B. Create producers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Reduce-dimensionality-of-responses">Reduce dimensionality of responses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Build-Familiarity-model-on-train-&amp;-test-data-combined">Build Familiarity model on train &amp; test data combined</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Compute-familiarity-likelihood-score">Compute familiarity likelihood score</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page was generated from a Jupyter notebook.
+The original can be downloaded from
+<a class="reference external" href="https://raw.github.com/apple/dnikit/main/notebooks/data_introspection/familiarity_for_dataset_distribution.ipynb">here</a>.</p>
+</div>
+<section id="DNIKit-Familiarity:-Dataset-Distribution">
+<h1>DNIKit Familiarity: Dataset Distribution<a class="headerlink" href="#DNIKit-Familiarity:-Dataset-Distribution" title="Permalink to this heading">#</a></h1>
+<p>Compare the distributions of two datasets, e.g. train/test datasets, synthetic/real datasets, etc.</p>
+<p>Please see the <a class="reference external" href="https://apple.github.io/dnikit/introspectors/data_introspection/familiarity.html#use-case-comparing-dataset-distributions">doc page</a> for a discussion on applying <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/base.html#dnikit.introspectors.Familiarity">Familiarity</a> to dataset distribution analysis, including what actions can be taken to improve the dataset.</p>
+<p>For a more detailed guide on using all of these DNIKit components, try the <a class="reference internal" href="familiarity_for_rare_data_discovery.html"><span class="doc">Familiarity for Rare Data Discovery</span></a> Notebook.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t run this cell if stochasticity is desired</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="Optional:-Download-MobileNet-and-CIFAR-10">
+<h2>Optional: Download MobileNet and CIFAR-10<a class="headerlink" href="#Optional:-Download-MobileNet-and-CIFAR-10" title="Permalink to this heading">#</a></h2>
+<p>This example uses <a class="reference external" href="https://keras.io/api/applications/mobilenet/">MobileNet</a> (trained on ImageNet) and <a class="reference external" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10</a>, but feel free to use any other model and dataset. This notebook uses <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit_tensorflow/index.html#dnikit_tensorflow.TFModelExamples">TFModelExamples</a> and <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit_tensorflow/index.html#dnikit_tensorflow.TFDatasetExamples">TFDatasetExamples</a> to load in
+MobileNet and CIFAR-10. Please see the DNIKit docs for information about how to <a class="reference external" href="https://apple.github.io/dnikit/how_to/connect_model.html">load a model</a> or <a class="reference external" href="https://apple.github.io/dnikit/how_to/connect_data.html">dataset</a>. <a class="reference external" href="https://apple.github.io/dnikit/how_to/connect_model.html">This page</a> also describes how responses can be collected outside of DNIKit, and passed into Familiarity via a <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/base.html#dnikit.base.Producer">Producer</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
+<span class="c1"># User-Defined Variables #</span>
+<span class="c1">##########################</span>
+
+<span class="c1"># Change the following labels to see which labels are more familiar.</span>
+<span class="c1">#   The example illustrates a comparison between the distributions of the train</span>
+<span class="c1">#   and test sets for automobiles, for 100 images.</span>
+<span class="n">TRAIN_CLASS_LABEL</span> <span class="o">=</span> <span class="s1">&#39;automobile&#39;</span>
+<span class="n">TEST_CLASS_LABEL</span> <span class="o">=</span> <span class="s1">&#39;automobile&#39;</span>
+<span class="n">N_SAMPLES</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.processors</span> <span class="kn">import</span> <span class="n">ImageResizer</span><span class="p">,</span> <span class="n">SnapshotSaver</span>
+<span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">Batch</span><span class="p">,</span> <span class="n">PixelFormat</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ImageFormat</span>
+<span class="kn">from</span> <span class="nn">dnikit_tensorflow</span> <span class="kn">import</span> <span class="n">TFDatasetExamples</span><span class="p">,</span> <span class="n">TFModelExamples</span>
+
+<span class="c1"># Load CIFAR10 dataset and feed into MobileNet,</span>
+<span class="c1"># observing responses from layer conv_pw_13</span>
+<span class="n">mobilenet</span> <span class="o">=</span> <span class="n">TFModelExamples</span><span class="o">.</span><span class="n">MobileNet</span><span class="p">()</span>
+<span class="n">mobilenet_preprocessor</span> <span class="o">=</span> <span class="n">mobilenet</span><span class="o">.</span><span class="n">preprocessing</span>
+<span class="k">assert</span> <span class="n">mobilenet_preprocessor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+<span class="c1"># Load CIFAR-10 with train and test datasets, and</span>
+<span class="c1"># attach metadata (labels, dataset origins, image filepaths) to each batch</span>
+<span class="n">cifar10</span> <span class="o">=</span> <span class="n">TFDatasetExamples</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">attach_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create pre-processing pipeline</span>
+<span class="n">preprocessing_stages</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="c1"># Save a snapshot of the raw image data to refer back to later</span>
+    <span class="n">SnapshotSaver</span><span class="p">(),</span>
+
+    <span class="c1"># Preprocess the image batches in the manner expected by MobileNet</span>
+    <span class="n">mobilenet_preprocessor</span><span class="p">,</span>
+
+    <span class="c1"># Resize images to fit the input of MobileNet, (224, 224) using an ImageResizer</span>
+    <span class="n">ImageResizer</span><span class="p">(</span><span class="n">pixel_format</span><span class="o">=</span><span class="n">ImageFormat</span><span class="o">.</span><span class="n">HWC</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)),</span>
+<span class="p">)</span>
+
+<span class="c1"># Create producers for subsets of the dataset for comparing train / test distribution</span>
+<span class="c1"># :: Note: The subset method will filter the batch LABELS metadata matching the provided dict</span>
+<span class="n">data_producers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="n">cifar10</span><span class="o">.</span><span class="n">subset</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="n">TRAIN_CLASS_LABEL</span><span class="p">],</span> <span class="n">datasets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">],</span> <span class="n">max_samples</span><span class="o">=</span><span class="n">N_SAMPLES</span><span class="p">),</span>
+    <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="n">cifar10</span><span class="o">.</span><span class="n">subset</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="n">TRAIN_CLASS_LABEL</span><span class="p">],</span> <span class="n">datasets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">],</span> <span class="n">max_samples</span><span class="o">=</span><span class="n">N_SAMPLES</span><span class="p">),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2023-08-03 12:41:13.227858: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M1 Pro
+2023-08-03 12:41:13.227907: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 32.00 GB
+2023-08-03 12:41:13.227913: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 10.67 GB
+2023-08-03 12:41:13.227982: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:303] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2023-08-03 12:41:13.228013: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:269] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -&gt; physical PluggableDevice (device: 0, name: METAL, pci bus id: &lt;undefined&gt;)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+WARNING:tensorflow:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/private/tmp/dnikit-2.0.0/lib/python3.9/site-packages/keras/src/engine/training.py:3000: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save(&#39;my_model.keras&#39;)`.
+  saving_api.save_model(
+</pre></div></div>
+</div>
+</section>
+<section id="Put-it-all-together-to-produce-familiarity-scores">
+<h2>Put it all together to produce familiarity scores<a class="headerlink" href="#Put-it-all-together-to-produce-familiarity-scores" title="Permalink to this heading">#</a></h2>
+<p>For a more detailed breakdown of these steps, see the <a class="reference internal" href="familiarity_for_rare_data_discovery.html"><span class="doc">Familiarity for Rare Data Discovery</span></a> Notebook.</p>
+<section id="A.-Define-user-variables">
+<h3>A. Define user variables<a class="headerlink" href="#A.-Define-user-variables" title="Permalink to this heading">#</a></h3>
+<p>First define some user variables, which can be modified to play around with different classes, or different datasets.</p>
+</section>
+<section id="B.-Create-producers">
+<h3>B. Create producers<a class="headerlink" href="#B.-Create-producers" title="Permalink to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.processors</span> <span class="kn">import</span> <span class="n">Cacher</span><span class="p">,</span> <span class="n">Pooler</span>
+
+<span class="n">producers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">split</span><span class="p">:</span> <span class="n">pipeline</span><span class="p">(</span>
+        <span class="n">data_producers</span><span class="p">[</span><span class="n">split</span><span class="p">],</span>
+
+        <span class="c1"># Apply previously-defined preprocessing stages for Mobilenet &amp; CIFAR</span>
+        <span class="o">*</span><span class="n">preprocessing_stages</span><span class="p">,</span>
+
+        <span class="c1"># run inference -- pass a list of requested responses or a single string</span>
+        <span class="n">mobilenet</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;conv_pw_13&#39;</span><span class="p">),</span>
+
+        <span class="c1"># perform spatial max pooling on the result</span>
+        <span class="n">Pooler</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="n">Pooler</span><span class="o">.</span><span class="n">Method</span><span class="o">.</span><span class="n">MAX</span><span class="p">),</span>
+
+        <span class="c1"># Cache results to re-run the pipeline later without recomputing the responses</span>
+        <span class="n">Cacher</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Reduce-dimensionality-of-responses">
+<h2>Reduce dimensionality of responses<a class="headerlink" href="#Reduce-dimensionality-of-responses" title="Permalink to this heading">#</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">DimensionReduction</span>
+
+<span class="c1"># Configure the DimensionReduction Introspector</span>
+<span class="c1">#    The dimensionality of the data will be reduced from 1024 to 40</span>
+<span class="n">n_dim</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="c1"># Trigger the pipeline &amp; fit the PCA model on the train dataset, which will used as the base</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">DimensionReduction</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">producers</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">],</span> <span class="n">strategies</span><span class="o">=</span><span class="n">DimensionReduction</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_dim</span><span class="p">))</span>
+
+<span class="c1"># Apply the PipelineStage pca object to both train/test pipelines to reduce responses in all batches to a lower dimension</span>
+<span class="n">reduced_producers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">pca</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">producer</span> <span class="ow">in</span> <span class="n">producers</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Build-Familiarity-model-on-train-&amp;-test-data-combined">
+<h2>Build Familiarity model on train &amp; test data combined<a class="headerlink" href="#Build-Familiarity-model-on-train-&-test-data-combined" title="Permalink to this heading">#</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">Familiarity</span>
+
+<span class="c1"># The Familiarity model is first fit on the base dataset, which is &quot;train&quot; in this case</span>
+<span class="c1">#   Trigger pipeline &amp; run DNIKit Familiarity, default strategy is Familiarity.Strategy.GMM</span>
+<span class="n">familiarity</span> <span class="o">=</span> <span class="n">Familiarity</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">reduced_producers</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">])</span>
+
+<span class="c1"># Use dict-comprehension to apply familiarity to the train and test datasets individually</span>
+<span class="n">scored_producers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">producer_name</span> <span class="p">:</span> <span class="n">pipeline</span><span class="p">(</span>
+        <span class="n">cached_response_producer</span><span class="p">,</span>
+        <span class="n">familiarity</span>
+    <span class="p">)</span>
+    <span class="c1"># reduced_producers maps &#39;train&#39;/&#39;test&#39; to the split&#39;s reduced producer</span>
+    <span class="k">for</span> <span class="n">producer_name</span><span class="p">,</span> <span class="n">cached_response_producer</span> <span class="ow">in</span> <span class="n">reduced_producers</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Compute-familiarity-likelihood-score">
+<h2>Compute familiarity likelihood score<a class="headerlink" href="#Compute-familiarity-likelihood-score" title="Permalink to this heading">#</a></h2>
+<p>Produce the final familiarity likelihood score.</p>
+<ul class="simple">
+<li><p>If the likelihood score is close to 0, both distributions are equivalent.</p></li>
+<li><p>Typically, the train dataset’s mean log score will be smaller than the test dataset’s, since familiarity was fit to this first/train dataset. The more negative the overall likelihood score is, the larger the distribution gap. One of the datasets is likely in need of being re-collected.</p></li>
+<li><p>It may still happen that the likelihood score is greater than 0. This is also explained by a distribution gap, and will require analysis and possibly data re-collection.</p></li>
+</ul>
+<p>Please refer to the <a class="reference external" href="https://apple.github.io/dnikit/introspectors/data_introspection/familiarity.html#use-case-comparing-dataset-distributions">doc page</a> for more information, and check out the other Familiarity use case, <a class="reference external" href="https://apple.github.io/dnikit/introspectors/data_introspection/familiarity.html#use-case-finding-dataset-errors">discovering rare samples</a>, or the <a class="reference external" href="https://apple.github.io/dnikit/introspectors/data_introspection/dataset_report.html">DatasetReport</a> to evaluate why
+there is a distribution gap.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">Producer</span>
+
+<span class="k">def</span> <span class="nf">compute_score_mean</span><span class="p">(</span><span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">,</span> <span class="n">response_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">meta_key</span><span class="p">:</span> <span class="n">Batch</span><span class="o">.</span><span class="n">DictMetaKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Compute mean of score, for given metadata key, response name, and producer &quot;&quot;&quot;</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">batch</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">meta_key</span><span class="p">][</span><span class="n">response_name</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">score</span>
+        <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">producer</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+
+<span class="c1"># Trigger remaining pipeline, compute mean of familiarity scores for both train and test datasets</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">producer_name</span> <span class="p">:</span> <span class="n">compute_score_mean</span><span class="p">(</span>
+        <span class="n">producer</span><span class="o">=</span><span class="n">producer</span><span class="p">,</span>
+        <span class="n">response_name</span><span class="o">=</span><span class="s2">&quot;conv_pw_13&quot;</span><span class="p">,</span>
+        <span class="n">meta_key</span><span class="o">=</span><span class="n">familiarity</span><span class="o">.</span><span class="n">meta_key</span>
+    <span class="p">)</span>
+    <span class="c1"># scored_producers maps &#39;train&#39;/&#39;test&#39; to the split&#39;s scored producer</span>
+    <span class="k">for</span> <span class="n">producer_name</span><span class="p">,</span> <span class="n">producer</span> <span class="ow">in</span> <span class="n">scored_producers</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">familiarity_ratio</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Likelihood ratio [</span><span class="si">{</span><span class="n">TRAIN_CLASS_LABEL</span><span class="si">}</span><span class="s2">]-&gt;[</span><span class="si">{</span><span class="n">TEST_CLASS_LABEL</span><span class="si">}</span><span class="s2">] = </span><span class="si">{</span><span class="n">familiarity_ratio</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Likelihood ratio [automobile]-&gt;[automobile] = 12.3229
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="familiarity_for_rare_data_discovery.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">DNIKit Familiarity: Dataset Errors and Rare Samples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../introspectors/data_introspection/duplicates.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Duplicates</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Optional:-Download-MobileNet-and-CIFAR-10">Optional: Download MobileNet and CIFAR-10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Put-it-all-together-to-produce-familiarity-scores">Put it all together to produce familiarity scores</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#A.-Define-user-variables">A. Define user variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#B.-Create-producers">B. Create producers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Reduce-dimensionality-of-responses">Reduce dimensionality of responses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Build-Familiarity-model-on-train-&amp;-test-data-combined">Build Familiarity model on train &amp; test data combined</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Compute-familiarity-likelihood-score">Compute familiarity likelihood score</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

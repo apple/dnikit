@@ -1,0 +1,778 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dnikit.introspectors._duplicates &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dnikit/introspectors/_duplicates';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dnikit.introspectors._duplicates</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright 2021 Apple Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="kn">import</span> <span class="nn">annoy</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span> <span class="k">as</span> <span class="n">SKLearnPCA</span>
+
+<span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Batch</span><span class="p">,</span>
+    <span class="n">Producer</span><span class="p">,</span>
+    <span class="n">Introspector</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">dnikit.base._producer</span> <span class="kn">import</span> <span class="n">_accumulate_batches</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._types</span> <span class="k">as</span> <span class="nn">t</span>
+
+
+<div class="viewcode-block" id="DuplicatesThresholdStrategyType"><a class="viewcode-back" href="../../../api/dnikit/introspectors.html#dnikit.introspectors.DuplicatesThresholdStrategyType">[docs]</a><span class="k">class</span> <span class="nc">DuplicatesThresholdStrategyType</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Protocol for code that takes a sorted array of distances and computes a</span>
+<span class="sd">    duplicate threshold -- how close do two points need to be to be considered</span>
+<span class="sd">    duplicates.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DuplicatesThresholdStrategyType.__call__"><a class="viewcode-back" href="../../../api/dnikit/introspectors.html#dnikit.introspectors.DuplicatesThresholdStrategyType.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">distances</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given the sorted distances compute the distance threshold for duplicates.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            distances: sorted distances</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span></div></div>
+
+
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Percentile</span><span class="p">(</span><span class="n">DuplicatesThresholdStrategyType</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Strategy that determines the closeness threshold by taking the nth percentile distance number</span>
+<span class="sd">    in the sorted distances. For example a value of ``98.5`` would use a threshold such that 98.5%</span>
+<span class="sd">    of the points were not considered close.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        percentile: n_th percentile to use for &quot;closeness&quot; in the sorted distances</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">percentile</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;n_th percentile to use for &quot;closeness&quot; in the sorted distances&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">distances</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">percentile</span> <span class="o">*</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">distances</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">distances</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Slope</span><span class="p">(</span><span class="n">DuplicatesThresholdStrategyType</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given an array of distances, find the &quot;close&quot; threshold --</span>
+<span class="sd">    the distance where points are close to each other.</span>
+
+<span class="sd">    This strategy determines the closeness threshold dynamically using</span>
+<span class="sd">    a sensitivity value. A lower sensitivity (down to 2) will consider more</span>
+<span class="sd">    items to be close (less sensitive to the curve of distances). A value of 5</span>
+<span class="sd">    will use a sliding window 1/5 the size of the distance array (related to the</span>
+<span class="sd">    size of the dataset) and is a good default. A sensitivity of 20 will use</span>
+<span class="sd">    a window 1/20 the size of the distance array and is a reasonable large value.</span>
+
+<span class="sd">    The distance are likely a a sharp up-slope followed by a elbow and</span>
+<span class="sd">    finally a long, possibly rising, tail. The target delta will be</span>
+<span class="sd">    computed from the difference between the 25th and 75h percentile</span>
+<span class="sd">    values. A sliding window will be run over the data with a</span>
+<span class="sd">    size of ``len(distances) // sensitivity`` to find when the</span>
+<span class="sd">    delta in the window exceeds the middle delta.  This will</span>
+<span class="sd">    approximate the tail end of the elbow.</span>
+
+<span class="sd">    This returns the threshold value and the index into the distances array</span>
+<span class="sd">    where it was found.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sensitivity: **[optional]** lower value considers more items to be close, a larger value</span>
+<span class="sd">            considers less items to be close.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: if ``sensitivity`` &lt;=2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sensitivity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lower value considers more items to be close, a larger value considers less items to be close.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sensitivity</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;`sensitivity` must be &gt; 2&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">distances</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="c1"># how fast to step the probe point through the array</span>
+        <span class="n">stride</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span> <span class="o">//</span> <span class="mi">1000</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="c1"># starting probe point</span>
+        <span class="n">probe</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+        <span class="c1"># the delta from the 25th to the 75th percentile</span>
+        <span class="n">target_delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">distances</span><span class="p">[</span><span class="n">probe</span> <span class="o">+</span> <span class="n">probe</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">distances</span><span class="p">[</span><span class="n">probe</span> <span class="o">-</span> <span class="n">probe</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
+
+        <span class="c1"># the offset for the window</span>
+        <span class="n">window_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">sensitivity</span>
+
+        <span class="k">while</span> <span class="n">probe</span> <span class="o">&gt;</span> <span class="n">stride</span><span class="p">:</span>
+            <span class="n">probe_delta</span> <span class="o">=</span> <span class="n">distances</span><span class="p">[</span><span class="n">probe</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">]</span> <span class="o">-</span> <span class="n">distances</span><span class="p">[</span><span class="n">probe</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">probe_delta</span> <span class="o">&gt;</span> <span class="n">target_delta</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">probe</span> <span class="o">-=</span> <span class="n">stride</span>
+
+        <span class="n">close</span> <span class="o">=</span> <span class="n">distances</span><span class="p">[</span><span class="n">probe</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">close</span>
+
+
+<div class="viewcode-block" id="Duplicates"><a class="viewcode-back" href="../../../api/dnikit/introspectors.html#dnikit.introspectors.Duplicates">[docs]</a><span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Duplicates</span><span class="p">(</span><span class="n">Introspector</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Introspector for finding duplicate data in a :class:`Producer &lt;dnikit.base.Producer&gt;`. This</span>
+<span class="sd">    uses an approximate nearest neighbor algorithm to build clusters of nearby samples,</span>
+<span class="sd">    :class:`Duplicates.DuplicateSetCandidate`. Specifically, it uses the</span>
+<span class="sd">    `ANNOY - Approximate Nearest Neighbor Oh My! &lt;https://github.com/spotify/annoy&gt;`_ algorithm.</span>
+
+<span class="sd">    Like other :class:`introspectors &lt;dnikit.base.Introspector&gt;`, use</span>
+<span class="sd">    :func:`Duplicates.introspect &lt;introspect&gt;` to instantiate.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        results: do not instantiate ``Duplicates`` directly, use</span>
+<span class="sd">            :func:`Duplicates.introspect &lt;introspect&gt;`</span>
+<span class="sd">        count: do not instantiate ``Duplicates`` directly, use</span>
+<span class="sd">            :func:`Duplicates.introspect &lt;introspect&gt;`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Duplicates.ThresholdStrategy"><a class="viewcode-back" href="../../../api/dnikit/introspectors.html#dnikit.introspectors.Duplicates.ThresholdStrategy">[docs]</a>    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="k">class</span> <span class="nc">ThresholdStrategy</span><span class="p">:</span>
+        <span class="n">Percentile</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="n">Percentile</span>
+        <span class="n">Slope</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="n">Slope</span></div>
+
+<div class="viewcode-block" id="Duplicates.DuplicateSetCandidate"><a class="viewcode-back" href="../../../api/dnikit/introspectors.html#dnikit.introspectors.Duplicates.DuplicateSetCandidate">[docs]</a>    <span class="nd">@dataclass</span>
+    <span class="k">class</span> <span class="nc">DuplicateSetCandidate</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            std: see :attr:`std`</span>
+<span class="sd">            mean: see :attr:`mean`</span>
+<span class="sd">            projection: see :attr:`projection`</span>
+<span class="sd">            indices: see :attr:`indices`</span>
+<span class="sd">            batch: see :attr:`batch`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">std</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Std. deviation of the distance to the centroid from each of the points in the cluster.&quot;&quot;&quot;</span>
+
+        <span class="n">mean</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Mean of the distance to the centroid from each of the points in the cluster.&quot;&quot;&quot;</span>
+
+        <span class="n">projection</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Optional 2-d projection of the data -- this can be displayed to show the</span>
+<span class="sd">        relationship between the samples.  The order corresponds to the order in the batch.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">indices</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Indices of the elements in the cluster from the original producer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Batch</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set of data in :class:`Batch` form, which are duplicate candidates.&quot;&quot;&quot;</span>
+
+        <span class="nd">@property</span>
+        <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Size of the cluster.&quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">batch_size</span></div>
+
+    <span class="n">results</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">DuplicateSetCandidate</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mapping from response name to a list of candidate duplicates.&quot;&quot;&quot;</span>
+
+    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Number of elements in the producer.&quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_combine_clusters</span><span class="p">(</span><span class="n">list_of_duplicates</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+                          <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given a list of sample indexes that are near each other (parts of a cluster),</span>
+<span class="sd">        combine them into the transitive closure cluster.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            list_of_duplicates: ordered list of indexes of samples that are near each other</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            sequence of clusters -- there is no order implied, this is just the most</span>
+<span class="sd">            convenient datatype for the caller</span>
+
+<span class="sd">        Ex:</span>
+<span class="sd">            list_of_duplicates = [ [10, 11], [12, 13, 14], [5, 6], [6, 9] ]</span>
+<span class="sd">            returns ``[[10, 11], [12, 13, 14], [5, 6, 9]]``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># index -&gt; cluster_number</span>
+        <span class="n">inverse_mapping</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># cluster_number -&gt; [indexes]</span>
+        <span class="n">cluster_mapping</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Set</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># tracks the number of the next cluster</span>
+        <span class="n">current_cluster_number</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">dup_set_index</span><span class="p">,</span> <span class="n">batch_list</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_of_duplicates</span><span class="p">):</span>
+
+            <span class="c1"># see if the new cluster overlaps existing clusters</span>
+            <span class="n">overlap</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">inverse_mapping</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">batch_list</span>
+                <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">inverse_mapping</span>
+            <span class="p">}</span>
+
+            <span class="n">cluster_mapping</span><span class="p">[</span><span class="n">current_cluster_number</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">batch_list</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">overlap</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># set up the new cluster</span>
+                <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">batch_list</span><span class="p">:</span>
+                    <span class="n">inverse_mapping</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_cluster_number</span>
+
+                <span class="n">current_cluster_number</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># overlapping clusters -- merge them</span>
+                <span class="n">overlap</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">current_cluster_number</span><span class="p">)</span>
+
+                <span class="c1"># found overlap, combine into the lowest numbered cluster</span>
+                <span class="n">merged_cluster_number</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">overlap</span><span class="p">)</span>
+
+                <span class="c1"># update the indexes</span>
+                <span class="n">new_cluster</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="n">index</span>
+                    <span class="k">for</span> <span class="n">other_cluster_index</span> <span class="ow">in</span> <span class="n">overlap</span>
+                    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">cluster_mapping</span><span class="p">[</span><span class="n">other_cluster_index</span><span class="p">]</span>
+                <span class="p">}</span>
+
+                <span class="n">already_in_cluster</span> <span class="o">=</span> <span class="n">cluster_mapping</span><span class="p">[</span><span class="n">merged_cluster_number</span><span class="p">]</span>
+                <span class="n">cluster_mapping</span><span class="p">[</span><span class="n">merged_cluster_number</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_cluster</span>
+
+                <span class="c1"># remap the existing clusters</span>
+                <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">new_cluster</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">already_in_cluster</span><span class="p">:</span>
+                        <span class="n">inverse_mapping</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_cluster_number</span>
+
+                <span class="c1"># and update the index</span>
+                <span class="k">for</span> <span class="n">other_cluster_index</span> <span class="ow">in</span> <span class="n">overlap</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">other_cluster_index</span> <span class="o">!=</span> <span class="n">merged_cluster_number</span><span class="p">:</span>
+                        <span class="k">del</span> <span class="n">cluster_mapping</span><span class="p">[</span><span class="n">other_cluster_index</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cluster_mapping</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_build_duplicate_clusters</span><span class="p">(</span><span class="n">responses</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                                  <span class="n">threshold</span><span class="p">:</span> <span class="n">DuplicatesThresholdStrategyType</span><span class="p">,</span>
+                                  <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">responses</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Requires 1d vector per element&quot;</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">responses</span><span class="p">)</span>
+
+        <span class="c1"># build the index</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">annoy</span><span class="o">.</span><span class="n">AnnoyIndex</span><span class="p">(</span><span class="n">responses</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;euclidean&quot;</span><span class="p">)</span>
+        <span class="n">index</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">responses</span><span class="p">):</span>
+            <span class="n">index</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+        <span class="c1"># the 30 is the number of trees to build -- the higher the number,</span>
+        <span class="c1"># the better the precision when querying (at the cost of time and memory).</span>
+        <span class="n">index</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+
+        <span class="c1"># n-closest distance matrix.  n can be anything &gt; 2.  larger values will</span>
+        <span class="c1"># produce larger initial clusters and a value of 10 gives similar distance</span>
+        <span class="c1"># threshold results as the previous kCDTree implementation.  performance</span>
+        <span class="c1"># does not vary much for different n (2, 5, 10).</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">count</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">count</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="s2">&quot;i&quot;</span><span class="p">)</span>
+
+        <span class="c1"># build the n-closest distance matrix</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+            <span class="n">indexes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">get_nns_by_item</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">include_distances</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># find the distance threshold</span>
+        <span class="n">all_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trim_zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">distances</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">count</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span> <span class="p">))))</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">threshold</span><span class="p">(</span><span class="n">all_values</span><span class="p">)</span>
+        <span class="k">del</span> <span class="n">all_values</span>
+
+        <span class="c1"># build the clusters of length up to n</span>
+        <span class="n">clusters</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">distances</span> <span class="o">&lt;=</span> <span class="n">distance</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">clusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">indexes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">distance</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">Duplicates</span><span class="o">.</span><span class="n">_combine_clusters</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_build_result</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">Batch</span><span class="p">,</span>
+                      <span class="n">responses</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                      <span class="n">indices</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;Duplicates.DuplicateSetCandidate&quot;</span><span class="p">:</span>
+
+        <span class="n">samples</span> <span class="o">=</span> <span class="n">responses</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+        <span class="n">centroid</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">samples</span> <span class="o">-</span> <span class="n">centroid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># order the batch results by a 1d projection -- this will group similar</span>
+        <span class="c1"># samples together in the results</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">transformer</span> <span class="o">=</span> <span class="n">SKLearnPCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">order</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+            <span class="n">np_indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">)</span>
+
+            <span class="c1"># reorder the indexes and rebuild the samples array to match</span>
+            <span class="c1"># the new order</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np_indexes</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">order</span><span class="p">))])</span>
+            <span class="n">samples</span> <span class="o">=</span> <span class="n">responses</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+
+        <span class="c1"># for larger groups produce a projection showing how the samples relate</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">transformer</span> <span class="o">=</span> <span class="n">SKLearnPCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">projection</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">projection</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">Duplicates</span><span class="o">.</span><span class="n">DuplicateSetCandidate</span><span class="p">(</span>
+            <span class="n">std</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">distances</span><span class="p">),</span> <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">distances</span><span class="p">),</span>
+            <span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">,</span>
+            <span class="n">indices</span><span class="o">=</span><span class="n">indices</span><span class="p">,</span>
+            <span class="n">batch</span><span class="o">=</span><span class="n">batch</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">indices</span><span class="p">])</span>
+
+<div class="viewcode-block" id="Duplicates.introspect"><a class="viewcode-back" href="../../../api/dnikit/introspectors.html#dnikit.introspectors.Duplicates.introspect">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">introspect</span><span class="p">(</span><span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                   <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+                   <span class="n">threshold</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">DuplicatesThresholdStrategyType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Duplicates&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Uses an approximate nearest neighbor to build a distance matrix for all samples</span>
+<span class="sd">        and build clusters from the closest samples.</span>
+
+<span class="sd">        Although this works on data of any dimension, the performance is linear in the</span>
+<span class="sd">        number of samples in the ``producer`` AND the number of dimensions.  Consider</span>
+<span class="sd">        using :class:`DimensionReduction` to reduce the number of dimensions</span>
+<span class="sd">        before detecting duplicates -- if the dimensions are already being reduced for</span>
+<span class="sd">        :class:`Familiarity`, the same can be used here, otherwise a reduction to 40 still</span>
+<span class="sd">        gives good results.</span>
+
+<span class="sd">        The data from the ``producer`` is L2 normalized per-column -- this will help</span>
+<span class="sd">        keep one column from dominating the distance metric.  See also</span>
+<span class="sd">        `this explanation</span>
+<span class="sd">        &lt;https://stats.stackexchange.com/questions/287425/why-do-you-need-to-scale-data-in-knn&gt;`_</span>
+<span class="sd">        about how any why this is done.</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            producer = Producer...</span>
+<span class="sd">            duplicates = Duplicates.introspect(producer)</span>
+
+<span class="sd">            for response_name, clusters in duplicates.items():</span>
+<span class="sd">                # sort by the mean distance to the centroid</span>
+<span class="sd">                clusters = sorted(clusters, key=lambda x: x.mean)</span>
+<span class="sd">                ...</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            - `ANNOY - Approximate Nearest Neighbor Oh My! &lt;https://github.com/spotify/annoy&gt;`_</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            producer: producer of data</span>
+<span class="sd">            batch_size: **[optional]** size of batch to read while collecting data from the</span>
+<span class="sd">                ``producer``</span>
+<span class="sd">            threshold: **[optional]** strategy to use for finding the distance between points that</span>
+<span class="sd">                are considered duplicates. Default is</span>
+<span class="sd">                :class:`Slope &lt;dnikit.introspectors.Duplicates.ThresholdStrategy.Slope&gt;` threshold.</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            :class:`Duplicates`, which contains candidate duplicates for each response name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">threshold</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">threshold</span> <span class="o">=</span> <span class="n">Slope</span><span class="p">()</span>
+
+        <span class="c1"># instantiate data structure mapping response name to list of duplicate set candidates</span>
+        <span class="n">duplicate_data</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Duplicates</span><span class="o">.</span><span class="n">DuplicateSetCandidate</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">accumulated_batches</span> <span class="o">=</span> <span class="n">_accumulate_batches</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">response_name</span><span class="p">,</span> <span class="n">responses</span> <span class="ow">in</span> <span class="n">accumulated_batches</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="c1"># normalize the data -- this will do l2 normalization per-column</span>
+            <span class="c1"># in the response.  this prevents large values in a single column from</span>
+            <span class="c1"># dominating the distance metric</span>
+            <span class="c1">#</span>
+            <span class="c1"># https://medium.com/analytics-vidhya/the-k-nearest-neighbor-knn-machine-learning-algorithm-part-2-8bdc9a05c041  # noqa: E501</span>
+            <span class="n">l2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">responses</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">normalized_responses</span> <span class="o">=</span> <span class="n">responses</span> <span class="o">/</span> <span class="n">l2</span>
+
+            <span class="c1"># build the clusters (indexes in the responses of duplicate clusters)</span>
+            <span class="n">clusters</span> <span class="o">=</span> <span class="n">Duplicates</span><span class="o">.</span><span class="n">_build_duplicate_clusters</span><span class="p">(</span>
+                <span class="n">normalized_responses</span><span class="p">,</span>
+                <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="n">duplicate_data</span><span class="p">[</span><span class="n">response_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">Duplicates</span><span class="o">.</span><span class="n">_build_result</span><span class="p">(</span><span class="n">accumulated_batches</span><span class="p">,</span> <span class="n">normalized_responses</span><span class="p">,</span> <span class="n">indices</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">indices</span> <span class="ow">in</span> <span class="n">clusters</span>
+            <span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">Duplicates</span><span class="p">(</span><span class="n">duplicate_data</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">accumulated_batches</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

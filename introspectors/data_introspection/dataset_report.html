@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Dataset Report &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introspectors/data_introspection/dataset_report';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Dataset Report: CIFAR10 Example" href="../../notebooks/data_introspection/dataset_report.html" />
+    <link rel="prev" title="Data Introspection" href="../data_introspection.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../data_introspection.html">Data Introspectors</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Dataset Report</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/introspectors/data_introspection/dataset_report.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dataset Report</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-usage">General Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-with-symphony">Exploring with Symphony</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-as-pandas-dataframe">Exploring as Pandas DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading">Saving and Loading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-options">Config Options</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-api">Relevant API</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="dataset-report">
+<span id="id1"></span><h1>Dataset Report<a class="headerlink" href="#dataset-report" title="Permalink to this heading">#</a></h1>
+<p>Explore a dataset to find rare data samples, duplicate data, annotation errors,
+or dataset bias. The <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport" title="dnikit.introspectors.DatasetReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">DatasetReport</span></code></a> is a combination of
+three DNIKit dataset introspection algorithms:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="familiarity.html#familiarity"><span class="std std-ref">Familiarity</span></a></p></li>
+<li><p><a class="reference internal" href="duplicates.html#duplicates"><span class="std std-ref">Duplicates</span></a></p></li>
+<li><p><a class="reference internal" href="dimension_reduction.html#dimension-reduction"><span class="std std-ref">DimensionReduction (data projection)</span></a></p></li>
+</ul>
+<p>To explore the dataset in an interactive UI, the Dataset Report results can be fed directly
+into <a class="reference external" href="https://github.com/apple/ml-symphony">Symphony</a>, a research platform for creating
+interactive data science components that allows for filtering, sorting, and exporting data samples.</p>
+<p>For motivation behind the Dataset Report, see <a class="reference internal" href="../model_introspection/network_compression.html#description"><span class="std std-ref">Description</span></a> below.</p>
+<section id="general-usage">
+<h2>General Usage<a class="headerlink" href="#general-usage" title="Permalink to this heading">#</a></h2>
+<p>For getting started with DNIKit code, please see the <a class="reference internal" href="../../how_to/connect_model.html#connect-your-model"><span class="std std-ref">how-to pages</span></a>.</p>
+<p>Assuming a <a class="reference internal" href="../../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipeline</span></code></a> is
+set up to produce responses from a model, the <cite>DatasetReport</cite> can be run as so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">DatasetReport</span>
+
+<span class="n">producer</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># pipeline setup here</span>
+
+<span class="c1"># Run DatasetReport on responses from a producer</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">DatasetReport</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Introspection is typically performed on <strong>intermediate model responses</strong>
+(rather than the final outputs of a network).
+Here’s a full example using the CIFAR10 dataset, which uses
+the outputs of the last convolution layer <code class="code docutils literal notranslate"><span class="pre">conv_pw_13</span></code> from a
+MobileNet model to run the analysis:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">DatasetReport</span>
+<span class="kn">from</span> <span class="nn">dnikit_tensorflow</span> <span class="kn">import</span> <span class="n">TFDatasetExamples</span><span class="p">,</span> <span class="n">TFModelExamples</span>
+<span class="kn">from</span> <span class="nn">dnikit.processors</span> <span class="kn">import</span> <span class="n">Cacher</span><span class="p">,</span> <span class="n">ImageResizer</span>
+<span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">pipeline</span>
+
+<span class="c1"># Load CIFAR10 dataset and feed into MobileNet,</span>
+<span class="c1"># observing responses from layer conv_pw_13</span>
+<span class="n">cifar10</span> <span class="o">=</span> <span class="n">TFDatasetExamples</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">attach_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mobilenet</span> <span class="o">=</span> <span class="n">TFModelExamples</span><span class="o">.</span><span class="n">MobileNet</span><span class="p">()</span>
+<span class="n">producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+   <span class="n">cifar10</span><span class="p">,</span>
+   <span class="n">ImageResizer</span><span class="p">(</span><span class="n">pixel_format</span><span class="o">=</span><span class="n">ImageResizer</span><span class="o">.</span><span class="n">Format</span><span class="o">.</span><span class="n">HWC</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)),</span>
+   <span class="n">mobilenet</span><span class="p">(</span><span class="n">requested_responses</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;conv_pw_13&#39;</span><span class="p">]),</span>
+   <span class="n">Pooler</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="n">Pooler</span><span class="o">.</span><span class="n">Method</span><span class="o">.</span><span class="n">MAX</span><span class="p">),</span>
+   <span class="n">Cacher</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># Run DatasetReport on intermediate layer conv_pw_13&#39;s responses to the data:</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">DatasetReport</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">producer</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">#</a></h2>
+<section id="exploring-with-symphony">
+<h3>Exploring with Symphony<a class="headerlink" href="#exploring-with-symphony" title="Permalink to this heading">#</a></h3>
+<p>DNIKit’s DatasetReport can also connect with the Symphony UI framework
+to explore a dataset in a web browser or in a jupyter notebook. Please see Symphony’s
+<a class="reference external" href="https://github.com/apple/ml-symphony">documentation</a> for an example of how to feed the
+output of <code class="docutils literal notranslate"><span class="pre">DatasetReport.introspect</span></code> directly into Symphony.
+These reports created with Symphony are interactive and shareable.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The current release of <a class="reference external" href="https://github.com/apple/ml-symphony">Symphony</a> operates only on images, audio, and tabular data.
+To visualize other data types, it’s possible to run the DNIKit side of the
+<cite>DatasetReport</cite> on any dataset type and visualize in a custom manner.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;dnikit[dataset-report]&quot;</span></code></p>
+</div>
+</section>
+<section id="exploring-as-pandas-dataframe">
+<h3>Exploring as Pandas DataFrame<a class="headerlink" href="#exploring-as-pandas-dataframe" title="Permalink to this heading">#</a></h3>
+<p>The resulting <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport" title="dnikit.introspectors.DatasetReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span> <span class="pre">Report</span></code></a> object has a property,
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport.data" title="dnikit.introspectors.DatasetReport.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">data</span></code></a>, that is a
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">Pandas DataFrame</a>
+of all <cite>DatasetReport</cite> results. Each row represents a data sample, and each column is report data,
+e.g., duplicate set.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">report</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>These results can be visualized in a custom manner, but it’s recommended to try
+<a class="reference internal" href="#exploring-with-symphony"><span class="std std-ref">Symphony</span></a> for image, audio, or tabular data.</p>
+</section>
+</section>
+<section id="saving-and-loading">
+<h2>Saving and Loading<a class="headerlink" href="#saving-and-loading" title="Permalink to this heading">#</a></h2>
+<p>To save the report, call <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport.to_disk" title="dnikit.introspectors.DatasetReport.to_disk"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_disk()</span></code></a>
+on the report object.
+To load a saved report, use
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport.from_disk" title="dnikit.introspectors.DatasetReport.from_disk"><code class="xref py py-func docutils literal notranslate"><span class="pre">DatasetReport.from_disk(filepath)</span></code></a>.</p>
+</section>
+<section id="config-options">
+<h2>Config Options<a class="headerlink" href="#config-options" title="Permalink to this heading">#</a></h2>
+<p>Dataset Report’s <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport.introspect" title="dnikit.introspectors.DatasetReport.introspect"><code class="xref py py-func docutils literal notranslate"><span class="pre">introspect</span></code></a>
+method has a parameter <code class="code docutils literal notranslate"><span class="pre">config</span></code> that accepts a
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.ReportConfig" title="dnikit.introspectors.ReportConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReportConfig</span></code></a> object. The config can be
+used to run only a subset of introspectors. For instance,
+to run only duplicates analysis:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">DatasetReport</span><span class="p">,</span> <span class="n">ReportConfig</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">ReportConfig</span><span class="p">(</span>
+    <span class="n">projection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">familiarity</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The strategies used in the underlying algorithms can also be modified via the config.
+See <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.ReportConfig" title="dnikit.introspectors.ReportConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReportConfig</span></code></a> in the API docs for more details.</p>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<p>Automated dataset diversity analysis often looks <em>inter-class</em> diversity,
+i.e. diversity across classes, as defined by metadata labels. Known methods include
+grouping data by label and performing various statistical analyses to see how well the
+number of data samples or model accuracy is distributed across these different labels.</p>
+<p><em>Intra-class</em> diversity, like fairness <em>within</em> a particular class label, is also important,
+yet harder to evaluate in an automated fashion. Intra-class diversity analysis is often
+manual, which doesn’t scale to large datasets. Manual analysis can also make it harder to communicate
+findings with team members or partners. Because of these problems, sometimes intra-class
+diversity analysis is skipped altogether.</p>
+<p>The <em>Dataset Report</em> aims to automate and simplify the process of analyzing datasets for both inter
+and intra-class diversity, in a manner that enables sharing and exploration. With the
+<a class="reference external" href="https://github.com/apple/ml-symphony">Symphony</a> framework, it’s possible to build a standalone
+static report or explore results live in a Jupyter notebook.
+Symphony also contains a centralized filtering, grouping, highlighting, and selection
+across all widgets, to form a cohesive workspace for dataset exploration.</p>
+</section>
+<section id="example">
+<span id="datasetreport-example"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<p>A Jupyter notebook that demonstrates how to run the Dataset Report on the CIFAR-10 dataset:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</div>
+</section>
+<section id="relevant-api">
+<h2>Relevant API<a class="headerlink" href="#relevant-api" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport" title="dnikit.introspectors.DatasetReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span> <span class="pre">Report</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.ReportConfig" title="dnikit.introspectors.ReportConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span> <span class="pre">Report</span> <span class="pre">Config</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Familiarity" title="dnikit.introspectors.Familiarity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Familiarity</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DimensionReduction" title="dnikit.introspectors.DimensionReduction"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimensionReduction</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Duplicates" title="dnikit.introspectors.Duplicates"><code class="xref py py-class docutils literal notranslate"><span class="pre">Duplicates</span></code></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../data_introspection.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Introspection</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../notebooks/data_introspection/dataset_report.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dataset Report: CIFAR10 Example</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-usage">General Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-with-symphony">Exploring with Symphony</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-as-pandas-dataframe">Exploring as Pandas DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading">Saving and Loading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-options">Config Options</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-api">Relevant API</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

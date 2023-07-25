@@ -1,0 +1,631 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dnikit.introspectors._report._dataset_report &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dnikit/introspectors/_report/_dataset_report';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dnikit.introspectors._report._dataset_report</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright 2021 Apple Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">replace</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">class</span> <span class="nc">PandasStub</span><span class="p">:</span>
+        <span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">pd</span> <span class="o">=</span> <span class="n">PandasStub</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">dnikit._availability</span> <span class="kn">import</span> <span class="n">_pandas_available</span>
+<span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Batch</span><span class="p">,</span>
+    <span class="n">Introspector</span><span class="p">,</span>
+    <span class="n">peek_first_batch</span><span class="p">,</span>
+    <span class="n">pipeline</span><span class="p">,</span>
+    <span class="n">Producer</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">dnikit.exceptions</span> <span class="kn">import</span> <span class="n">DNIKitException</span>
+<span class="kn">from</span> <span class="nn">dnikit.introspectors._dim_reduction._dimension_reduction</span> <span class="kn">import</span> <span class="n">DimensionReduction</span>
+<span class="kn">from</span> <span class="nn">dnikit.introspectors._dim_reduction._protocols</span> <span class="kn">import</span> <span class="n">DimensionReductionStrategyType</span>
+<span class="kn">from</span> <span class="nn">dnikit.processors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Cacher</span><span class="p">,</span>
+    <span class="n">Composer</span>
+<span class="p">)</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._types</span> <span class="k">as</span> <span class="nn">t</span>
+<span class="kn">from</span> <span class="nn">._dataset_report_stages</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ReportConfig</span><span class="p">,</span>
+    <span class="n">_stage_1_runner</span><span class="p">,</span>
+    <span class="n">_stage_2_runner</span><span class="p">,</span>
+    <span class="n">_stage_3_runner</span>
+<span class="p">)</span>
+
+
+<span class="n">_DEFAULT_DIMENSIONS</span> <span class="o">=</span> <span class="mi">40</span>
+
+
+<span class="k">def</span> <span class="nf">_check_pandas_is_installed</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_pandas_available</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="s2">&quot;pandas not available, was dnikit[&#39;dataset_report&#39;] &quot;</span>
+                              <span class="s2">&quot;or dnikit[&#39;dataset_report_base&#39;] installed?&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="DatasetReport"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport">[docs]</a><span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">DatasetReport</span><span class="p">(</span><span class="n">Introspector</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A report built to inspect a dataset for a given model from the perspective of fairness.</span>
+
+<span class="sd">    Like other :class:`introspectors &lt;dnikit.base.Introspector&gt;`, use</span>
+<span class="sd">    :func:`DatasetReport.introspect &lt;introspect&gt;` to instantiate,</span>
+<span class="sd">    or load a saved report using :func:`DatasetReport.from_disk &lt;from_disk&gt;`.</span>
+
+<span class="sd">    This report is particularly useful for introspecting datasets that have various class</span>
+<span class="sd">    labels attached. See overall `DatasetReport` page in docs to learn more.</span>
+
+<span class="sd">    The following components can be run (default to all), configured using a :class:`ReportConfig`.</span>
+<span class="sd">    - Summarize overall dataset, including by metadata labels, if they exist</span>
+<span class="sd">    - Find near duplicate data samples, see :class:`Duplicates`</span>
+<span class="sd">    - Find most / least representative data overall and per metadata label, see :class:`Familiarity`</span>
+<span class="sd">    - Project the data down to visualize overall in a 2D scatterplot</span>
+
+<span class="sd">    The input :class:`Producer &lt;dnikit.base.Producer&gt;` to this class&#39;s instantiation is expected to</span>
+<span class="sd">    have :attr:`fields &lt;dnikit.base.Batch.fields&gt;` of model responses (likely a layer towards the</span>
+<span class="sd">    end of the model but not the last response). These responses can come either from loading data</span>
+<span class="sd">    and running it through a DNIKit :class:`Model &lt;dnikit.base.Model&gt;`, or by loading the responses</span>
+<span class="sd">    directly from file into a :class:`Producer &lt;dnikit.base.Producer&gt;`.</span>
+<span class="sd">    In each :attr:`Batch&#39;s metadata &lt;dnikit.base.Batch.metadata&gt;`, this report looks for</span>
+<span class="sd">    identifiers and optional labels attached as metadata using</span>
+<span class="sd">    :class:`Batch.StdKeys.IDENTIFIER &lt;dnikit.base.Batch.StdKeys.IDENTIFIER&gt;` and</span>
+<span class="sd">    :class:`Batch.StdKeys.LABELS &lt;dnikit.base.Batch.StdKeys.LABELS&gt;` metadata keys.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        For the moment, the :class:`Batch.StdKeys.IDENTIFIER &lt;dnikit.base.Batch.StdKeys.IDENTIFIER&gt;`</span>
+<span class="sd">        should be a path to the image data.</span>
+
+<span class="sd">    This class creates a :class:`pandas.DataFrame` full of the data needed to build the</span>
+<span class="sd">    `Symphony &lt;https://github.com/apple/ml-symphony&gt;`_</span>
+<span class="sd">    UI for the ``DatasetReport``, which can then be exported into a standalone static site</span>
+<span class="sd">    to explore. The different components built in the UI interact with each other. See</span>
+<span class="sd">    `Symphony&#39;s documentation &lt;https://apple.github.io/ml-symphony/&gt;`_ to learn more</span>
+<span class="sd">    about the UI and how to use it with the output of the ``DatasetReport``:</span>
+
+
+<span class="sd">    .. highlight:: python</span>
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        # Build all components of the dataset report using default configuration.</span>
+<span class="sd">        #    This output can then be used to visualize the results with Symphony:</span>
+<span class="sd">        #        (1) as a standalone web dashboard to explore interactively</span>
+<span class="sd">        #        (2) inline in a Jupyter notebook to explore interactively</span>
+<span class="sd">        #    Please see the Symphony documentation for an example:</span>
+<span class="sd">        #    https://apple.github.io/ml-symphony/</span>
+<span class="sd">        report = DatasetReport.introspect(producer)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data: do not instantiate ``DatasetReport`` directly, use</span>
+<span class="sd">            :func:`DatasetReport.introspect &lt;introspect&gt;`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;:class:`pandas.DataFrame` of introspection results for responses and report components&quot;&quot;&quot;</span>
+
+    <span class="n">_report_save_data_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;report_save_data.pkl&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Filename of :attr:`report.data &lt;data&gt;` save path.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_check_pandas_is_installed</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_response_names_from_producer</span><span class="p">(</span><span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="n">peek_first_batch</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_guess_dimension_strategies</span><span class="p">(</span><span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span>
+                                    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DimensionReductionStrategyType</span><span class="p">]:</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="n">peek_first_batch</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DimensionReductionStrategyType</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">response_name</span><span class="p">,</span> <span class="n">response_value</span> <span class="ow">in</span> <span class="n">batch</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">response_value</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">_DEFAULT_DIMENSIONS</span><span class="p">:</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">response_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">DimensionReduction</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">_DEFAULT_DIMENSIONS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+<div class="viewcode-block" id="DatasetReport.introspect"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport.introspect">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">introspect</span><span class="p">(</span><span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                   <span class="n">config</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">ReportConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                   <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DatasetReport&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build relevant ``DatasetReport`` components from input</span>
+<span class="sd">        :class:`Producer &lt;dnikit.base.Producer&gt;`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            producer: response producer (separate caching not needed as responses are cached</span>
+<span class="sd">                in this function)</span>
+<span class="sd">            config: **[keyword arg, optional]** :class:`ReportConfig`. Set components to ``None``</span>
+<span class="sd">                to omit them from report.</span>
+<span class="sd">            batch_size: **[keyword arg, optional]** number of samples to batch at once</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a :class:`DatasetReport` whose results can be exported into different formats</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_check_pandas_is_installed</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">ReportConfig</span><span class="p">(</span>
+                <span class="n">dim_reduction</span><span class="o">=</span><span class="n">DatasetReport</span><span class="o">.</span><span class="n">_guess_dimension_strategies</span><span class="p">(</span><span class="n">producer</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">config</span><span class="o">.</span><span class="n">use_dim_reduction</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">config</span><span class="o">.</span><span class="n">dim_reduction</span><span class="p">:</span>
+            <span class="c1"># Recreate same config as input, but replace the dim_reduction strategy with default</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span>
+                <span class="n">config</span><span class="p">,</span>
+                <span class="c1"># Set up dim reduction strategy guesses based on producer</span>
+                <span class="n">dim_reduction</span><span class="o">=</span><span class="n">DatasetReport</span><span class="o">.</span><span class="n">_guess_dimension_strategies</span><span class="p">(</span><span class="n">producer</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+        <span class="n">cacher</span><span class="p">:</span> <span class="n">Cacher</span> <span class="o">=</span> <span class="n">Cacher</span><span class="p">()</span>
+
+        <span class="c1"># It&#39;s necessary here to convert LABELS metadata for each batch to str values,</span>
+        <span class="c1"># since both the _SummaryBuilder and _SplitFamiliarity filter assume a str type.</span>
+        <span class="k">def</span> <span class="nf">convert_labels_metadata_to_str</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Batch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">Batch</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">LABELS</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">b</span>
+
+            <span class="n">builder</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">LABELS</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">key</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">LABELS</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="n">make_batch</span><span class="p">()</span>
+        <span class="n">producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">Composer</span><span class="p">(</span><span class="n">convert_labels_metadata_to_str</span><span class="p">))</span>
+
+        <span class="c1"># Cache responses immediately when running exactly 2 stages (duplicates)</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">n_stages</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="ow">not</span> <span class="n">cacher</span><span class="o">.</span><span class="n">cached</span>
+            <span class="n">producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">cacher</span><span class="p">)</span>
+
+        <span class="c1"># Compute the dataset report in three calls to multi-introspect. Call those now.</span>
+        <span class="c1"># Stage 1 is summary &amp; both dimension reduction</span>
+        <span class="n">stage_1_results</span> <span class="o">=</span> <span class="n">_stage_1_runner</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+        <span class="c1"># For familiarity or projection, 3 full stages, so cache and use dim reduction</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">n_stages</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">stage_1_results</span><span class="o">.</span><span class="n">overall_dim_reduction</span>
+            <span class="k">assert</span> <span class="ow">not</span> <span class="n">cacher</span><span class="o">.</span><span class="n">cached</span>
+            <span class="c1"># attach dim reduction here so the reduced producer can be used everywhere onwards</span>
+            <span class="n">producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">stage_1_results</span><span class="o">.</span><span class="n">overall_dim_reduction</span><span class="p">,</span> <span class="n">cacher</span><span class="p">)</span>
+
+        <span class="c1"># Stage 2 is projection pt1, duplicates, and familiarity</span>
+        <span class="n">stage_2_results</span> <span class="o">=</span> <span class="n">_stage_2_runner</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">stage_1_results</span><span class="p">)</span>
+
+        <span class="c1"># Stage 3 is projection pt2 and familiarity</span>
+        <span class="n">stage_3_results</span> <span class="o">=</span> <span class="n">_stage_3_runner</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">stage_2_results</span><span class="p">)</span>
+
+        <span class="c1"># concatenate result dataframes from all components together into one dataframe</span>
+        <span class="c1">#    first with split-familiarity frame, overall fam frame, and summary frame</span>
+        <span class="n">all_frames</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="n">stage_1_results</span><span class="o">.</span><span class="n">summary_result</span><span class="p">,</span>
+                <span class="n">stage_2_results</span><span class="o">.</span><span class="n">duplicates_result</span><span class="p">,</span>
+                <span class="n">stage_3_results</span><span class="o">.</span><span class="n">projection_result</span><span class="p">,</span>
+                <span class="n">stage_3_results</span><span class="o">.</span><span class="n">overall_familiarity_result</span><span class="p">,</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">]</span>
+        <span class="c1"># handle case of data frame from partial familiarity</span>
+        <span class="k">if</span> <span class="n">stage_3_results</span><span class="o">.</span><span class="n">split_familiarity_frames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">all_frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stage_3_results</span><span class="o">.</span><span class="n">split_familiarity_frames</span><span class="p">)</span>
+
+        <span class="c1"># join everything together into one dataframe</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_frames</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">DatasetReport</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetReport.from_disk"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport.from_disk">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_disk</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="n">dt</span><span class="o">.</span><span class="n">PathOrStr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DatasetReport&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create ``DatasetReport`` object from a report save directory</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            directory: path of directory where report file has been saved</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            Instance of ``DatasetReport``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_check_pandas_is_installed</span><span class="p">()</span>
+
+        <span class="n">directory</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">resolve_path_or_str</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+
+        <span class="n">data_path</span> <span class="o">=</span> <span class="n">directory</span> <span class="o">/</span> <span class="n">DatasetReport</span><span class="o">.</span><span class="n">_report_save_data_path</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2"> missing necessary file: </span><span class="si">{</span><span class="n">DatasetReport</span><span class="o">.</span><span class="n">_report_save_data_path</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Try saving report using report.to_disk() method.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">DatasetReport</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">directory</span> <span class="o">/</span> <span class="n">DatasetReport</span><span class="o">.</span><span class="n">_report_save_data_path</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetReport.to_disk"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.DatasetReport.to_disk">[docs]</a>    <span class="k">def</span> <span class="nf">to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">:</span> <span class="n">dt</span><span class="o">.</span><span class="n">PathOrStr</span> <span class="o">=</span> <span class="s1">&#39;./report_save&#39;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save Dataset Report&#39;s :attr:`data` to a directory, to avoid running introspect again when</span>
+<span class="sd">        visualizing or sharing results.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            directory: **[optional]** directory to save data within</span>
+<span class="sd">            overwrite: **[keyword arg, optional]** True to overwrite any existing report save files</span>
+<span class="sd">                in this directory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">directory</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">resolve_path_or_str</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+        <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">data_path</span> <span class="o">=</span> <span class="n">directory</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_report_save_data_path</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">overwrite</span> <span class="ow">and</span> <span class="n">data_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span>
+                <span class="s1">&#39;Report file already exists at this path.&#39;</span>
+                <span class="s1">&#39;Set &quot;overwrite=True&quot; to overwrite the report saved here.&#39;</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

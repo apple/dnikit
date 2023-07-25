@@ -1,0 +1,605 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>DNIKit – Data and Network Introspection Kit &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="general/installation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DNIKit – Data and Network Introspection Kit</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-model-biases-and-annotation-errors">Identify model biases and annotation errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compress-a-network">Compress a network</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="dnikit-data-and-network-introspection-kit">
+<h1>DNIKit – Data and Network Introspection Kit<a class="headerlink" href="#dnikit-data-and-network-introspection-kit" title="Permalink to this heading">#</a></h1>
+<p>A Python toolkit for analyzing machine learning models and datasets. DNIKit can:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="introspectors/data_introspection/dataset_report.html#dataset-report"><span class="std std-ref">create a comprehensive dataset analysis report</span></a></p></li>
+<li><p><a class="reference internal" href="introspectors/data_introspection/duplicates.html#duplicates"><span class="std std-ref">identify duplicate data samples</span></a></p></li>
+<li><p><a class="reference internal" href="introspectors/data_introspection/familiarity.html#familiarity"><span class="std std-ref">find rare data samples, annotation errors, or model biases</span></a></p></li>
+<li><p><a class="reference internal" href="introspectors/model_introspection/network_compression.html#network-compression"><span class="std std-ref">compress networks</span></a></p></li>
+<li><p><a class="reference internal" href="introspectors/model_introspection/inactive_units.html#inactive-units"><span class="std std-ref">detect inactive units in a model (e.g., due to dying ReLU)</span></a></p></li>
+<li><p><a class="reference internal" href="how_to/introspect.html#how-to-introspect"><span class="std std-ref">…and more</span></a>.</p></li>
+</ul>
+<p>DNIKit algorithms (also known as <strong>introspectors</strong>) view data
+<em>through the eyes of a neural network</em>. They operate using intermediate responses
+of the networks to provide a unique glimpse of how the network perceives
+data throughout the different stages of computation.</p>
+<a class="bot-margin reference internal image-reference" href="_images/responses.gif"><img alt="Intermediate responses are extracted from models and used in DNIKit algorithms." class="bot-margin align-center" src="_images/responses.gif" style="width: 540.0px; height: 304.0px;" /></a>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
+<p>Explore the links in the sidebar on the left. Here are some good places to get started:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="general/installation.html#python-support"><span class="std std-ref">DNIKit Installation Page</span></a></p></li>
+<li><p><a class="reference internal" href="how_to/connect_model.html#connect-your-model"><span class="std std-ref">How To Use DNIKit, starting with loading a model</span></a></p></li>
+<li><p><a class="reference internal" href="general/example_notebooks.html#example-notebooks"><span class="std std-ref">Jupyter notebook examples</span></a></p></li>
+<li><p><a class="reference internal" href="reference/how_to_cite.html#how-to-cite"><span class="std std-ref">How to Cite DNIKit</span></a></p></li>
+</ul>
+<p>and see the following DNIKit use case examples.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
+<section id="identify-model-biases-and-annotation-errors">
+<h3>Identify model biases and annotation errors<a class="headerlink" href="#identify-model-biases-and-annotation-errors" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference internal" href="introspectors/data_introspection/familiarity.html#familiarity"><span class="std std-ref">Familiarity introspector</span></a> can be used to plot the most and least
+representative data samples for a given set of data samples, which can assist in
+identifying model biases and annotation errors. For instance, introspecting with
+<a class="reference external" href="https://keras.io/examples/vision/mnist_convnet/">a simple CNN model trained on MNIST</a>,
+and the MNIST dataset, there is a clear predilection for slanted 5’s (top, “most familiar”):</p>
+<img alt="20 most familiar and 20 least familiar 5's. The most familiar 5's all look very crisp and clean and the least familiar look atypical." class="bot-margin" src="_images/fam_mnist_example.png" />
+<p>Fives that aren’t slanted, written with a fine-tipped pen, or look like capital S’s
+are the least “five-like” when compared to the overall dataset (bottom, “least familiar”).
+In the “least familiar” plot, at the far right of the first row,
+there is a “J”-like symbol that is not very interpretable as a 5, and we
+might want to remove it from the dataset. <a class="footnote-reference brackets" href="#f0" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p>Familiarity analyzes intermediate network embeddings, rather than
+final model output. This means it may also be run
+on models that will be fine-tuned or adapted and were not trained on the target task, like
+<a class="reference external" href="https://keras.io/api/applications/mobilenet/">MobileNet</a>, trained on ImageNet.
+For instance, running Familiarity on data samples with the “deer” label
+in the <a class="reference external" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR10 dataset</a>, using responses
+extracted with this MobileNet model, the results are as follows:</p>
+<img alt="20 most familiar and 20 least familiar deer discovered with Familiarity." class="bot-margin" src="_images/fam_deer_example.png" />
+<p>The most representative (most <em>familiar</em>) deer images include scenes with green foliage and
+coarse textures, while the least representative (least <em>familiar</em>) samples show deer
+on single-color backgrounds or within circles. To improve diversity within the “deer”
+data samples, a user might consider collecting more data samples like what are shown in the
+“least familiar” rows.</p>
+</section>
+<section id="compress-a-network">
+<h3>Compress a network<a class="headerlink" href="#compress-a-network" title="Permalink to this heading">#</a></h3>
+<p><a class="reference internal" href="introspectors/model_introspection/network_compression.html#network-compression"><span class="std std-ref">Principal Filter Analysis (PFA)</span></a> can be used
+to compress networks <a class="reference internal" href="introspectors/model_introspection/network_compression.html#pfa-evidence"><span class="std std-ref">without compromising accuracy</span></a>; e.g.,
+tests on <a class="reference external" href="https://arxiv.org/abs/1409.1556">VGG-16</a>
+on CIFAR-10, CIFAR-100 and ImageNet actually show that PFA achieves a compression rate of 8x, 3x,
+and 1.4x with an accuracy gain of 0.4%, 1.4% points, and 2.4% respectively.</p>
+<p>For a quick example, let’s use PFA to compress the
+<a class="reference external" href="https://keras.io/examples/vision/mnist_convnet/">Keras library’s example ConvNet</a>
+for the <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST dataset</a>.
+The model is trained exactly as specified in a Jupyter notebook,
+save the model to disk with <code class="code docutils literal notranslate"><span class="pre">model.save(&quot;mnist.h5&quot;)</span></code>, then run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">TrainTestSplitProducer</span>
+<span class="kn">from</span> <span class="nn">dnikit_tensorflow</span> <span class="kn">import</span> <span class="n">load_tf_model_from_path</span>
+
+<span class="c1"># Load model into DNIKit</span>
+<span class="n">dni_model</span> <span class="o">=</span> <span class="n">load_tf_model_from_path</span><span class="p">(</span><span class="s1">&#39;mnist.h5&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get Conv2D layer names to request responses from</span>
+<span class="n">req_layers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">dni_model</span><span class="o">.</span><span class="n">response_infos</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s1">&#39;conv&#39;</span> <span class="ow">in</span> <span class="n">name</span>
+<span class="p">]</span>
+
+<span class="c1"># Set up pipeline to feed batches of data into model</span>
+<span class="c1"># :: Note: use the same x_train, y_train, etc.</span>
+<span class="c1"># :: from the Keras MNIST CNN example code.</span>
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">TrainTestSplitProducer</span><span class="p">(((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+<span class="n">responses</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+    <span class="n">mnist</span><span class="p">,</span>
+    <span class="n">dni_model</span><span class="p">(</span><span class="n">requested_responses</span><span class="o">=</span><span class="n">req_layers</span><span class="p">),</span>
+    <span class="n">Pooler</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="n">Pooler</span><span class="o">.</span><span class="n">Method</span><span class="o">.</span><span class="n">MAX</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="introspectors/model_introspection/network_compression.html#network-compression"><span class="std std-ref">PFA.introspect</span></a> can be used to compress the model,
+estimating new layer sizes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pfa</span> <span class="o">=</span> <span class="n">PFA</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">responses</span><span class="p">)</span>  <span class="c1"># introspect!</span>
+
+<span class="c1"># Show suggestions for new layer sizes with &#39;KL&#39; strategy</span>
+<span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">())</span>
+</pre></div>
+</div>
+<img alt="PFA recipe example showing columns of layer names, original unit count, and and recommended unit count according to PFA." class="bot-margin" src="_images/pfa_show_example.png" />
+<p>To act on the suggestions, the model is then re-trained with the suggested layer sizes.
+Note, it’s possible in this step to reuse weights and train from there to get better results,
+rather than training from scratch.
+Looking at the suggestions and setting the two Conv2D layers
+at 21 and 45 filters, respectively, PFA helps achieve a <strong>40% reduction in model size</strong>
+(271 KB vs 450 KB) with <strong>no significant cost to accuracy</strong>. <a class="footnote-reference brackets" href="#f1" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#f2" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> Please see the
+<a class="reference external" href="https://arxiv.org/abs/1807.10585">PFA paper</a> or <a class="reference internal" href="introspectors/model_introspection/network_compression.html#network-compression"><span class="std std-ref">doc page</span></a>
+for more information about the experiments.</p>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f0" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>The predilection for slanted 5’s suggests that a trained model may
+exhibit a bias towards those types of fives.
+To improve the robustness of this model, one solution could be changing the
+pipeline to include data augmentation that rotates and skews images, to reduce the
+model’s bias towards 5’s with a rightward skew.</p>
+</aside>
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>All estimates were made by comparing 8 training runs of the original model
+vs the compressed model, and running an unpaired t-test
+on the accuracy scores for the test set.</p>
+</aside>
+<aside class="footnote brackets" id="f2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Moreover, the PFA energy strategy with <code class="code docutils literal notranslate"><span class="pre">energy=0.8</span></code>
+will compress the model by over 80%, while only sacrificing a tiny bit of accuracy
+—only about 0.5%. The number of Conv2D filters with this energy threshold strategy is
+reduced from 32 to 7 and 64 to 14, resp.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get PFA recipe for energy level 0.8</span>
+<span class="n">recipe_80_perc</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Energy</span><span class="p">(</span><span class="n">energy_threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">min_kept_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Display PFA recipe for energy levels 0.8 and 0.95 (out of 1.0)</span>
+<span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">recipe_80_perc</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>While for a toy MNIST example, these differences in model size and training
+time might seem negligible, for large models, 40% or 80% compression may mean the
+difference between shipping a model on device or not. Instead of tweaking
+hyperparameters seemingly at random, PFA offers valuable starting points
+for fine-tuning models based on solid evidence.</p>
+</aside>
+</aside>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="right-next"
+       href="general/installation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Installation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-model-biases-and-annotation-errors">Identify model biases and annotation errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compress-a-network">Compress a network</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

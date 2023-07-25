@@ -1,0 +1,738 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Data Producers &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'utils/data_producers';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Batch Processors" href="pipeline_stages.html" />
+    <link rel="prev" title="Inactive Unit Analysis: Example" href="../notebooks/model_introspection/inactive_unit_analysis.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/utils/data_producers.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Producers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-datasets">Example Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loaders">Data loaders</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imageproducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageProducer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traintestsplitproducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrainTestSplitProducer</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-a-custom-producer">Writing a custom Producer</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producer-of-model-responses">Producer of Model Responses</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="data-producers">
+<span id="id1"></span><h1>Data Producers<a class="headerlink" href="#data-producers" title="Permalink to this heading">#</a></h1>
+<p>DNIKit provides a some data <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producers</span></code></a>
+that load data and dispatch batches. All <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipelines</span></code></a>
+must start with a data producer. (Batches
+are only pulled through a <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipeline</span></code></a>
+when an <a class="reference internal" href="../how_to/introspect.html#how-to-introspect"><span class="std std-ref">Introspector’s</span></a>
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Introspector.introspect" title="dnikit.base.Introspector.introspect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">.introspect()</span></code></a> method is called.)</p>
+<p>Here are most of the available out-of-the-box data loaders,
+and links to their API for more information.</p>
+<section id="example-datasets">
+<h2>Example Datasets<a class="headerlink" href="#example-datasets" title="Permalink to this heading">#</a></h2>
+<p><a class="reference internal" href="../api/tensorflow/index.html#module-dnikit_tensorflow" title="dnikit_tensorflow"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a> has several example datasets, which wrap
+off-the-shelf datasets from the <a class="reference external" href="https://keras.io/about/">Keras</a> library.
+They are loaded via the <a class="reference internal" href="../api/tensorflow/index.html#dnikit_tensorflow.TFDatasetExamples" title="dnikit_tensorflow.TFDatasetExamples"><code class="xref py py-class docutils literal notranslate"><span class="pre">TFDatasetExamples</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit_tensorflow</span> <span class="kn">import</span> <span class="n">TFDatasetExamples</span>
+
+<span class="n">cifar10</span> <span class="o">=</span> <span class="n">TFDatasetExamples</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Available datasets are: <a class="reference internal" href="../api/tensorflow/index.html#dnikit_tensorflow.TFDatasetExamples.CIFAR10" title="dnikit_tensorflow.TFDatasetExamples.CIFAR10"><code class="xref py py-class docutils literal notranslate"><span class="pre">CIFAR10</span></code></a>,
+<a class="reference internal" href="../api/tensorflow/index.html#dnikit_tensorflow.TFDatasetExamples.CIFAR100" title="dnikit_tensorflow.TFDatasetExamples.CIFAR100"><code class="xref py py-class docutils literal notranslate"><span class="pre">CIFAR100</span></code></a>,
+<a class="reference internal" href="../api/tensorflow/index.html#dnikit_tensorflow.TFDatasetExamples.MNIST" title="dnikit_tensorflow.TFDatasetExamples.MNIST"><code class="xref py py-class docutils literal notranslate"><span class="pre">MNIST</span></code></a>, and
+<a class="reference internal" href="../api/tensorflow/index.html#dnikit_tensorflow.TFDatasetExamples.FashionMNIST" title="dnikit_tensorflow.TFDatasetExamples.FashionMNIST"><code class="xref py py-class docutils literal notranslate"><span class="pre">FashionMNIST</span></code></a>.</p>
+<p>All example datasets are <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer" title="dnikit.base.TrainTestSplitProducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrainTestSplitProducers</span></code></a>
+with <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer.attach_metadata" title="dnikit.base.TrainTestSplitProducer.attach_metadata"><code class="xref py py-meth docutils literal notranslate"><span class="pre">attach_metadata</span></code></a> and <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer.max_samples" title="dnikit.base.TrainTestSplitProducer.max_samples"><code class="xref py py-meth docutils literal notranslate"><span class="pre">max_samples</span></code></a> initialization parameters,
+and <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer.shuffle" title="dnikit.base.TrainTestSplitProducer.shuffle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">shuffle</span></code></a> and
+<a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer.subset" title="dnikit.base.TrainTestSplitProducer.subset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subset</span></code></a> methods. For instance,
+the following code loads MNIST, then creates a subset of 100 fives drawn only from the test set:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mnist</span> <span class="o">=</span> <span class="n">TFDatasetExamples</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">attach_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mnist_100_test_fives</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">subset</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">datasets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">],</span> <span class="n">max_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Inspect the batches generated by mnist_100_test_fives:</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">mnist_100_test_fives</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">imgs</span> <span class="o">=</span> <span class="n">batch</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s2">&quot;samples&quot;</span><span class="p">]</span>  <span class="c1"># ndarray in shape (batch.batch_size, 28, 28, 1)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">batch</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">LABELS</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>  <span class="c1"># will be all 5&#39;s</span>
+    <span class="n">dataset_ids</span> <span class="o">=</span> <span class="n">batch</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">LABELS</span><span class="p">][</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span>  <span class="c1"># will be all 1&#39;s</span>
+</pre></div>
+</div>
+<p>In addition, CIFAR10, CIFAR100 and FashionMNIST accept string labels
+on the <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer.subset" title="dnikit.base.TrainTestSplitProducer.subset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subset</span></code></a> method, e.g. to load all foxes from CIFAR100:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cifar100</span> <span class="o">=</span> <span class="n">TFDatasetExamples</span><span class="o">.</span><span class="n">CIFAR100</span><span class="p">(</span><span class="n">label_mode</span><span class="o">=</span><span class="s1">&#39;fine&#39;</span><span class="p">)</span>
+<span class="n">foxes</span> <span class="o">=</span> <span class="n">cifar100</span><span class="o">.</span><span class="n">subset</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;fox&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>To check what string labels an example dataset supports, the built-in Keras datasets contain a <code class="xref py py-meth docutils literal notranslate"><span class="pre">str_to_label_idx()</span></code> method.</p>
+</section>
+<section id="data-loaders">
+<h2>Data loaders<a class="headerlink" href="#data-loaders" title="Permalink to this heading">#</a></h2>
+<section id="imageproducer">
+<h3><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.ImageProducer" title="dnikit.base.ImageProducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageProducer</span></code></a><a class="headerlink" href="#imageproducer" title="Permalink to this heading">#</a></h3>
+<p>DNIKit provides a helper producer, <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.ImageProducer" title="dnikit.base.ImageProducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageProducer</span></code></a>,
+to load all images from a local directory. By default, it will do a
+recursive search through all subdirectories. For example, if
+the MNIST dataset is stored locally:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">ImageProducer</span>
+
+<span class="n">mnist_dataset</span> <span class="o">=</span> <span class="n">ImageProducer</span><span class="p">(</span><span class="s1">&#39;path/to/mnist/directory&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.base.</span></span><span class="sig-name descname"><span class="pre">ImageProducer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'images'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/base/_image_producer.html#ImageProducer"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ImageProducer</span></code> is a data <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a> that streams images loaded from the filesystem.</p>
+<p>The images are loaded in <code class="docutils literal notranslate"><span class="pre">NHWC</span></code> format with <code class="docutils literal notranslate"><span class="pre">C=1</span></code> for grayscale images,
+<code class="docutils literal notranslate"><span class="pre">C=3</span></code> (RGB) for color images and <code class="docutils literal notranslate"><span class="pre">C=4</span></code> (RGBA) with images with transparency.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>OpenCV is used to load images and therefore this class supports every format that library
+supports. Check the <a class="reference external" href="https://docs.opencv.org/">OpenCV docs</a> for supported formats.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All images must have the same height, width and number of channels (<code class="docutils literal notranslate"><span class="pre">HWC</span></code>). Otherwise
+batch creation in <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.ImageProducer.__call__" title="dnikit.base.ImageProducer.__call__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__call__()</span></code></a> will fail.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><em>Path</em></a>) – root directory where images are located. As with other <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a>
+images are only loaded to memory when batches are requested.</p></li>
+<li><p><strong>extensions</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Collection" title="(in Python v3.11)"><em>Collection</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – <strong>[keyword arg, optional]</strong> one, many or none extensions to be used to discover
+images when traversing the filesystem. If no extensions are provided default list will
+be used (which includes jpeg, jpg, png, bmp, and tiff).</p></li>
+<li><p><strong>recursive</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – <strong>[keyword arg, optional]</strong> if <code class="docutils literal notranslate"><span class="pre">True</span></code>, all subdirectories of <code class="docutils literal notranslate"><span class="pre">directory</span></code>
+will be traversed, otherwise only <code class="docutils literal notranslate"><span class="pre">directory</span></code> will be used to discover images
+(defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></li>
+<li><p><strong>field</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – <strong>[keyword arg, optional]</strong> the key under which the images will be stored in the
+resulting data <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> (defaults to “images”).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotADirectoryError" title="(in Python v3.11)"><strong>NotADirectoryError</strong></a> – if the <code class="docutils literal notranslate"><span class="pre">directory</span></code> is not a directory.</p></li>
+<li><p><a class="reference internal" href="../api/dnikit/exceptions.html#dnikit.exceptions.DNIKitException" title="dnikit.exceptions.DNIKitException"><strong>DNIKitException</strong></a> – if no images are found in the given <code class="docutils literal notranslate"><span class="pre">directory</span></code>.</p></li>
+<li><p><a class="reference internal" href="../api/dnikit/exceptions.html#dnikit.exceptions.DNIKitException" title="dnikit.exceptions.DNIKitException"><strong>DNIKitException</strong></a> – if OpenCV is not available.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="traintestsplitproducer">
+<h3><a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer" title="dnikit.base.TrainTestSplitProducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrainTestSplitProducer</span></code></a><a class="headerlink" href="#traintestsplitproducer" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit.base.</span></span><span class="sig-name descname"><span class="pre">TrainTestSplitProducer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attach_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dnikit/base/_traintest_producer.html#TrainTestSplitProducer"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Produce <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batches</span></code></a> from a train/test split of the form:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(x_train,</span> <span class="pre">y_train),</span> <span class="pre">(x_test,</span> <span class="pre">y_test)</span></code></p>
+<p>where variables are numpy arrays, the <cite>x</cite> arrays represent features,
+and the <cite>y</cite> arrays represent labels.</p>
+<p>For instance, for MNIST, features array <code class="docutils literal notranslate"><span class="pre">x_train</span></code> might be of shape
+(60000, 28, 28, 1) with corresponding labels array <code class="docutils literal notranslate"><span class="pre">y_train</span></code> might be of shape (60000, 1).</p>
+<p>Only one of <code class="docutils literal notranslate"><span class="pre">x_train</span></code>, <code class="docutils literal notranslate"><span class="pre">x_test</span></code> can be empty (size 0 NumPy array).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This format is the direct output of calling
+<code class="xref py py-func docutils literal notranslate"><span class="pre">load_data()</span></code> on a <a class="reference external" href="https://keras.io/api/datasets/">tf.keras.dataset</a>.
+One can initialize a dataset from <code class="xref py py-mod docutils literal notranslate"><span class="pre">tf.keras.datasets</span></code> simply by writing:</p>
+<p><code class="docutils literal notranslate"><span class="pre">TrainTestSplitProducer(tf.keras.datasets.cifar10.load_data())</span></code></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>split_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><em>Tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><em>Tuple</em></a><em>[</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><em>ndarray</em></a><em>, </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><em>ndarray</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><em>Tuple</em></a><em>[</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><em>ndarray</em></a><em>, </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><em>ndarray</em></a><em>]</em><em>]</em>) – see <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer.split_dataset" title="dnikit.base.TrainTestSplitProducer.split_dataset"><code class="xref py py-attr docutils literal notranslate"><span class="pre">split_dataset</span></code></a></p></li>
+<li><p><strong>attach_metadata</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – <strong>[optional]</strong> see <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer.attach_metadata" title="dnikit.base.TrainTestSplitProducer.attach_metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">attach_metadata</span></code></a></p></li>
+<li><p><strong>max_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – <strong>[optional]</strong> see <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.TrainTestSplitProducer.max_samples" title="dnikit.base.TrainTestSplitProducer.max_samples"><code class="xref py py-attr docutils literal notranslate"><span class="pre">max_samples</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="writing-a-custom-producer">
+<span id="creating-custom-producer"></span><h2>Writing a custom Producer<a class="headerlink" href="#writing-a-custom-producer" title="Permalink to this heading">#</a></h2>
+<p>To teach DNIKit how to load data as batches, it’s possible to create a custom
+producer by subclassing <a class="reference internal" href="../api/dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a>.
+Here is an example of creating a custom Producer for the
+<a class="reference external" href="https://keras.io/api/datasets/cifar10/">CIFAR-10 dataset</a>.</p>
+<p>DNIKit operates on datasets in batches, so that it can handle large-scale datasets
+without loading everything into memory at once. For each batch, it’s possible to also
+attach metadata like unique identifiers and labels, which help in
+<a class="reference internal" href="../introspectors/data_introspection.html#data-introspection"><span class="std std-ref">data introspector</span></a> analysis and visualization features:</p>
+<ul class="simple">
+<li><p><strong>Identifier</strong>: unique identifier for each data sample (in this case, the path to the file)</p></li>
+<li><dl class="simple">
+<dt><strong>Label</strong>: a dict of (key, value) with a number of labels for each data sample</dt><dd><ul>
+<li><p>E.g. <code class="code docutils literal notranslate"><span class="pre">&quot;class&quot;</span></code> label: airplane, automobile, etc.</p></li>
+<li><p>E.g. <code class="code docutils literal notranslate"><span class="pre">&quot;dataset&quot;</span></code> label: train vs. test</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Follow the comments in the <code class="docutils literal notranslate"><span class="pre">Cifar10Producer</span></code> code block below to learn
+how to create a custom producer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">typing</span> <span class="k">as</span> <span class="nn">t</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">cifar10</span>
+
+<span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">Producer</span><span class="p">,</span> <span class="n">Batch</span>
+
+<span class="k">class</span> <span class="nc">Cifar10Producer</span><span class="p">(</span><span class="n">Producer</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_data</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="c1"># Where data will be written to be packaged up with Dataset Report</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_path</span> <span class="o">=</span> <span class="n">data_path</span>
+
+        <span class="c1"># Max data samples to pull from. This is helpful for local debugging.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_data</span> <span class="o">=</span> <span class="n">max_data</span>
+
+        <span class="c1"># Load entire CIFAR10 dataset into memory</span>
+        <span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">cifar10</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+        <span class="c1"># Concatenate the train and test into one array, as well as the train/test labels, and the class labels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">class_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">class_to_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;airplane&#39;</span><span class="p">,</span> <span class="s1">&#39;automobile&#39;</span><span class="p">,</span> <span class="s1">&#39;bird&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;deer&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;frog&#39;</span><span class="p">,</span> <span class="s1">&#39;horse&#39;</span><span class="p">,</span> <span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="s1">&#39;truck&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_data</span> <span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max_data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_class_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_labels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">class_to_name</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_labels</span><span class="p">[</span><span class="n">index</span><span class="p">])]</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_write_images_to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ii</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">jj</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">):</span>
+            <span class="n">base_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_class_path</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>
+            <span class="n">Path</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;image</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+            <span class="c1"># Write to disk after converting to BGR format, used by opencv</span>
+            <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2BGR</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Batch</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The important function... yield a batch of data from the downloaded dataset&quot;&quot;&quot;</span>
+
+        <span class="c1"># Iteratively loop over the data samples and yield it in batches</span>
+        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+            <span class="n">jj</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">ii</span><span class="o">+</span><span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_data</span><span class="p">)</span>
+
+            <span class="c1"># Optional step, write data locally since it was loaded from keras</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_write_images_to_disk</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">)</span>
+
+            <span class="c1"># Create batch from data already in memory</span>
+            <span class="n">builder</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">Builder</span><span class="p">(</span>
+                <span class="n">fields</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;images&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">ii</span><span class="p">:</span><span class="n">jj</span><span class="p">,</span> <span class="o">...</span><span class="p">]}</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Use pathname as the identifier for each data sample, excluding base data directory</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">IDENTIFIER</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_class_path</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;image</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="c1"># Add class and dataset labels</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">LABELS</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">class_to_name</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">lbl_idx</span><span class="p">)]</span> <span class="k">for</span> <span class="n">lbl_idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_labels</span><span class="p">[</span><span class="n">ii</span><span class="p">:</span><span class="n">jj</span><span class="p">]],</span>
+                <span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_labels</span><span class="p">[</span><span class="n">ii</span><span class="p">:</span><span class="n">jj</span><span class="p">]</span>
+            <span class="p">}</span>
+
+            <span class="k">yield</span> <span class="n">builder</span><span class="o">.</span><span class="n">make_batch</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To use this custom Producer, it can be instantiated like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cifar10_producer</span> <span class="o">=</span> <span class="n">Cifar10Producer</span><span class="p">(</span>
+    <span class="c1"># Where to store the data to disk. For exporting a standalone report,</span>
+    <span class="c1"># this should be a local (relative) path to the current working directory.</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="s1">&#39;./cifar/&#39;</span><span class="p">,</span>
+
+    <span class="c1"># This &quot;max data&quot; param is purely for running a notebook quickly</span>
+    <span class="c1">#    Remove this param to run on the whole dataset</span>
+    <span class="n">max_data</span><span class="o">=</span><span class="mi">1000</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<section id="producer-of-model-responses">
+<span id="creating-response-producer"></span><h3>Producer of Model Responses<a class="headerlink" href="#producer-of-model-responses" title="Permalink to this heading">#</a></h3>
+<p>As noted, a Producer can also produce model responses to feed directly into an Introspector.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">Producer</span><span class="p">,</span> <span class="n">Batch</span>
+<span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">Familiarity</span>
+
+<span class="k">def</span> <span class="nf">function_to_run_model_inference_on_batch</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">response_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="c1"># extract `response_name` for data when running through dummy model</span>
+    <span class="c1"># ...</span>
+    <span class="k">return</span> <span class="n">responses_for_input_data</span>
+
+<span class="k">class</span> <span class="nc">MyModelResponseProducer</span><span class="p">(</span><span class="n">Producer</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datafolder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">response_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datafolder</span> <span class="o">=</span> <span class="n">datafolder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">response_name</span> <span class="o">=</span> <span class="n">response_name</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Batch</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_data_samples</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+
+            <span class="n">current_data</span> <span class="o">=</span> <span class="c1"># read next `batch_size` data samples</span>
+            <span class="n">responses</span> <span class="o">=</span> <span class="n">function_to_run_model_inference_on_batch</span><span class="p">(</span><span class="n">current_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">response_name</span><span class="p">)</span>
+
+            <span class="k">yield</span> <span class="n">Batch</span><span class="p">({</span><span class="bp">self</span><span class="o">.</span><span class="n">response_name</span><span class="p">:</span> <span class="n">responses</span><span class="p">})</span>
+
+<span class="n">my_response_producer</span> <span class="o">=</span> <span class="n">MyModelResponseProducer</span><span class="p">(</span><span class="n">datafolder</span><span class="p">,</span> <span class="s1">&#39;response1&#39;</span><span class="p">)</span>
+<span class="n">familiarity</span> <span class="o">=</span> <span class="n">Familiarity</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">my_response_producer</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>This is a good option if model responses have already been generated and saved,
+the model is in a format that DNIKit does not currently support (e.g., JAX), or
+the model is hosted on the cloud and responses will be fetched asynchronously.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../notebooks/model_introspection/inactive_unit_analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Inactive Unit Analysis: Example</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pipeline_stages.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Batch Processors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-datasets">Example Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loaders">Data loaders</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imageproducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageProducer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traintestsplitproducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrainTestSplitProducer</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-a-custom-producer">Writing a custom Producer</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producer-of-model-responses">Producer of Model Responses</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

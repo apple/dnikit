@@ -1,0 +1,61 @@
+/*
+For licensing see accompanying LICENSE file.
+Copyright (C) 2020 Apple Inc. All Rights Reserved.
+*/
+
+div.wy-side-nav-search .version {
+    font-weight: bold;
+}
+
+span.caption-text {
+    color: #5f72bd;
+}
+
+img.logo{
+    width: 50%!important;
+}
+
+.bot-margin {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #5f72bd;
+}
+
+h1 {
+    /* Text color gradient properties */
+    background: -webkit-linear-gradient(45deg, #5f72bd 0%, #9b23ea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h1 code{
+    -webkit-text-fill-color: #5f72bd;
+}
+
+.wy-menu-vertical a:active{
+    background-color: #5f72bd;
+}
+
+.batch-sample table {
+    background-color: white;
+    width: 100%;
+}
+
+.batch-sample thead code{
+    font-size: 1rem;
+}
+
+.batch-sample table code{
+    color: #5f72bd!important;
+}
+
+.batch-sample thead tr.row-odd{
+    background-color: #d6d6d6;
+}
+
+dt.sig {
+    /* Make signatures in API docs slightly smaller */
+    font-size: 0.9rem;
+}

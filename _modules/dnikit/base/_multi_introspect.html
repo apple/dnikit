@@ -1,0 +1,693 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dnikit.base._multi_introspect &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dnikit/base/_multi_introspect';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dnikit.base._multi_introspect</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright 2020 Apple Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">dataclasses</span>
+<span class="kn">import</span> <span class="nn">concurrent.futures</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">overload</span>  <span class="c1"># need this import as flake8 doesn&#39;t recognise DNIKit&#39;s t.overload</span>
+
+<span class="kn">from</span> <span class="nn">._batch._batch</span> <span class="kn">import</span> <span class="n">Batch</span>
+<span class="kn">from</span> <span class="nn">._producer</span> <span class="kn">import</span> <span class="n">Producer</span>
+<span class="kn">from</span> <span class="nn">dnikit.exceptions</span> <span class="kn">import</span> <span class="n">DNIKitException</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._types</span> <span class="k">as</span> <span class="nn">t</span>
+
+
+<span class="c1"># Typing variables and helpers</span>
+<span class="n">_X</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_X&quot;</span><span class="p">)</span>
+<span class="n">_Introspector</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Producer</span><span class="p">],</span> <span class="n">_X</span><span class="p">]</span>
+
+<span class="n">_T1</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_T1&quot;</span><span class="p">)</span>
+<span class="n">_T2</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_T2&quot;</span><span class="p">)</span>
+<span class="n">_T3</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_T3&quot;</span><span class="p">)</span>
+<span class="n">_T4</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_T4&quot;</span><span class="p">)</span>
+<span class="n">_T5</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_T5&quot;</span><span class="p">)</span>
+<span class="n">_T6</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_T6&quot;</span><span class="p">)</span>
+<span class="n">_T7</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_T7&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Helper class</span>
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">_ProducerSplitter</span><span class="p">:</span>
+    <span class="n">_producer</span><span class="p">:</span> <span class="n">Producer</span>
+    <span class="n">_events</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">threading</span><span class="o">.</span><span class="n">Event</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">_first</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">_done</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">_batch</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">Batch</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_batch_size</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">make_producer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Producer</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;Cannot create new producers after any Producer has been called&quot;</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_first_producer</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_subsequent_producer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">signal_failure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Set failure</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_failure</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="p">:</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_make_first_producer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Producer</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The first producer created by _ProducerSplitter is different from the others since</span>
+<span class="sd">        it will actually trigger the underlying producer (with the appropriate batch_size!) and</span>
+<span class="sd">        store the resulting batch in the instance.</span>
+
+<span class="sd">        Another difference is that the first producer does not need to wait for its</span>
+<span class="sd">        turn upon invocation (since it needs to retrieve the first batch).</span>
+
+<span class="sd">        Finally, the first producer is in charge of indicating to other producers that</span>
+<span class="sd">        there are no more batches to iterate over (which is why self._done is only set here).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Logic checks (to avoid weird multithreading errors)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_done</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_failure</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span> <span class="ow">is</span> <span class="kc">None</span>
+
+        <span class="c1"># Make sure only one of these is created</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_first</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># Instantiate a new event for this producer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Event</span><span class="p">())</span>
+
+        <span class="k">def</span> <span class="nf">_first_producer</span><span class="p">(</span><span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Batch</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
+            <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_producer</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
+                <span class="c1"># yield the batch to the introspector</span>
+                <span class="k">yield</span> <span class="n">batch</span>
+                <span class="c1"># save batch for next producer</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_batch</span> <span class="o">=</span> <span class="n">batch</span>
+                <span class="c1"># signal next producer and wait for turn</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_signal_next_producer</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_turn</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_done</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_signal_next_producer</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_first_producer</span>
+
+    <span class="k">def</span> <span class="nf">_make_subsequent_producer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Producer</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        These producers simply wait for their turn, yield the batch stored in the instance, signal</span>
+<span class="sd">        the next producer and wait until the done flag is done.</span>
+
+<span class="sd">        The batches are retrieved by the first producer. Similarly, it&#39;s the first producer</span>
+<span class="sd">        responsibility to set the _done flag.</span>
+
+<span class="sd">        Upon invocation these producers also need to wait until the first producer has stored</span>
+<span class="sd">        the initial batch.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Logic checks</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_done</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_failure</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span> <span class="ow">is</span> <span class="kc">None</span>
+
+        <span class="c1"># Add a new event for this producer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Event</span><span class="p">())</span>
+        <span class="n">index</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="k">def</span> <span class="nf">_subsequent_producer</span><span class="p">(</span><span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Batch</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_turn</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_done</span><span class="p">:</span>
+                <span class="c1"># Logic checks</span>
+                <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">if</span> <span class="n">batch_size</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Mismatched batch_size, got </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">, expected </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                <span class="c1"># yield the batch to the introspector</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch</span>
+                <span class="c1"># Notify next producer, it&#39;s their turn (and wait for ours)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_signal_next_producer</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_turn</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="c1"># If this statement was reached, the producer is done. Signal next producer.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_signal_next_producer</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_subsequent_producer</span>
+
+    <span class="k">def</span> <span class="nf">_wait_for_turn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Select appropriate event (previous to index)</span>
+        <span class="n">event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Wait for turn</span>
+        <span class="n">event</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="c1"># Check for failures after waking up</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_failure</span><span class="p">,</span> <span class="s2">&quot;Early stopping due to exception in another introspector&quot;</span>
+        <span class="c1"># Prepare for next iteration</span>
+        <span class="n">event</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_signal_next_producer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+
+<span class="c1"># Overloads</span>
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">multi_introspect</span><span class="p">(</span><span class="n">in1</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T1</span><span class="p">],</span>
+                     <span class="o">*</span><span class="p">,</span> <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">_T1</span><span class="p">]:</span> <span class="o">...</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">multi_introspect</span><span class="p">(</span><span class="n">in1</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T1</span><span class="p">],</span>
+                     <span class="n">in2</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T2</span><span class="p">],</span>
+                     <span class="o">*</span><span class="p">,</span> <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">_T1</span><span class="p">,</span> <span class="n">_T2</span><span class="p">]:</span> <span class="o">...</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">multi_introspect</span><span class="p">(</span><span class="n">in1</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T1</span><span class="p">],</span>
+                     <span class="n">in2</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T2</span><span class="p">],</span>
+                     <span class="n">in3</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T3</span><span class="p">],</span>
+                     <span class="o">*</span><span class="p">,</span> <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">_T1</span><span class="p">,</span> <span class="n">_T2</span><span class="p">,</span> <span class="n">_T3</span><span class="p">]:</span> <span class="o">...</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">multi_introspect</span><span class="p">(</span><span class="n">in1</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T1</span><span class="p">],</span>
+                     <span class="n">in2</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T2</span><span class="p">],</span>
+                     <span class="n">in3</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T3</span><span class="p">],</span>
+                     <span class="n">in4</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T4</span><span class="p">],</span>
+                     <span class="o">*</span><span class="p">,</span> <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">_T1</span><span class="p">,</span> <span class="n">_T2</span><span class="p">,</span> <span class="n">_T3</span><span class="p">,</span> <span class="n">_T4</span><span class="p">]:</span> <span class="o">...</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">multi_introspect</span><span class="p">(</span><span class="n">in1</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T1</span><span class="p">],</span>
+                     <span class="n">in2</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T2</span><span class="p">],</span>
+                     <span class="n">in3</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T3</span><span class="p">],</span>
+                     <span class="n">in4</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T4</span><span class="p">],</span>
+                     <span class="n">in5</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T5</span><span class="p">],</span>
+                     <span class="o">*</span><span class="p">,</span> <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">_T1</span><span class="p">,</span> <span class="n">_T2</span><span class="p">,</span> <span class="n">_T3</span><span class="p">,</span> <span class="n">_T4</span><span class="p">,</span> <span class="n">_T5</span><span class="p">]:</span> <span class="o">...</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">multi_introspect</span><span class="p">(</span><span class="n">in1</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T1</span><span class="p">],</span>
+                     <span class="n">in2</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T2</span><span class="p">],</span>
+                     <span class="n">in3</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T3</span><span class="p">],</span>
+                     <span class="n">in4</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T4</span><span class="p">],</span>
+                     <span class="n">in5</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T5</span><span class="p">],</span>
+                     <span class="n">in6</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T6</span><span class="p">],</span>
+                     <span class="o">*</span><span class="p">,</span> <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">_T1</span><span class="p">,</span> <span class="n">_T2</span><span class="p">,</span> <span class="n">_T3</span><span class="p">,</span> <span class="n">_T4</span><span class="p">,</span> <span class="n">_T5</span><span class="p">,</span> <span class="n">_T6</span><span class="p">]:</span> <span class="o">...</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">multi_introspect</span><span class="p">(</span><span class="n">in1</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T1</span><span class="p">],</span>
+                     <span class="n">in2</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T2</span><span class="p">],</span>
+                     <span class="n">in3</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T3</span><span class="p">],</span>
+                     <span class="n">in4</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T4</span><span class="p">],</span>
+                     <span class="n">in5</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T5</span><span class="p">],</span>
+                     <span class="n">in6</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T6</span><span class="p">],</span>
+                     <span class="n">in7</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">_T7</span><span class="p">],</span>
+                     <span class="o">*</span><span class="p">,</span> <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">_T1</span><span class="p">,</span> <span class="n">_T2</span><span class="p">,</span> <span class="n">_T3</span><span class="p">,</span> <span class="n">_T4</span><span class="p">,</span> <span class="n">_T5</span><span class="p">,</span> <span class="n">_T6</span><span class="p">,</span> <span class="n">_T7</span><span class="p">]:</span> <span class="o">...</span>
+
+
+<span class="c1"># Generic overload for more than 7 arguments</span>
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">multi_introspect</span><span class="p">(</span><span class="o">*</span><span class="n">introspectors</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">],</span>
+                     <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span> <span class="o">...</span>
+
+
+<span class="c1"># Actual implementation</span>
+<div class="viewcode-block" id="multi_introspect"><a class="viewcode-back" href="../../../api/dnikit/base.html#dnikit.base.multi_introspect">[docs]</a><span class="k">def</span> <span class="nf">multi_introspect</span><span class="p">(</span><span class="n">in1</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_Introspector</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">in2</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_Introspector</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">in3</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_Introspector</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">in4</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_Introspector</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">in5</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_Introspector</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">in6</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_Introspector</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">in7</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_Introspector</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="o">*</span><span class="n">introspectors</span><span class="p">:</span> <span class="n">_Introspector</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">],</span>
+                     <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Execute one or more :class:`introspectors &lt;Introspector&gt;` concurrently reusing</span>
+<span class="sd">    :class:`Batch` from a :class:`Producer`.</span>
+
+<span class="sd">    This can be more memory efficient than running introspectors sequentially (as the</span>
+<span class="sd">    :class:`Batches &lt;Batch&gt;` are produced just once).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        introspectors: one or more introspectors (ie functions that take a :class:`Producer`,</span>
+<span class="sd">            introspect the batches and return a result). The input arguments can *only* take</span>
+<span class="sd">            a single :class:`Producer`, it may be necessary to use a lambda function, a closure,</span>
+<span class="sd">            or :func:`functools.partial()` to pass other arguments.</span>
+
+<span class="sd">        producer: **[keyword arg]** the :class:`Producer` whose :class:`Batch` will be reused</span>
+<span class="sd">            for each of the ``introspectors``.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A tuple with the result of each input ``introspector`` in the order they were passed.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        DNIKitException: if ``introspectors`` request batches of different sizes.</span>
+<span class="sd">        DNIKitException: if either the ``producer`` or any of the ``introspectors`` raises. If any</span>
+<span class="sd">            exception is raised, all ``introspectors`` will be stopped.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code:: python</span>
+
+<span class="sd">            producer = ... # Instantiate a valid Producer</span>
+
+<span class="sd">            pfa, familiarity = multi_introspect(</span>
+<span class="sd">                PFA.introspect,</span>
+<span class="sd">                Familiarity.introspect,</span>
+<span class="sd">                producer=producer</span>
+<span class="sd">            )</span>
+<span class="sd">            # pfa and familiarity now contain the results of PFA and Familiarity</span>
+
+<span class="sd">    Sometimes it&#39;s necessary to pass arguments to the introspectors, in which case it&#39;s</span>
+<span class="sd">    recommended to use a lambda function:</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        results = multi_introspect(</span>
+<span class="sd">            lambda prod: Familiarity.introspect(prod, strategy=Familiarity.Strategy.GMM()),</span>
+<span class="sd">            ...</span>
+<span class="sd">            producer=producer</span>
+<span class="sd">        )</span>
+
+<span class="sd">    Alternatively, it&#39;s possible to use :func:`functools.partial()`:</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        results = multi_introspect(</span>
+<span class="sd">            functools.partial(Familiarity.introspect, strategy=Familiarity.Strategy.GMM())</span>
+<span class="sd">            ...</span>
+<span class="sd">            producer=producer</span>
+<span class="sd">        )</span>
+
+<span class="sd">    See also:</span>
+<span class="sd">        :class:`dnikit.processors.Cacher` which will store :class:`Batches &lt;Batch&gt;` in the</span>
+<span class="sd">        filesystem enabling use of the same :class:`Batches &lt;Batch&gt;` with two different</span>
+<span class="sd">        :class:`introspectors &lt;Introspector&gt;`. If the dataset fits on the</span>
+<span class="sd">        hard-drive, :class:`Cacher &lt;dnikit.processors.Cacher&gt;` may be a better option</span>
+<span class="sd">        (since it will require less RAM).</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        **Implementation detail**: currently ``multi_introspect`` is implemented using Python</span>
+<span class="sd">        threads to be able to preempt :class:`introspectors &lt;Introspector&gt;`.</span>
+<span class="sd">        In fact, this function will start</span>
+<span class="sd">        *one thread per introspector instance*. However, only one thread will be active at a</span>
+<span class="sd">        time so, in all likelihood, it will not be necessary to make code thread-safe.</span>
+
+<span class="sd">    Warning:</span>
+<span class="sd">        Do not attempt to catch the :class:`AssertionError` in any of the input</span>
+<span class="sd">        :class:`introspectors &lt;Introspector&gt;`, doing so may cause deadlock!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">introspectors</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+        <span class="n">x</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">in1</span><span class="p">,</span> <span class="n">in2</span><span class="p">,</span> <span class="n">in3</span><span class="p">,</span> <span class="n">in4</span><span class="p">,</span> <span class="n">in5</span><span class="p">,</span> <span class="n">in6</span><span class="p">,</span> <span class="n">in7</span><span class="p">,</span> <span class="o">*</span><span class="n">introspectors</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+    <span class="p">)</span>
+    <span class="n">num_introspectors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">introspectors</span><span class="p">)</span>
+    <span class="c1"># Instantiate a ProducerSplitter, and create a new producer for each introspector</span>
+    <span class="n">splitter</span> <span class="o">=</span> <span class="n">_ProducerSplitter</span><span class="p">(</span><span class="n">producer</span><span class="p">)</span>
+    <span class="n">producers</span> <span class="o">=</span> <span class="p">[</span><span class="n">splitter</span><span class="o">.</span><span class="n">make_producer</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_introspectors</span><span class="p">)]</span>
+
+    <span class="c1"># Start thread pool (one thread per introspector, using threads to</span>
+    <span class="c1"># interrupt execution NOT for parallelism)</span>
+    <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">num_introspectors</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="c1"># Submit all the introspectors (and keep track of the order!)</span>
+        <span class="n">futures</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">introspector</span><span class="p">,</span> <span class="n">producer</span><span class="p">):</span> <span class="n">i</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">introspector</span><span class="p">,</span> <span class="n">producer</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">introspectors</span><span class="p">,</span> <span class="n">producers</span><span class="p">))</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Wait for results</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">futures</span><span class="p">[</span><span class="n">future</span><span class="p">]</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">splitter</span><span class="o">.</span><span class="n">signal_failure</span><span class="p">()</span>
+                <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span>
+                    <span class="s2">&quot;Encountered exception when processing multiple introspectors&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+        <span class="c1"># Check that there are results for every introspector</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_introspectors</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">th introspector did not produce results&quot;</span>
+
+    <span class="c1"># Re-assemble results as a tuple</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_introspectors</span><span class="p">))</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

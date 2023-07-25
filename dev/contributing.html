@@ -1,0 +1,742 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Contributor’s Guide &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dev/contributing';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DNIKit Open Source Changelog" href="../reference/changelog.html" />
+    <link rel="prev" title="Support" href="../general/support.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/support.html">Support</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/dev/contributing.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Contributor’s Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-installation">Development Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-branch">Development Branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-code">Clone the Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dnikit-from-local-code">Install DNIKit from Local Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-install-git-large-file-storage-lfs">(Optional) Install Git Large File Storage (LFS)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-code">Writing Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-building-the-docs">Updating &amp; Building the Docs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-dev-environment">Update dev environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doc-structure">Doc Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-the-docs">Editing the Docs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-docs-locally">Build docs locally</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-tests">Writing Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-tests">Running Tests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-a-pull-request">Submitting a Pull Request</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="contributor-s-guide">
+<span id="contributing"></span><h1>Contributor’s Guide<a class="headerlink" href="#contributor-s-guide" title="Permalink to this heading">#</a></h1>
+<p>Here are some useful notes about DNIKit development.</p>
+<section id="development-installation">
+<h2>Development Installation<a class="headerlink" href="#development-installation" title="Permalink to this heading">#</a></h2>
+<section id="development-branch">
+<h3>Development Branch<a class="headerlink" href="#development-branch" title="Permalink to this heading">#</a></h3>
+<p>The current development branch is <a class="reference external" href="https://github.com/apple/dnikit/tree/develop">develop</a>. <em>Direct pushes to
+this branch are not allowed.</em> For all contributions, branch from and send pull requests to this branch.</p>
+</section>
+<section id="clone-the-code">
+<h3>Clone the Code<a class="headerlink" href="#clone-the-code" title="Permalink to this heading">#</a></h3>
+<p>Clone the code from <a class="reference external" href="https://github.apple/dnikit">the main repository</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">apple</span><span class="o">/</span><span class="n">dnikit</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</section>
+<section id="install-dnikit-from-local-code">
+<span id="standardinstallation"></span><h3>Install DNIKit from Local Code<a class="headerlink" href="#install-dnikit-from-local-code" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Install python version 3.9 (recommended). To run TensorFlow1, install Python 3.7.</p></li>
+</ol>
+<p><strong>MacOS:</strong> The Python installer package can be
+<a class="reference external" href="https://www.python.org/ftp/python/3.9.13/python-3.9.13-macosx10.9.pkg">downloaded</a> from the
+<a class="reference external" href="https://www.python.org/">Python.org</a> website. During installation, deselecting
+GUI applications, UNIX command-line tools, and Python documentation will reduce the size of what
+is installed.</p>
+<p><strong>Ubuntu</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">python3</span><span class="mf">.9</span><span class="o">-</span><span class="n">dev</span> <span class="n">python3</span><span class="mf">.9</span><span class="o">-</span><span class="n">venv</span> <span class="n">python3</span><span class="mf">.9</span><span class="o">-</span><span class="n">tk</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">libsm6</span> <span class="n">libxext6</span> <span class="n">libxrender</span><span class="o">-</span><span class="n">dev</span> <span class="n">libgl1</span><span class="o">-</span><span class="n">mesa</span><span class="o">-</span><span class="n">glx</span>
+</pre></div>
+</div>
+<ol class="arabic" start="2">
+<li><p>Create and activate a python 3.9 virtual environment, then update pip and wheel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span><span class="mf">.9</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">.</span><span class="n">venv39</span>
+<span class="n">source</span> <span class="o">.</span><span class="n">venv39</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span> <span class="n">wheel</span>
+</pre></div>
+</div>
+</li>
+<li><p>Checkout the branch to install from (like our development branch, <code class="docutils literal notranslate"><span class="pre">develop</span></code>).</p></li>
+<li><p>Install DNIKit and other requirements for development:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>This will install <code class="docutils literal notranslate"><span class="pre">dnikit[notebook,test,doc,tensorflow,dataset-report,image,dimreduction,duplicates]</span></code>.</p>
+<p>To install TF1-compatible code, try:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">install</span><span class="o">-</span><span class="n">tf1</span>
+</pre></div>
+</div>
+<p>Or for TF1 GPU:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">install</span><span class="o">-</span><span class="n">tf1</span><span class="o">-</span><span class="n">gpu</span>
+</pre></div>
+</div>
+<ol class="arabic" start="5">
+<li><p>Start using DNIKit! For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># import DNIKit Components like this:</span>
+<span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">PFA</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>To uninstall:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">uninstall</span>
+</pre></div>
+</div>
+</section>
+<section id="optional-install-git-large-file-storage-lfs">
+<h3>(Optional) Install Git Large File Storage (LFS)<a class="headerlink" href="#optional-install-git-large-file-storage-lfs" title="Permalink to this heading">#</a></h3>
+<p>To track large files and binaries, DNIKit uses <a class="reference external" href="https://git-lfs.github.com">Git LFS</a>,
+which replaces the actual file and
+history with a text pointer, and stores the file contents on GitHub.</p>
+<p>Follow the <a class="reference external" href="https://git-lfs.github.com">installation</a> instructions (download binary, or install via Homebrew), and
+then set up with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">lfs</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>Currently, tracked via <a class="reference external" href="https://github.com/apple/dnikit/blob/main/.gitattributes">.gitattributes</a>,
+the DNIKit LFS files are:</p>
+<ul class="simple">
+<li><p>.png</p></li>
+<li><p>.jpg</p></li>
+<li><p>.jpeg</p></li>
+<li><p>.gif</p></li>
+</ul>
+<p>These files are used in the docs (e.g., this page!), as well as the notebook examples. To add
+another large file (e.g. .mp4, small model), please track them with git lfs via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># all files with extension</span>
+<span class="n">git</span> <span class="n">lfs</span> <span class="n">track</span> <span class="s2">&quot;*.&lt;extension&gt;&quot;</span>
+</pre></div>
+</div>
+<p>Or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># One specific file</span>
+<span class="n">git</span> <span class="n">lfs</span> <span class="n">track</span> <span class="s2">&quot;&lt;specific_file&gt;&quot;</span>
+</pre></div>
+</div>
+<p>And make sure to commit any changes to the <code class="docutils literal notranslate"><span class="pre">.gitattributes</span></code>.</p>
+</section>
+</section>
+<section id="writing-code">
+<h2>Writing Code<a class="headerlink" href="#writing-code" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="updating-building-the-docs">
+<h2>Updating &amp; Building the Docs<a class="headerlink" href="#updating-building-the-docs" title="Permalink to this heading">#</a></h2>
+<p>The DNIKit docs are built with <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.</p>
+<section id="update-dev-environment">
+<h3>Update dev environment<a class="headerlink" href="#update-dev-environment" title="Permalink to this heading">#</a></h3>
+<p>1. If DNIKit was installed with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>, the developer’s installation, all
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> dependencies for building the docs will
+already be installed. If DNIKit was installed via pypi &amp; pip, install documentation requirements via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;dnikit[doc]&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Install <a class="reference external" href="https://pandoc.org/installing.html">pandoc</a>.</p></li>
+</ol>
+</section>
+<section id="doc-structure">
+<h3>Doc Structure<a class="headerlink" href="#doc-structure" title="Permalink to this heading">#</a></h3>
+<p>All code for docs is stored in the <code class="code docutils literal notranslate"><span class="pre">docs/</span></code> folder:</p>
+<ul>
+<li><p><code class="code docutils literal notranslate"><span class="pre">api/</span></code>: all API docs</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">dev/</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>contributing: Developer’s guide for installing and contributing back to DNIKit</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">general/</span></code>: intro / start pages</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>installation: full DNIKit installation</p></li>
+<li><p>support: how to get support on DNIKit</p></li>
+<li><p>example_notebooks: quick links to all example notebooks</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">how_to/</span></code>: guides on some the fundamental DNIKit concepts</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>connect_data: how to connect data into DNIKit</p></li>
+<li><p>connect_model: how to load model into a DNIKit pipeline</p></li>
+<li><p>introspect: understand DNIKit “introspect”</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">img/</span></code>: graphics (.png, .gif, .jpg, .jpeg currently tracked with <a class="reference external" href="https://git-lfs.github.com">git lfs</a>)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">introspectors/</span></code>: algorithm pages for the various DNIKit introspectors</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">reference/</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>changelog: link to CHANGELOG.md</p></li>
+<li><p>how_to_cite: information for citing DNIKit + its various algorithms</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">utils/</span></code>: API reference for certain DNIKit components</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>data_producers: all built-in producers</p></li>
+<li><p>pipeline_stages: useful pipeline stages (including processors)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">conf.py</span></code>: Sphinx configuration file, with Sphinx extensions used (like Napoleon)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">index.rst</span></code>: main landing page</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Makefile</span></code>: Sphinx build docs</p></li>
+</ul>
+</section>
+<section id="editing-the-docs">
+<h3>Editing the Docs<a class="headerlink" href="#editing-the-docs" title="Permalink to this heading">#</a></h3>
+<p>All docs use <code class="code docutils literal notranslate"><span class="pre">.rst</span></code> format. A nice cheat sheet can be found
+<a class="reference external" href="https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html">here</a>.</p>
+<p>Messing with the table of contents and side bar can be tricky, beware. When making modifications for the sidebar,
+use a clean build and remove the <code class="code docutils literal notranslate"><span class="pre">_build</span></code> directory first. Warning: a clean build will also re-run all
+the notebooks from scratch, which can be quite time consuming.</p>
+</section>
+<section id="build-docs-locally">
+<h3>Build docs locally<a class="headerlink" href="#build-docs-locally" title="Permalink to this heading">#</a></h3>
+<p>From the base <code class="docutils literal notranslate"><span class="pre">dnikit</span></code> directory run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">doc</span>
+</pre></div>
+</div>
+<p>Open <code class="code docutils literal notranslate"><span class="pre">docs/_build/html/index.html</span></code>.</p>
+<p>Alternatively, inside the docs folder, the following can be run directly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this heading">#</a></h2>
+<section id="writing-tests">
+<h3>Writing Tests<a class="headerlink" href="#writing-tests" title="Permalink to this heading">#</a></h3>
+<p>Follow the existing examples in the codebase to add new tests. For help with <a class="reference external" href="https://docs.pytest.org/en/latest/">pytest</a>, check out this
+<a class="reference external" href="https://doc.pytest.org/en/latest/getting-started.html">tutorial</a>.</p>
+</section>
+<section id="running-tests">
+<h3>Running Tests<a class="headerlink" href="#running-tests" title="Permalink to this heading">#</a></h3>
+<p>This project uses <a class="reference external" href="https://docs.pytest.org/en/latest/">pytest</a> and pytest extensions as follows:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Configuration File</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pytest.org/en/latest/">pytest</a></p></td>
+<td><p>Unit testing.</p></td>
+<td><p><a class="reference external" href="https://github.com/apple/dnikit/blob/main/pytest.ini">pytest.ini</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://mypy-lang.org">mypy</a> (via <a class="reference external" href="https://pypi.org/project/pytest-mypy/">pytest-mypy</a>)</p></td>
+<td><p>Typed static code analysis.</p></td>
+<td><p><a class="reference external" href="https://github.com/apple/dnikit/blob/main/mypy.ini">mypy.ini</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://flake8.pycqa.org/en/latest/">flake8</a> (via <a class="reference external" href="https://pypi.org/project/pytest-flake8/">pytest-flake8</a>)</p></td>
+<td><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> compliance testing.</p></td>
+<td><p>part of <a class="reference external" href="https://github.com/apple/dnikit/blob/main/pytest.ini">pytest.ini</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://coverage.readthedocs.io/">coverage</a> (via <a class="reference external" href="https://pypi.org/project/pytest-cov/">pytest-cov</a>)</p></td>
+<td><p>Code coverage report generation.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Run all tests:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>Run tests on wheels:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">test</span><span class="o">-</span><span class="n">wheel</span>
+</pre></div>
+</div>
+<p>Run static type check on notebooks:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">test</span><span class="o">-</span><span class="n">notebooks</span>
+</pre></div>
+</div>
+<p>Remove all generated files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="submitting-a-pull-request">
+<h2>Submitting a Pull Request<a class="headerlink" href="#submitting-a-pull-request" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/apple/dnikit/pulls">Submit a new request</a>.</p>
+<p>A new pull request requires checking off the following list:</p>
+<ul class="simple">
+<li><p>I’ve searched through existing Pull Requests and can confirm my PR has not been previously submitted.</p></li>
+<li><p>I’ve written new tests for my core changes, as applicable.</p></li>
+<li><p>I’ve tested all tests (including my new additions) with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code>.</p></li>
+<li><p>I’ve updated documentation as necessary and verified that the docs build and look <em>nice</em>.</p></li>
+<li><p>My PR is of reasonable size for someone to review. (You may be asked to break it up into smaller pieces if it is not.)</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../general/support.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Support</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../reference/changelog.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DNIKit Open Source Changelog</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-installation">Development Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-branch">Development Branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-code">Clone the Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dnikit-from-local-code">Install DNIKit from Local Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-install-git-large-file-storage-lfs">(Optional) Install Git Large File Storage (LFS)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-code">Writing Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-building-the-docs">Updating &amp; Building the Docs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-dev-environment">Update dev environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doc-structure">Doc Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-the-docs">Editing the Docs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-docs-locally">Build docs locally</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-tests">Writing Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-tests">Running Tests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-a-pull-request">Submitting a Pull Request</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

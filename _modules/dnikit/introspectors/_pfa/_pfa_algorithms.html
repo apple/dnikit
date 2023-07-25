@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dnikit.introspectors._pfa._pfa_algorithms &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dnikit/introspectors/_pfa/_pfa_algorithms';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dnikit.introspectors._pfa._pfa_algorithms</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright 2020 Apple Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">entropy</span>
+
+<span class="kn">from</span> <span class="nn">._recommendation</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PFAKLDiagnostics</span><span class="p">,</span>
+    <span class="n">PFAEnergyDiagnostics</span><span class="p">,</span>
+    <span class="n">PFARecipe</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">._covariances_calculator</span> <span class="kn">import</span> <span class="n">PFACovariancesResult</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._types</span> <span class="k">as</span> <span class="nn">t</span>
+
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;dnikit.introspectors.pfa&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="PFAStrategyType"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFAStrategyType">[docs]</a><span class="k">class</span> <span class="nc">PFAStrategyType</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Protocol for PFA strategies (:class:`PFA.Strategy`).  These examine per-layer</span>
+<span class="sd">    :class:`PFACovariancesResult` and</span>
+<span class="sd">    produces per-layer :class:`PFARecipe`.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This takes all layers and produces a result for each of the layers, but the algorithm</span>
+<span class="sd">        operates on each layer independently.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PFAStrategyType.__call__"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFAStrategyType.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">covariances</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFACovariancesResult</span><span class="p">]</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFARecipe</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            covariances: mapping from layer name (:attr:`field &lt;dnikit.base.Batch.fields&gt;` name)</span>
+<span class="sd">                to :class:`PFACovariancesResult` for that layer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span></div></div>
+
+
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">KL</span><span class="p">(</span><span class="n">PFAStrategyType</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    KL strategy for generating PFA recipes.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        interpolation_function: **[optional]** the interpolation function to use,</span>
+<span class="sd">            see :class:`KLInterpolationFunction`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">class</span> <span class="nc">KLInterpolationFunction</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A protocol to map a KL divergence to the ratio of the number of units in the layer.</span>
+<span class="sd">        The KL divergence is that between the distribution of</span>
+<span class="sd">        eigenvalues of the covariance matrix of model responses and the uniform distribution.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kl_divergence</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">max_kl_divergence</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span> <span class="o">...</span>
+
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="k">class</span> <span class="nc">LinearInterpolation</span><span class="p">(</span><span class="n">KLInterpolationFunction</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A concrete :class:`KLInterpolationFunction</span>
+<span class="sd">        &lt;dnikit.introspectors.PFA.Strategy.KL.KLInterpolationFunction&gt;` function that performs its</span>
+<span class="sd">        intended mapping by linearly interpolating [kl_divergence, max_kl_divergence] to [0, 1]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kl_divergence</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">max_kl_divergence</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">kl_divergence</span><span class="p">,</span> <span class="n">max_kl_divergence</span><span class="p">)</span>
+
+    <span class="n">interpolation_function</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">KLInterpolationFunction</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Note: the explicit init is here so that editors see the parameters to the init.  Ideally</span>
+    <span class="c1"># the dataclass init would be enough, but the indirection through PFA.Strategy</span>
+    <span class="c1"># seems to throw it.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interpolation_function</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">KLInterpolationFunction</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">interpolation_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">interpolation_function</span> <span class="o">=</span> <span class="n">KL</span><span class="o">.</span><span class="n">LinearInterpolation</span><span class="p">()</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;interpolation_function&quot;</span><span class="p">,</span> <span class="n">interpolation_function</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">covariances</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFACovariancesResult</span><span class="p">]</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFARecipe</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a KL recipe.</span>
+
+<span class="sd">        :ref:`_pfa`</span>
+
+<span class="sd">        Note: this takes all layers and produces a result for each of the layers but the algorithm</span>
+<span class="sd">        is per-layer (independent).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            covariances: The information about the response.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The :class:`PFARecipe` for KL.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">sum_norm</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">norm</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">norm</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">response_name</span><span class="p">,</span> <span class="n">cov</span> <span class="ow">in</span> <span class="n">covariances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">original_output_count</span> <span class="o">=</span> <span class="n">cov</span><span class="o">.</span><span class="n">original_output_count</span>
+            <span class="n">eigenvalue_distribution</span> <span class="o">=</span> <span class="n">sum_norm</span><span class="p">(</span><span class="n">cov</span><span class="o">.</span><span class="n">eigenvalues</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
+            <span class="n">flat_distribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">eigenvalue_distribution</span><span class="p">)</span> <span class="o">/</span> <span class="n">original_output_count</span>
+
+            <span class="n">kl_divergence</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span>
+                <span class="n">pk</span><span class="o">=</span><span class="n">eigenvalue_distribution</span><span class="p">,</span>
+                <span class="n">qk</span><span class="o">=</span><span class="n">flat_distribution</span>
+            <span class="p">)</span>
+            <span class="n">max_kl_divergence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">original_output_count</span><span class="p">)</span>
+
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_function</span>
+            <span class="n">units_ratio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_function</span><span class="p">(</span>
+                <span class="n">kl_divergence</span><span class="p">,</span>
+                <span class="n">max_kl_divergence</span>
+            <span class="p">)</span>
+
+            <span class="n">recommended_output_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span>
+                <span class="n">original_output_count</span> <span class="o">*</span> <span class="n">units_ratio</span>
+            <span class="p">))</span>
+
+            <span class="n">diagnostics</span> <span class="o">=</span> <span class="n">PFAKLDiagnostics</span><span class="p">(</span>
+                <span class="n">kl_divergence</span><span class="o">=</span><span class="n">kl_divergence</span><span class="p">,</span>
+                <span class="n">units_ratio</span><span class="o">=</span><span class="n">units_ratio</span>
+            <span class="p">)</span>
+
+            <span class="n">result</span><span class="p">[</span><span class="n">response_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">PFARecipe</span><span class="o">.</span><span class="n">_make_recipe</span><span class="p">(</span>
+                <span class="n">covariances</span><span class="o">=</span><span class="n">cov</span><span class="p">,</span>
+                <span class="n">recommended_output_count</span><span class="o">=</span><span class="n">recommended_output_count</span><span class="p">,</span>
+                <span class="n">diagnostics</span><span class="o">=</span><span class="n">diagnostics</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Energy</span><span class="p">(</span><span class="n">PFAStrategyType</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Energy strategy for generating PFA recipes -- this targets a given :attr:`energy_threshold`</span>
+<span class="sd">    to keep.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        energy_threshold: The spectral energy to keep</span>
+<span class="sd">        min_kept_count: **[optional]** The minimum number of outputs to keep per response</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">energy_threshold</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The spectral energy to keep&quot;&quot;&quot;</span>
+
+    <span class="n">min_kept_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The minimum number of output to keep per response&quot;&quot;&quot;</span>
+
+    <span class="c1"># Note: the explicit init is here so that editors can see the parameters to the init.  Ideally</span>
+    <span class="c1"># the dataclass init would be enough, but the indirection through PFA.Strategy</span>
+    <span class="c1"># seems to throw it.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">energy_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">min_kept_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the Energy algorithm.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            energy_threshold: The spectral energy to keep</span>
+<span class="sd">            min_kept_count: The minimum number of output to keep per response</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;energy_threshold&quot;</span><span class="p">,</span> <span class="n">energy_threshold</span><span class="p">)</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;min_kept_count&quot;</span><span class="p">,</span> <span class="n">min_kept_count</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">energy_threshold</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">energy_threshold</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;energy_threshold should be between 0.0 and 1.0, but it is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">energy_threshold</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">covariances</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFACovariancesResult</span><span class="p">]</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFARecipe</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a Energy recipe.</span>
+
+<span class="sd">        Note: this takes all layers and produces a result for each of the layers but the algorithm</span>
+<span class="sd">        is per-layer (independent).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            covariances: The information about the response.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A :class:`PFARecipe` for Energy.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">response_name</span><span class="p">,</span> <span class="n">cov</span> <span class="ow">in</span> <span class="n">covariances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">cov</span><span class="o">.</span><span class="n">eigenvalues</span>
+            <span class="n">original_output_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span>
+
+            <span class="n">max_energy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">))</span>
+            <span class="n">total_kept_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">total_kept_energy</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="k">for</span> <span class="n">eigenvalue</span> <span class="ow">in</span> <span class="n">eigenvalues</span><span class="p">:</span>
+                <span class="n">total_kept_energy</span> <span class="o">+=</span> <span class="n">eigenvalue</span>
+                <span class="n">total_kept_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="n">kept_energy_ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span>
+                    <span class="n">total_kept_energy</span><span class="p">,</span> <span class="n">max_energy</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">kept_energy_ratio</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">energy_threshold</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+            <span class="k">if</span> <span class="n">total_kept_count</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_kept_count</span><span class="p">:</span>
+                <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;In order to satisfy the request to preserve at least&#39;</span>
+                                <span class="sa">f</span><span class="s1">&#39; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">min_kept_count</span><span class="si">}</span><span class="s1"> units, the constraint to preserve &#39;</span>
+                                <span class="sa">f</span><span class="s1">&#39;not more than </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">energy_threshold</span><span class="si">}</span><span class="s1"> energy will be violated.&#39;</span>
+                                <span class="s1">&#39; If this is not desirable please set &#39;</span>
+                                <span class="sa">f</span><span class="s1">&#39;min_kept_count=</span><span class="si">{</span><span class="n">total_kept_count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+            <span class="n">total_kept_count</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+                <span class="nb">max</span><span class="p">(</span><span class="n">total_kept_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_kept_count</span><span class="p">),</span>
+                <span class="n">original_output_count</span>
+            <span class="p">)</span>
+
+            <span class="n">diagnostics</span> <span class="o">=</span> <span class="n">PFAEnergyDiagnostics</span><span class="p">(</span><span class="n">total_kept_energy</span><span class="o">=</span><span class="n">total_kept_energy</span><span class="p">)</span>
+
+            <span class="n">result</span><span class="p">[</span><span class="n">response_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">PFARecipe</span><span class="o">.</span><span class="n">_make_recipe</span><span class="p">(</span>
+                <span class="n">covariances</span><span class="o">=</span><span class="n">cov</span><span class="p">,</span>
+                <span class="n">recommended_output_count</span><span class="o">=</span><span class="n">total_kept_count</span><span class="p">,</span>
+                <span class="n">diagnostics</span><span class="o">=</span><span class="n">diagnostics</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Size</span><span class="p">(</span><span class="n">PFAStrategyType</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Size strategy for generating PFA recipes -- this targets a given ``relative_size`` to produce</span>
+<span class="sd">    a cross-layer energy threshold that will produce that result.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        relative_size: The relative amount of channels to keep (in 0..1)</span>
+<span class="sd">        min_kept_count: **[optional]** The minimum number of output to keep per response</span>
+<span class="sd">        epsilon_energy: **[optional]** Minimum level of energy</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">relative_size</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The relative amount of channels to keep (in 0..1)&quot;&quot;&quot;</span>
+    <span class="n">min_kept_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The minimum number of output to keep per response&quot;&quot;&quot;</span>
+    <span class="n">epsilon_energy</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-8</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Minimum level of energy&quot;&quot;&quot;</span>
+
+    <span class="c1"># Note: the explicit init is here so that editors see the parameters to the init.  Ideally</span>
+    <span class="c1"># the dataclass init would be enough, but the indirection through PFA.Strategy</span>
+    <span class="c1"># seems to throw it.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">relative_size</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="n">min_kept_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="n">epsilon_energy</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the Size algorithm.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            relative_size: The relative amount of channels to keep (in 0..1)</span>
+<span class="sd">            min_kept_count: The minimum number of output to keep per response</span>
+<span class="sd">            epsilon_energy: Minimum level of energy</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;relative_size&quot;</span><span class="p">,</span> <span class="n">relative_size</span><span class="p">)</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;min_kept_count&quot;</span><span class="p">,</span> <span class="n">min_kept_count</span><span class="p">)</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;epsilon_energy&quot;</span><span class="p">,</span> <span class="n">epsilon_energy</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">relative_size</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">relative_size</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;relative_size should be between 0.0 and 1.0, but it is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">relative_size</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">covariances</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFACovariancesResult</span><span class="p">]</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFARecipe</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a Size recipe.</span>
+
+<span class="sd">        :ref:`_pfa`</span>
+
+<span class="sd">        Note: this takes all layers and produces a result that is optimized across all the layers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            covariances: The information about the response.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A Size recipe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># For each layer, store the energy in the first `k-1` layers for all `k`</span>
+        <span class="n">layers_cum_energies</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">response_name</span><span class="p">,</span> <span class="n">cov</span> <span class="ow">in</span> <span class="n">covariances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Get eigenvalues and ensure they are valid</span>
+            <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">cov</span><span class="o">.</span><span class="n">eigenvalues</span>
+            <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">))</span>
+
+            <span class="c1"># Get the cum. sum of energy, starting with highest eigenvalues</span>
+            <span class="n">cum_energy</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)))</span>
+            <span class="n">total_energy</span> <span class="o">=</span> <span class="n">cum_energy</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">total_energy</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Normalize the cumsum and make it &quot;exclusive&quot;</span>
+                <span class="n">cum_energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(([</span><span class="mi">0</span><span class="p">],</span> <span class="n">cum_energy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="n">cum_energy</span> <span class="o">=</span> <span class="n">cum_energy</span> <span class="o">/</span> <span class="n">total_energy</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># All zero =&gt; discard all</span>
+                <span class="c1"># Since the threshold is forced to be in [eps, 1 - eps], units with</span>
+                <span class="c1"># cumulated energy of 0 (resp. 1) are always included (resp. excluded).</span>
+                <span class="c1"># So all are set to 1 but the first min_kept to 0</span>
+                <span class="n">cum_energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">cum_energy</span><span class="p">)</span>
+
+            <span class="c1"># Currently disabled so that the percentile is not affected. Ensure that</span>
+            <span class="c1"># min_kept_count is picked at the moment of application of the threshold</span>
+            <span class="c1"># # Ensure at least `min_kept_count` is picked</span>
+            <span class="c1"># cum_energy[:min_kept_count] = 0</span>
+
+            <span class="c1"># Store the resulting energy</span>
+            <span class="n">layers_cum_energies</span><span class="p">[</span><span class="n">response_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cum_energy</span>
+
+        <span class="c1"># Find the energy threshold that yields the desired number of channels</span>
+        <span class="n">energy_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">layers_cum_energies</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="n">energy_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">energy_values</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">relative_size</span><span class="p">)</span>
+        <span class="c1"># ensure 0 &lt; t &lt; 1</span>
+        <span class="n">energy_t</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">energy_t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_energy</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon_energy</span><span class="p">)</span>
+
+        <span class="c1"># Get the recipe for that threshold</span>
+        <span class="k">return</span> <span class="n">Energy</span><span class="p">(</span><span class="n">energy_threshold</span><span class="o">=</span><span class="n">energy_t</span><span class="p">,</span> <span class="n">min_kept_count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">min_kept_count</span><span class="p">)(</span><span class="n">covariances</span><span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

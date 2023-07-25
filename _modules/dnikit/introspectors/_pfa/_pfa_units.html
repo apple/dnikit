@@ -1,0 +1,742 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dnikit.introspectors._pfa._pfa_units &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dnikit/introspectors/_pfa/_pfa_units';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dnikit.introspectors._pfa._pfa_units</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright 2020 Apple Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">dnikit.exceptions</span> <span class="kn">import</span> <span class="n">DNIKitException</span>
+<span class="kn">from</span> <span class="nn">._covariances_calculator</span> <span class="kn">import</span> <span class="n">PFACovariancesResult</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._types</span> <span class="k">as</span> <span class="nn">t</span>
+
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;dnikit.introspectors.pfa&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="PFAUnitSelectionStrategyType"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFAUnitSelectionStrategyType">[docs]</a><span class="k">class</span> <span class="nc">PFAUnitSelectionStrategyType</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a correlation matrix and a number of units to keep, choose which units are</span>
+<span class="sd">    maximally correlated.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PFAUnitSelectionStrategyType.__call__"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFAUnitSelectionStrategyType.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">covariances</span><span class="p">:</span> <span class="n">PFACovariancesResult</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">num_units_to_keep</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            covariances: the covariance data for the layer</span>
+<span class="sd">            num_units_to_keep: **[keyword arg, optional]** number of recommended units to be kept</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :class:`numpy.ndarray` with the list of indexes that corresponds to the unit that is</span>
+<span class="sd">            maximally correlated (the first part of the list contains the indices of the inactive</span>
+<span class="sd">            units). The number of inactive units can be found in</span>
+<span class="sd">            ``covariances.inactive_units.shape[0]``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_get_corr_and_inactive_units</span><span class="p">(</span><span class="n">covariances</span><span class="p">:</span> <span class="n">PFACovariancesResult</span>
+                                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given the name of a layer compute and return the absolute value of the correlation matrix</span>
+<span class="sd">    and the indices of previously computed inactive units. In addition to return the</span>
+<span class="sd">    absolute value of the correlation matrix, the correlation coefficients on the main</span>
+<span class="sd">    diagonal and those of dead units are set to NaN.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        covariances: the covariance data for the layer</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A tuple with two ndarrays. The first is the absolute value of the correlation matrix,</span>
+<span class="sd">        the second is the list of inactive units.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Compute the correlation matrix</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">_get_non_diagonal_correlation_mat</span><span class="p">(</span><span class="n">covariances</span><span class="p">))</span>
+    <span class="n">found_indices</span> <span class="o">=</span> <span class="n">covariances</span><span class="o">.</span><span class="n">inactive_units</span>
+
+    <span class="c1"># Ensure diagonal won&#39;t be chosen</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+    <span class="c1"># Also mark inactive units as maximally correlated</span>
+    <span class="n">corr</span><span class="p">[</span><span class="n">found_indices</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">corr</span><span class="p">[:,</span> <span class="n">found_indices</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">return</span> <span class="n">corr</span><span class="p">,</span> <span class="n">found_indices</span>
+
+
+<span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="n">num_units_to_keep</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num_units_to_keep</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;Number of units to keep should be greater than zero but found </span><span class="si">{</span><span class="n">num_units_to_keep</span><span class="si">}</span><span class="s1">.&#39;</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_compute_num_active_units</span><span class="p">(</span><span class="n">corr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                              <span class="n">num_units_to_keep</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                              <span class="n">found_indices</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">num_active_units</span> <span class="o">=</span> <span class="n">corr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">found_indices</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">num_active_units</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span>
+            <span class="s1">&#39;Requested to mark all units as correlated but no units are available&#39;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">num_active_units</span> <span class="o">&lt;</span> <span class="n">num_units_to_keep</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The request to keep </span><span class="si">{</span><span class="n">num_units_to_keep</span><span class="si">}</span><span class="s1"> cannot be satisfied &#39;</span>
+                              <span class="sa">f</span><span class="s1">&#39;since there are only </span><span class="si">{</span><span class="n">num_active_units</span><span class="si">}</span><span class="s1"> active units&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">num_active_units</span>
+
+
+<span class="k">def</span> <span class="nf">_get_non_diagonal_correlation_mat</span><span class="p">(</span><span class="n">covariances</span><span class="p">:</span> <span class="n">PFACovariancesResult</span><span class="p">,</span>
+                                      <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given the name of a layer compute the non-diagonal correlation matrix (starting from the</span>
+<span class="sd">    previously computed covariance).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        covariances: the covariance data for the layer</span>
+<span class="sd">        epsilon: small value used to avoid division by zero</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">         2D ndarray that contains the covariance matrix (note that the diagonal contains NaNs)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">covar</span> <span class="o">=</span> <span class="n">covariances</span><span class="o">.</span><span class="n">covariances</span>
+    <span class="n">var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">covar</span><span class="p">))</span>
+    <span class="n">normalizer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">var</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">covar</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">normalizer</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">corr</span>
+
+
+<span class="k">def</span> <span class="nf">_select_units_l1_given_corr</span><span class="p">(</span><span class="n">corr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                <span class="n">found_indices</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                <span class="n">num_units_to_keep</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                <span class="n">direction_function</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
+                                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a correlation matrix, the list of already found correlated indices (which includes masked</span>
+<span class="sd">    and inactive units), a `dir` that specifies whether to find correlated units with  &quot;max&quot; or</span>
+<span class="sd">    &quot;min&quot; L1 correlation, and the minimum number of units to keep, compute which units are</span>
+<span class="sd">    correlated (according to the criteria specified by the dir), and return the new list with</span>
+<span class="sd">    the indices of all found correlated units. Note that `found_indices` is also changed in-place.</span>
+<span class="sd">    If two or more units have same L1 norm then it chooses the one with the highest/lowest</span>
+<span class="sd">    coefficient (same as max/min_abs).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        corr: 2D correlation matrix</span>
+<span class="sd">        found_indices: list of already found correlated indices (typically masked and inactive</span>
+<span class="sd">            units).</span>
+<span class="sd">        num_units_to_keep: number of units to preserve</span>
+<span class="sd">        direction_function: numpy function for direction to select coefficients in</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray with the list of indices that corresponds to the found correlated units.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_validate</span><span class="p">(</span><span class="n">num_units_to_keep</span><span class="p">)</span>
+    <span class="n">num_active_units</span> <span class="o">=</span> <span class="n">_compute_num_active_units</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">num_units_to_keep</span><span class="p">,</span> <span class="n">found_indices</span><span class="p">)</span>
+
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_active_units</span> <span class="o">-</span> <span class="n">num_units_to_keep</span><span class="p">):</span>
+        <span class="c1"># compute l1 norm</span>
+        <span class="n">l1n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># mark already chosen units from the t.List</span>
+        <span class="n">l1n</span><span class="p">[</span><span class="n">found_indices</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="c1"># find highest/lowest l1 norm</span>
+        <span class="n">extreme_val</span> <span class="o">=</span> <span class="n">direction_function</span><span class="p">(</span><span class="n">l1n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">extreme_val</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;All the L1 values are NaN. This is the |correlation matrix| &#39;</span>
+                                  <span class="sa">f</span><span class="s1">&#39;after </span><span class="si">{</span><span class="n">it</span><span class="si">}</span><span class="s1"> iterations: </span><span class="si">{</span><span class="n">corr</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="c1"># get highest/lowest l1 units</span>
+        <span class="n">extreme_cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">l1n</span><span class="p">,</span> <span class="n">extreme_val</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># if multiple candidates found, then get the one with highest/lowest</span>
+        <span class="c1"># abs correlation coeff.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">extreme_cols</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># if more than one unit has the same highest/lowest coefficient then chose the</span>
+            <span class="c1"># first</span>
+            <span class="n">selected_coeff</span> <span class="o">=</span> <span class="n">direction_function</span><span class="p">(</span><span class="n">corr</span><span class="p">[:,</span> <span class="n">extreme_cols</span><span class="p">])</span>
+            <span class="n">selected_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">corr</span><span class="p">[:,</span> <span class="n">extreme_cols</span><span class="p">],</span>
+                                               <span class="n">selected_coeff</span><span class="p">))[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">selected_col</span> <span class="o">=</span> <span class="n">extreme_cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Identified unit </span><span class="si">{</span><span class="n">selected_col</span><span class="si">}</span><span class="s1"> with &#39;</span>
+                      <span class="sa">f</span><span class="s1">&#39;total magnitude </span><span class="si">{</span><span class="n">l1n</span><span class="p">[</span><span class="n">selected_col</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">found_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">found_indices</span><span class="p">,</span> <span class="n">selected_col</span><span class="p">)</span>
+
+        <span class="c1"># ignore the found unit dimension</span>
+        <span class="n">corr</span><span class="p">[</span><span class="n">selected_col</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">corr</span><span class="p">[:,</span> <span class="n">selected_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">found_indices</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">found_indices</span><span class="p">),</span> \
+        <span class="sa">f</span><span class="s1">&#39;Found correlated indexes should be unique </span><span class="si">{</span><span class="n">found_indices</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">found_indices</span>
+
+
+<span class="k">def</span> <span class="nf">_select_units_abs_given_corr</span><span class="p">(</span><span class="n">corr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                 <span class="n">found_indices</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                 <span class="n">num_units_to_keep</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                 <span class="n">direction_function</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
+                                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a correlation matrix, the list of already found indices (which includes masked and</span>
+<span class="sd">    inactive units), a `dir`` that specifies whether to find correlated units with  &quot;max&quot; or &quot;min&quot;</span>
+<span class="sd">    correlation coefficient, and the minimum number of units to keep, compute which units</span>
+<span class="sd">    are correlated (according to the criteria specified by the dir),</span>
+<span class="sd">    and return the new list with the indices of all found correlated units.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        corr: 2D correlation matrix</span>
+<span class="sd">        found_indices: list of already found correlated indices (typically masked and</span>
+<span class="sd">            inactive units).</span>
+<span class="sd">        num_units_to_keep: number of units to preserve</span>
+<span class="sd">        direction_function: numpy function for direction to select coefficients in</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray with the list of indices that corresponds to the units that are correlated.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_validate</span><span class="p">(</span><span class="n">num_units_to_keep</span><span class="p">)</span>
+    <span class="n">num_active_units</span> <span class="o">=</span> <span class="n">_compute_num_active_units</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">num_units_to_keep</span><span class="p">,</span> <span class="n">found_indices</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">found_indices</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_active_units</span> <span class="o">-</span> <span class="n">num_units_to_keep</span><span class="p">):</span>
+
+        <span class="n">selected_coeff</span> <span class="o">=</span> <span class="n">direction_function</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
+        <span class="n">selected_cels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">selected_coeff</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">selected_coeff</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_cels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">2</span>
+
+        <span class="c1"># check the second highest/lowest coefficient</span>
+        <span class="n">tmp_corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
+        <span class="c1"># mark one value per each row</span>
+        <span class="n">selected_rows</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">selected_cels</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">selected_rows</span><span class="p">:</span>
+                <span class="c1"># mark only one element per row</span>
+                <span class="k">continue</span>
+            <span class="n">selected_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+            <span class="n">tmp_corr</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">selected_cels</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">other_selected_coeff</span> <span class="o">=</span> <span class="n">direction_function</span><span class="p">(</span><span class="n">tmp_corr</span><span class="p">[</span><span class="n">selected_rows</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="n">other_selected_cels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">tmp_corr</span><span class="p">[</span><span class="n">selected_rows</span><span class="p">,</span> <span class="p">:],</span>
+                                                  <span class="n">other_selected_coeff</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">other_selected_coeff</span><span class="p">):</span>
+            <span class="c1"># No more choices, choose the first one</span>
+            <span class="n">selected_unit</span> <span class="o">=</span> <span class="n">selected_cels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># choose the first in case there are more than one</span>
+            <span class="n">selected_unit</span> <span class="o">=</span> <span class="n">selected_cels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="nb">sorted</span><span class="p">(</span><span class="n">other_selected_cels</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">selected_unit</span><span class="p">)</span>
+
+        <span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Identified unit </span><span class="si">{</span><span class="n">selected_unit</span><span class="si">}</span><span class="s1"> &#39;</span>
+                      <span class="sa">f</span><span class="s1">&#39;with coefficient </span><span class="si">{</span><span class="n">selected_coeff</span><span class="si">}</span><span class="s1"> and other &#39;</span>
+                      <span class="sa">f</span><span class="s1">&#39;coefficient </span><span class="si">{</span><span class="n">other_selected_coeff</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="c1"># ignore the found correlated unit dimension</span>
+        <span class="n">corr</span><span class="p">[</span><span class="n">selected_unit</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">corr</span><span class="p">[:,</span> <span class="n">selected_unit</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Removing following units: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;Found correlated indexes should be unique </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">class</span> <span class="nc">_DirectionalDistanceCalculation</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">Protocol</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">corr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">found_indices</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">num_units_to_keep</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">direction_function</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given a correlation matrix, the list of already found indices (which includes masked and</span>
+<span class="sd">        inactive units), a `dir`` that specifies how to find correlated units with</span>
+<span class="sd">        correlation coefficient, and the minimum number of units to keep, compute which units</span>
+<span class="sd">        are correlated (according to the criteria specified by the dir),</span>
+<span class="sd">        and return the new list with the indices of all found correlated units.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            corr: 2D correlation matrix</span>
+<span class="sd">            found_indices: list of already found correlated indices (typically masked and inactive</span>
+<span class="sd">                units).</span>
+<span class="sd">            num_units_to_keep: number of units to preserve</span>
+<span class="sd">            direction_function: numpy function for direction to select coefficients in</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ndarray with the list of indices that corresponds to the units that are correlated.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
+
+
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">_DirectionalStrategy</span><span class="p">(</span><span class="n">PFAUnitSelectionStrategyType</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute which units are correlated according to a specified direction,</span>
+<span class="sd">    using a given distance metric.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="k">class</span> <span class="nc">Distance</span><span class="p">:</span>
+        <span class="n">ABS</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span><span class="p">[</span><span class="n">_DirectionalDistanceCalculation</span><span class="p">]</span> <span class="o">=</span> <span class="n">_select_units_abs_given_corr</span>
+        <span class="n">L1</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span><span class="p">[</span><span class="n">_DirectionalDistanceCalculation</span><span class="p">]</span> <span class="o">=</span> <span class="n">_select_units_l1_given_corr</span>
+
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="k">class</span> <span class="nc">UnitDirection</span><span class="p">:</span>
+        <span class="n">MIN</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span>
+        <span class="n">MAX</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span>
+
+    <span class="n">distance</span><span class="p">:</span> <span class="n">_DirectionalDistanceCalculation</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Distance function&quot;&quot;&quot;</span>
+
+    <span class="n">direction</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Direction of selection&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_select_units_given_corr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">corr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">found_indices</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                 <span class="n">num_units_to_keep</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span>
+            <span class="n">corr</span><span class="o">=</span><span class="n">corr</span><span class="p">,</span>
+            <span class="n">found_indices</span><span class="o">=</span><span class="n">found_indices</span><span class="p">,</span>
+            <span class="n">num_units_to_keep</span><span class="o">=</span><span class="n">num_units_to_keep</span><span class="p">,</span>
+            <span class="n">direction_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">direction</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">covariances</span><span class="p">:</span> <span class="n">PFACovariancesResult</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">num_units_to_keep</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given a correlation matrix and a number of units to keep, choose which units</span>
+<span class="sd">        are maximally correlated. If two or more units have same L1 norm</span>
+<span class="sd">        then it chooses the one with the highest/lowest coefficient (same as min_abs)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            covariances: the covariance data for the layer</span>
+<span class="sd">            num_units_to_keep: number of recommended units to be kept</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ndarray with the list of indexes that corresponds to the unit that is maximally</span>
+<span class="sd">            correlated (the first part of the list contains the indices of the inactive units). The</span>
+<span class="sd">            number of inactive units can be found in covariances.inactive_units.shape[0].</span>
+<span class="sd">         &quot;&quot;&quot;</span>
+
+        <span class="n">_validate</span><span class="p">(</span><span class="n">num_units_to_keep</span><span class="p">)</span>
+
+        <span class="n">corr</span><span class="p">,</span> <span class="n">found_indices</span> <span class="o">=</span> <span class="n">_get_corr_and_inactive_units</span><span class="p">(</span><span class="n">covariances</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">corr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">found_indices</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">num_units_to_keep</span><span class="p">:</span>
+            <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Requested to keep </span><span class="si">{</span><span class="n">num_units_to_keep</span><span class="si">}</span><span class="s1">, however, found &#39;</span>
+                            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">found_indices</span><span class="p">)</span><span class="si">}</span><span class="s1"> inactive units. All of them are&#39;</span>
+                            <span class="sa">f</span><span class="s1">&#39;highly correlated&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">found_indices</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_select_units_given_corr</span><span class="p">(</span>
+            <span class="n">corr</span><span class="o">=</span><span class="n">corr</span><span class="p">,</span>
+            <span class="n">found_indices</span><span class="o">=</span><span class="n">found_indices</span><span class="p">,</span>
+            <span class="n">num_units_to_keep</span><span class="o">=</span><span class="n">num_units_to_keep</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">AbsMax</span><span class="p">(</span><span class="n">_DirectionalStrategy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a correlation matrix, choose units based on the one with the greatest coefficient&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">distance</span><span class="o">=</span><span class="n">_DirectionalStrategy</span><span class="o">.</span><span class="n">Distance</span><span class="o">.</span><span class="n">ABS</span><span class="p">,</span>
+            <span class="n">direction</span><span class="o">=</span><span class="n">_DirectionalStrategy</span><span class="o">.</span><span class="n">UnitDirection</span><span class="o">.</span><span class="n">MAX</span>
+        <span class="p">)</span>
+
+
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">AbsMin</span><span class="p">(</span><span class="n">_DirectionalStrategy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a correlation matrix, choose units based on the one with the lowest coefficient&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">distance</span><span class="o">=</span><span class="n">_DirectionalStrategy</span><span class="o">.</span><span class="n">Distance</span><span class="o">.</span><span class="n">ABS</span><span class="p">,</span>
+            <span class="n">direction</span><span class="o">=</span><span class="n">_DirectionalStrategy</span><span class="o">.</span><span class="n">UnitDirection</span><span class="o">.</span><span class="n">MIN</span>
+        <span class="p">)</span>
+
+
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">L1Max</span><span class="p">(</span><span class="n">_DirectionalStrategy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a correlation matrix, choose units based on the one with the greatest L1 norm&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">distance</span><span class="o">=</span><span class="n">_DirectionalStrategy</span><span class="o">.</span><span class="n">Distance</span><span class="o">.</span><span class="n">L1</span><span class="p">,</span>
+            <span class="n">direction</span><span class="o">=</span><span class="n">_DirectionalStrategy</span><span class="o">.</span><span class="n">UnitDirection</span><span class="o">.</span><span class="n">MAX</span>
+        <span class="p">)</span>
+
+
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">L1Min</span><span class="p">(</span><span class="n">_DirectionalStrategy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a correlation matrix, choose units based on the one with the lowest L1 norm&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">distance</span><span class="o">=</span><span class="n">_DirectionalStrategy</span><span class="o">.</span><span class="n">Distance</span><span class="o">.</span><span class="n">L1</span><span class="p">,</span>
+            <span class="n">direction</span><span class="o">=</span><span class="n">_DirectionalStrategy</span><span class="o">.</span><span class="n">UnitDirection</span><span class="o">.</span><span class="n">MIN</span>
+        <span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

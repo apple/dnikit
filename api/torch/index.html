@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>dnikit_torch &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/torch/index';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Citing DNIKit" href="../../reference/how_to_cite.html" />
+    <link rel="prev" title="dnikit_tensorflow" href="../tensorflow/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">DNIKit API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/api/torch/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>dnikit_torch</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset.batch_size"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset.batch_size</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset.mapping"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset.mapping</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset.producer"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset.producer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset.transforms"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset.transforms</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer"><code class="docutils literal notranslate"><span class="pre">TorchProducer</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer.anonymous_field_name"><code class="docutils literal notranslate"><span class="pre">TorchProducer.anonymous_field_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer.batch_size"><code class="docutils literal notranslate"><span class="pre">TorchProducer.batch_size</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer.data_loader"><code class="docutils literal notranslate"><span class="pre">TorchProducer.data_loader</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer.mapping"><code class="docutils literal notranslate"><span class="pre">TorchProducer.mapping</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="dnikit-torch">
+<span id="torch-api"></span><h1><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code><a class="headerlink" href="#dnikit-torch" title="Permalink to this heading">#</a></h1>
+<span class="target" id="module-dnikit_torch"></span><p>DNIKit PyTorch integration and support.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="dnikit_torch.ProducerTorchDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit_torch.</span></span><span class="sig-name descname"><span class="pre">ProducerTorchDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">producer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transforms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/dnikit_torch/_torch_producer.html#ProducerTorchDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dnikit_torch.ProducerTorchDataset" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://pytorch.org/docs/stable/data.html#torch.utils.data.IterableDataset" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IterableDataset</span></code></a></p>
+<p>Adaptor that transforms any <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a> into a
+<a class="reference external" href="https://pytorch.org/docs/stable/data.html#torch.utils.data.IterableDataset" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyTorch</span> <span class="pre">IterableDataset</span></code></a>.
+The Producer can be something simple like a <a class="reference internal" href="../dnikit/base.html#dnikit.base.ImageProducer" title="dnikit.base.ImageProducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageProducer</span></code></a>
+or a more complex <a class="reference internal" href="../dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipeline</span></code></a> of stages.</p>
+<p>Instances are given a <a class="reference internal" href="#dnikit_torch.ProducerTorchDataset.mapping" title="dnikit_torch.ProducerTorchDataset.mapping"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mapping</span></code></a> that describes how to transform the structured
+data in a <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.ElementType" title="dnikit.base.Batch.ElementType"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.ElementType</span></code></a>  (type of single
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.elements" title="dnikit.base.Batch.elements"><code class="xref py py-class docutils literal notranslate"><span class="pre">batch.elements</span></code></a>) into an unstructured tuple
+that PyTorch expects from a Dataset. This same mapping can be used to map the positional values
+from PyTorch back into a dnikit Producer via <a class="reference internal" href="#dnikit_torch.TorchProducer" title="dnikit_torch.TorchProducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TorchProducer</span></code></a>.</p>
+<p>This class also supports an optional <a class="reference internal" href="#dnikit_torch.ProducerTorchDataset.transforms" title="dnikit_torch.ProducerTorchDataset.transforms"><code class="xref py py-attr docutils literal notranslate"><span class="pre">transforms</span></code></a> that works similar
+to the <code class="docutils literal notranslate"><span class="pre">transforms</span></code> attr on
+<a class="reference external" href="https://pytorch.org/vision/stable/datasets.html">PyTorch image datasets</a>.</p>
+<dl class="simple">
+<dt>See Also</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#dnikit_torch.TorchProducer" title="dnikit_torch.TorchProducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TorchProducer</span></code></a> – converts a PyTorch Dataset/DataLoader into a
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>producer</strong> (<a class="reference internal" href="../dnikit/base.html#dnikit.base.Producer" title="dnikit.base._producer.Producer"><em>Producer</em></a>) – see <a class="reference internal" href="#dnikit_torch.ProducerTorchDataset.producer" title="dnikit_torch.ProducerTorchDataset.producer"><code class="xref py py-attr docutils literal notranslate"><span class="pre">producer</span></code></a></p></li>
+<li><p><strong>mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base._batch._batch.Batch.DictMetaKey"><em>DictMetaKey</em></a><em> | </em><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base._batch._batch.Batch.MetaKey"><em>MetaKey</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><em>Callable</em></a><em>[</em><em>[</em><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.ElementType" title="dnikit.base._batch._batch.Batch.ElementType"><em>ElementType</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em>]</em><em>]</em>) – see <a class="reference internal" href="#dnikit_torch.ProducerTorchDataset.mapping" title="dnikit_torch.ProducerTorchDataset.mapping"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mapping</span></code></a></p></li>
+<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – <strong>[optional]</strong> see <a class="reference internal" href="#dnikit_torch.ProducerTorchDataset.batch_size" title="dnikit_torch.ProducerTorchDataset.batch_size"><code class="xref py py-attr docutils literal notranslate"><span class="pre">batch_size</span></code></a></p></li>
+<li><p><strong>transforms</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Mapping" title="(in Python v3.11)"><em>Mapping</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><em>Callable</em></a><em>[</em><em>[</em><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><em>Tensor</em></a><em>]</em><em>, </em><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><em>Tensor</em></a><em>]</em><em>] </em><em>| </em><em>None</em>) – <strong>[optional]</strong> see <a class="reference internal" href="#dnikit_torch.ProducerTorchDataset.transforms" title="dnikit_torch.ProducerTorchDataset.transforms"><code class="xref py py-attr docutils literal notranslate"><span class="pre">transforms</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dnikit_torch.ProducerTorchDataset.batch_size">
+<span class="sig-name descname"><span class="pre">batch_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#dnikit_torch.ProducerTorchDataset.batch_size" title="Permalink to this definition">#</a></dt>
+<dd><p>The size of batch to read from the producer.  This is independent of the downstream
+batch size in PyTorch.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dnikit_torch.ProducerTorchDataset.mapping">
+<span class="sig-name descname"><span class="pre">mapping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base._batch._batch.Batch.DictMetaKey"><span class="pre">DictMetaKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base._batch._batch.Batch.MetaKey"><span class="pre">MetaKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.ElementType" title="dnikit.base._batch._batch.Batch.ElementType"><span class="pre">ElementType</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#dnikit_torch.ProducerTorchDataset.mapping" title="Permalink to this definition">#</a></dt>
+<dd><p>Describes how to map a <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.ElementType" title="dnikit.base.Batch.ElementType"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.ElementType</span></code></a> to the Dataset
+result. Typically the first value returned from a Dataset is an array-like piece of data, e.g.
+an <code class="docutils literal notranslate"><span class="pre">image</span></code> <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">field</span></code></a> in a typical
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.</p>
+<p>The mapping supports several different types of values:</p>
+<ul class="simple">
+<li><p>string – names a <cite>batch.fields</cite> to copy into the output</p></li>
+<li><p><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">DictMetaKey</span></code></a> /
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base.Batch.MetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetaKey</span></code></a> – names a
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.metadata" title="dnikit.base.Batch.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">batch.metadata</span></code></a> to copy into the output</p></li>
+<li><p>callable – custom code to produce a custom result</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># consider a Batch.ElementType with data like this:</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">fields</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">im</span><span class="p">,</span>
+    <span class="s2">&quot;image2&quot;</span><span class="p">:</span> <span class="n">im</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">key1</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">DictMetaKey</span><span class="p">[</span><span class="nb">dict</span><span class="p">](</span><span class="s2">&quot;KEY1&quot;</span><span class="p">)</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">key1</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;k1&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span> <span class="s2">&quot;k2&quot;</span><span class="p">:</span> <span class="s2">&quot;v2&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># it&#39;s possible to define the mapping like this:</span>
+
+<span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="n">Batch</span><span class="o">.</span><span class="n">ElementType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="c1"># note: pycharm requires a writable copy of the ndarray</span>
+    <span class="k">return</span> <span class="n">element</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">128</span><span class="p">,</span> <span class="mi">32</span><span class="p">))</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ProducerTorchDataset</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="s2">&quot;image2&quot;</span><span class="p">,</span> <span class="n">key1</span><span class="p">,</span> <span class="n">transform</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>In this example the Dataset will produce two ndarrays, a dictionary and a reshaped ndarray.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dnikit_torch.ProducerTorchDataset.producer">
+<span class="sig-name descname"><span class="pre">producer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../dnikit/base.html#dnikit.base.Producer" title="dnikit.base._producer.Producer"><span class="pre">Producer</span></a></em><a class="headerlink" href="#dnikit_torch.ProducerTorchDataset.producer" title="Permalink to this definition">#</a></dt>
+<dd><p>The Producer to represent as a PyTorch Dataset.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dnikit_torch.ProducerTorchDataset.transforms">
+<span class="sig-name descname"><span class="pre">transforms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Mapping" title="(in Python v3.11)"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><span class="pre">Tensor</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><span class="pre">Tensor</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#dnikit_torch.ProducerTorchDataset.transforms" title="Permalink to this definition">#</a></dt>
+<dd><p>//pytorch.org/vision/stable/transforms.html).  This
+is a mapping from field name to a Tensor transform, e.g. image and audio transforms.</p>
+<p>Typical PyTorch Datasets provide a <code class="docutils literal notranslate"><span class="pre">transform</span></code> and <code class="docutils literal notranslate"><span class="pre">target_transform</span></code> to transform
+the first and second values.  This class requires passing in specific field names for the
+transforms to apply to.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">ProducerTorchDataset</span><span class="p">(</span>
+    <span class="n">producer</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="s2">&quot;mask&quot;</span><span class="p">,</span> <span class="s2">&quot;heights&quot;</span><span class="p">],</span>
+    <span class="n">transforms</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">transforms</span><span class="o">.</span><span class="n">RandomCrop</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+        <span class="s2">&quot;mask&quot;</span><span class="p">:</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+             <span class="n">transforms</span><span class="o">.</span><span class="n">CenterCrop</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+             <span class="n">transforms</span><span class="o">.</span><span class="n">ColorJitter</span><span class="p">(),</span>
+        <span class="p">]),</span>
+    <span class="p">})</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional transforms (https</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dnikit_torch.TorchProducer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dnikit_torch.</span></span><span class="sig-name descname"><span class="pre">TorchProducer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_loader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anonymous_field_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/dnikit_torch/_torch_producer.html#TorchProducer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dnikit_torch.TorchProducer" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../dnikit/base.html#dnikit.base.Producer" title="dnikit.base._producer.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a></p>
+<p>Adaptor that transforms a PyTorch
+<a class="reference external" href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html">DataLoader</a> into a DNIKit
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a>. This enables reuse of PyTorch Datasets with
+DNIKit <a class="reference internal" href="../dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipelines</span></code></a>.</p>
+<p>Instances are given a <a class="reference internal" href="#dnikit_torch.TorchProducer.mapping" title="dnikit_torch.TorchProducer.mapping"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mapping</span></code></a> that describes how to transform the unstructured
+tuple that a PyTorch Dataset produces into a structured DNIKit
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.
+This same mapping can be used to match a <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> into a
+Dataset in <a class="reference internal" href="#dnikit_torch.ProducerTorchDataset" title="dnikit_torch.ProducerTorchDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProducerTorchDataset</span></code></a>.</p>
+<dl class="simple">
+<dt>See Also</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#dnikit_torch.ProducerTorchDataset" title="dnikit_torch.ProducerTorchDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProducerTorchDataset</span></code></a> – <a class="reference internal" href="../dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a> into a
+PyTorch Dataset</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_loader</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader" title="(in PyTorch v2.0)"><em>DataLoader</em></a>) – see <a class="reference internal" href="#dnikit_torch.TorchProducer.data_loader" title="dnikit_torch.TorchProducer.data_loader"><code class="xref py py-attr docutils literal notranslate"><span class="pre">data_loader</span></code></a></p></li>
+<li><p><strong>mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base._batch._batch.Batch.DictMetaKey"><em>DictMetaKey</em></a><em> | </em><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base._batch._batch.Batch.MetaKey"><em>MetaKey</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><em>Callable</em></a><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em>, </em><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.Builder" title="dnikit.base._batch._batch.Batch.Builder"><em>Builder</em></a><em>]</em><em>, </em><em>None</em><em>]</em><em>]</em>) – see <a class="reference internal" href="#dnikit_torch.TorchProducer.mapping" title="dnikit_torch.TorchProducer.mapping"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mapping</span></code></a></p></li>
+<li><p><strong>anonymous_field_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – see <a class="reference internal" href="#dnikit_torch.TorchProducer.anonymous_field_name" title="dnikit_torch.TorchProducer.anonymous_field_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">anonymous_field_name</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dnikit_torch.TorchProducer.anonymous_field_name">
+<span class="sig-name descname"><span class="pre">anonymous_field_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'_'</span></em><a class="headerlink" href="#dnikit_torch.TorchProducer.anonymous_field_name" title="Permalink to this definition">#</a></dt>
+<dd><p>The field name to use when mapping non-dictionary metadata to
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">DictMetaKey</span></code></a>.
+For example, if a PyTorch Dataset produces:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">yield</span> <span class="n">ndarray</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>it can be mapped into a <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">DictMetaKey</span></code></a> like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">key1</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">DictMetaKey</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]](</span><span class="s2">&quot;KEY1&quot;</span><span class="p">)</span>
+<span class="n">producer</span> <span class="o">=</span> <span class="n">TorchProducer</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">key1</span><span class="p">])</span>
+
+<span class="n">element</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">producer</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># this is how the metadata is surfaced</span>
+<span class="n">element</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">key1</span><span class="p">]</span> <span class="o">==</span> <span class="p">{</span> <span class="s2">&quot;_&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Ideally a <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base.Batch.MetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetaKey</span></code></a> is used in these cases.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dnikit_torch.TorchProducer.batch_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">batch_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#dnikit_torch.TorchProducer.batch_size" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dnikit_torch.TorchProducer.data_loader">
+<span class="sig-name descname"><span class="pre">data_loader</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader" title="(in PyTorch v2.0)"><span class="pre">DataLoader</span></a></em><a class="headerlink" href="#dnikit_torch.TorchProducer.data_loader" title="Permalink to this definition">#</a></dt>
+<dd><p>The PyTorch DataLoader to adapt to a <a class="reference internal" href="../dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Producer</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dnikit_torch.TorchProducer.mapping">
+<span class="sig-name descname"><span class="pre">mapping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base._batch._batch.Batch.DictMetaKey"><span class="pre">DictMetaKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base._batch._batch.Batch.MetaKey"><span class="pre">MetaKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.Builder" title="dnikit.base._batch._batch.Batch.Builder"><span class="pre">Builder</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#dnikit_torch.TorchProducer.mapping" title="Permalink to this definition">#</a></dt>
+<dd><p>This mapping defines how the positional values in a PyTorch Dataset map
+back to a structured <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch" title="dnikit.base.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.  This is essentially the same mapping
+used in <a class="reference internal" href="#dnikit_torch.ProducerTorchDataset" title="dnikit_torch.ProducerTorchDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProducerTorchDataset</span></code></a> – the same mapping could be used
+to round-trip the data between PyTorch and dnikit.</p>
+<p>The values in the mapping correspond to the positions in the Dataset result
+and convert values as follows:</p>
+<ul class="simple">
+<li><p>string – map a Tensor into a <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.fields" title="dnikit.base.Batch.fields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">batch.fields</span></code></a>
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p></li>
+<li><p><a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.DictMetaKey" title="dnikit.base.Batch.DictMetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">DictMetaKey</span></code></a> /
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.MetaKey" title="dnikit.base.Batch.MetaKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetaKey</span></code></a> – map a value into
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.metadata" title="dnikit.base.Batch.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">batch.metadata</span></code></a></p></li>
+<li><p>callable – perform custom conversion and update the
+<a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.Builder" title="dnikit.base.Batch.Builder"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch.Builder</span></code></a></p></li>
+<li><p>None – discard a value</p></li>
+</ul>
+<p>For example, given a Dataset that produced data like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">yield</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;k1&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span> <span class="s2">&quot;k2&quot;</span><span class="p">:</span> <span class="s2">&quot;v2&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>it can be mapped into dnikit <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.metadata" title="dnikit.base.Batch.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">metadata</span></code></a> like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">key1</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">DictMetaKey</span><span class="p">[</span><span class="nb">int</span><span class="p">](</span><span class="s2">&quot;KEY1&quot;</span><span class="p">)</span>
+<span class="n">key2</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">DictMetaKey</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]](</span><span class="s2">&quot;KEY2&quot;</span><span class="p">)</span>
+<span class="n">producer</span> <span class="o">=</span> <span class="n">TorchProducer</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">key1</span><span class="p">,</span> <span class="n">key2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>That will map the first field into <code class="docutils literal notranslate"><span class="pre">batch.fields[&quot;image&quot;]</span></code> as an
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.  The second field will be discarded.  The third and fourth fields
+will come across as <a class="reference internal" href="../dnikit/base.html#dnikit.base.Batch.metadata" title="dnikit.base.Batch.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">metadata</span></code></a> like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">element</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">key1</span><span class="p">]</span> <span class="o">==</span> <span class="p">{</span> <span class="s2">&quot;_&quot;</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
+<span class="n">element</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">key2</span><span class="p">]</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;k1&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span> <span class="s2">&quot;k2&quot;</span><span class="p">:</span> <span class="s2">&quot;v2&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>If the Dataset only produces image data, a single mapping will be sufficient: <code class="docutils literal notranslate"><span class="pre">[&quot;image&quot;]</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../tensorflow/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../reference/how_to_cite.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Citing DNIKit</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset.batch_size"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset.batch_size</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset.mapping"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset.mapping</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset.producer"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset.producer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.ProducerTorchDataset.transforms"><code class="docutils literal notranslate"><span class="pre">ProducerTorchDataset.transforms</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer"><code class="docutils literal notranslate"><span class="pre">TorchProducer</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer.anonymous_field_name"><code class="docutils literal notranslate"><span class="pre">TorchProducer.anonymous_field_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer.batch_size"><code class="docutils literal notranslate"><span class="pre">TorchProducer.batch_size</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer.data_loader"><code class="docutils literal notranslate"><span class="pre">TorchProducer.data_loader</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnikit_torch.TorchProducer.mapping"><code class="docutils literal notranslate"><span class="pre">TorchProducer.mapping</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

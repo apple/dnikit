@@ -1,0 +1,613 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Duplicates &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introspectors/data_introspection/duplicates';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Duplicates: Find Near Duplicate Data Samples" href="../../notebooks/data_introspection/duplicates.html" />
+    <link rel="prev" title="DNIKit Familiarity: Dataset Distribution" href="../../notebooks/data_introspection/familiarity_for_dataset_distribution.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../data_introspection.html">Data Introspectors</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Duplicates</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/introspectors/data_introspection/duplicates.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Duplicates</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-usage">General Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-options">Config Options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-duplicates-results">Exploring Duplicates Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-harm-of-duplicates">The Harm of Duplicates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-api">Relevant API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="duplicates">
+<span id="id1"></span><h1>Duplicates<a class="headerlink" href="#duplicates" title="Permalink to this heading">#</a></h1>
+<p>Find near duplicate data samples within a given dataset or across multiple datasets, by using
+an approximate nearest neighbor to build a distance matrix for all
+samples and clusters the closest samples.
+This algorithm, for example, can be used to unmask a class imbalance issue or
+find duplicate data that exist in both the train and test splits.</p>
+<p>For a more thorough discussion of this algorithm and its use, see the
+<a class="reference internal" href="#duplicates-description"><span class="std std-ref">Description</span></a> below.</p>
+<section id="general-usage">
+<h2>General Usage<a class="headerlink" href="#general-usage" title="Permalink to this heading">#</a></h2>
+<p>For getting started with DNIKit code, please see the <a class="reference internal" href="../../how_to/connect_model.html#connect-your-model"><span class="std std-ref">how-to pages</span></a>.</p>
+<p>Assuming a <a class="reference internal" href="../../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipeline</span></code></a>
+is set up that produces responses from a model,
+<cite>Duplicates</cite> analysis can be run as so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">Duplicates</span>
+
+<span class="n">response_producer</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># pipeline setup here</span>
+
+<span class="c1"># Run `Duplicates` analysis on responses from a `Producer`</span>
+<span class="n">duplicates</span> <span class="o">=</span> <span class="n">Duplicates</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">response_producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Preparing input to introspection usually requires two things:</dt><dd><ul class="simple">
+<li><p>introspect on <strong>intermediate layer responses</strong> (rather than the final outputs of a network).
+For <cite>Duplicates</cite>, layer(s) towards the end of the network could be most appropriate.</p></li>
+<li><p><strong>reduce the dimensions</strong> of outputs
+with a <a class="reference internal" href="dimension_reduction.html#dimension-reduction"><span class="std std-ref">dimension reduction algorithm</span></a>.
+While the <cite>Duplicates</cite> algorithm can run on any dimension of data,
+dimension reduction helps with performance.</p></li>
+</ul>
+</dd>
+</dl>
+<p>A full example pipeline for the CIFAR10 dataset and model
+(note: this will likely take some time to run!):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="kn">from</span> <span class="nn">dnikit.processors</span> <span class="kn">import</span> <span class="n">Cacher</span><span class="p">,</span> <span class="n">ImageResizer</span>
+<span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">Duplicates</span><span class="p">,</span> <span class="n">DimensionReduction</span>
+<span class="kn">from</span> <span class="nn">dnikit_tensorflow</span> <span class="kn">import</span> <span class="n">TFDatasetExamples</span><span class="p">,</span> <span class="n">TFModelExamples</span>
+
+<span class="c1"># Load CIFAR10 dataset and feed into MobileNet,</span>
+<span class="c1"># observing responses from layer &quot;conv_pw_13/convolution:0&#39;&quot;</span>
+<span class="n">cifar10</span> <span class="o">=</span> <span class="n">TFDatasetExamples</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">()</span>
+<span class="n">mobilenet</span> <span class="o">=</span> <span class="n">TFModelExamples</span><span class="o">.</span><span class="n">MobileNet</span><span class="p">()</span>
+<span class="n">producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+   <span class="n">cifar10</span><span class="p">,</span>
+   <span class="n">ImageResizer</span><span class="p">(</span><span class="n">pixel_format</span><span class="o">=</span><span class="n">ImageResizer</span><span class="o">.</span><span class="n">Format</span><span class="o">.</span><span class="n">HWC</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)),</span>
+   <span class="n">mobilenet</span><span class="p">(</span><span class="n">requested_responses</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;conv_pw_13/convolution:0&#39;</span><span class="p">]),</span>
+   <span class="n">Cacher</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># Create a processor that reduces dimensions of</span>
+<span class="c1"># model responses down to 40, using PCA</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">DimensionReduction</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span>
+    <span class="n">producer</span><span class="p">,</span>
+    <span class="n">strategies</span><span class="o">=</span><span class="n">DimensionReduction</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Create a new producer that outputs the reduced data:</span>
+<span class="n">reduced_producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">pca</span><span class="p">)</span>
+
+<span class="c1"># Run `Duplicates` introspector</span>
+<span class="n">duplicates</span> <span class="o">=</span> <span class="n">Duplicates</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">reduced_producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">#</a></h2>
+<p>It’s recommended to visualize the Duplicates results using
+<a class="reference external" href="https://github.com/apple/ml-symphony">Symphony</a>, as noted in
+the <a class="reference internal" href="dataset_report.html#dataset-report"><span class="std std-ref">DatasetReport</span></a> page. There is also an example visualization
+that does not use Symphony in the <a class="reference internal" href="#duplicates-example"><span class="std std-ref">example notebook below</span></a>.</p>
+</section>
+<section id="config-options">
+<h2>Config Options<a class="headerlink" href="#config-options" title="Permalink to this heading">#</a></h2>
+<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">introspect()</span></code> method of <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Duplicates" title="dnikit.introspectors.Duplicates"><code class="xref py py-class docutils literal notranslate"><span class="pre">Duplicates</span></code></a>
+takes an optional <code class="code docutils literal notranslate"><span class="pre">batch_size</span></code> keyword argument for the size of batches
+to pull from and an optional <code class="code docutils literal notranslate"><span class="pre">threshold</span></code> keyword argument of type
+<code class="xref py py-class docutils literal notranslate"><span class="pre">dnikit.introspectors.Duplicates.DuplicatesThresholdStrategyType</span></code>. Please see the
+API docs for <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Duplicates" title="dnikit.introspectors.Duplicates"><code class="xref py py-class docutils literal notranslate"><span class="pre">Duplicates</span></code></a> for more information.</p>
+<section id="exploring-duplicates-results">
+<h3>Exploring Duplicates Results<a class="headerlink" href="#exploring-duplicates-results" title="Permalink to this heading">#</a></h3>
+<p>The return object of Duplicates is a <code class="code docutils literal notranslate"><span class="pre">dict</span></code> mapping response names to a list of
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Duplicates.DuplicateSetCandidate" title="dnikit.introspectors.Duplicates.DuplicateSetCandidate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DuplicateSetCandidates</span></code></a>,
+which represent clusters of nearby data samples. Assuming
+a return object <code class="code docutils literal notranslate"><span class="pre">duplicates</span></code>, the results may be traversed as so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">response_name</span><span class="p">,</span> <span class="n">clusters</span> <span class="ow">in</span> <span class="n">duplicates</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+   <span class="c1"># sort by the mean distance to the centroid</span>
+   <span class="n">clusters</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">clusters</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+   <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="description">
+<span id="duplicates-description"></span><h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<section id="the-harm-of-duplicates">
+<h3>The Harm of Duplicates<a class="headerlink" href="#the-harm-of-duplicates" title="Permalink to this heading">#</a></h3>
+<p>The presence of near duplicates in a dataset can indicate that there might not be enough variation
+in the dataset. When duplicates exist across training and test datasets, the test accuracy is not
+an accurate reflection of the model’s performance, and doesn’t demonstrate that the model will
+generalize well to new, unseen, data samples. Near duplicates within a train or test set alone
+might not necessarily be harmful, however, they could slow down training and mask a class imbalance
+problem. A first glance at the distribution of samples across classes might indicate a
+balanced split, the effective distribution might change depending on the presence of duplicates.</p>
+<p>In a dataset, there could be variation in the form of the same data sample, but with
+various transformations applied. E.g. for an image, maybe translations, crops, scales, etc.
+Although this kind of variation improves performance and allows the model to generalize better,
+an alternative way to introduce this variation uniformly across all kinds of data samples is to
+use data augmentation during training. Data augmentation is a popular way to artificially increase
+the size of a dataset, via flipping, rotating, scaling, cropping, translating, etc. the images.
+If the plan is to introduce different data augmentation methods during training, then the presence
+of these kinds of similar images in the dataset is unnecessary and might, again, mask a class
+imbalance problem. In addition, if the dataset has not yet been annotated, then reducing duplicates
+also reduces the annotation effort.</p>
+</section>
+<section id="algorithm">
+<h3>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h3>
+<p>The duplicates are found by searching for the k-nearest neighbors using
+<a class="reference external" href="https://github.com/spotify/annoy">ANNOY - Approximate Nearest Neighbor Oh My!</a>, filtering
+the results by a threshold distance and building clusters using the transitive closure of the
+union of the result sets.</p>
+<p>Approximate nearest neighbors uses a hashing technique
+to limit the possible search area (this is how the linear performance is obtained).  The
+“approximate” means that the hashing may prevent some duplicates from being found, though in
+practice multiple hash functions are used to mitigate this effect.  In practice, the algorithm
+found the same results as an “exact” algorithm on CIFAR-10. The distances computed are exact.</p>
+<p>The run-time of <cite>Duplicates</cite> scales linearly with the number of samples and the
+number of dimensions in the response data. If the responses have a high number of dimensions,
+consider using <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.DimensionReduction" title="dnikit.introspectors.DimensionReduction"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimensionReduction</span></code></a> to reduce the
+dimensions (e.g. to 40).</p>
+</section>
+</section>
+<section id="relevant-api">
+<h2>Relevant API<a class="headerlink" href="#relevant-api" title="Permalink to this heading">#</a></h2>
+<p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.Duplicates" title="dnikit.introspectors.Duplicates"><code class="xref py py-class docutils literal notranslate"><span class="pre">Duplicates</span></code></a> – introspector to find duplicates and near duplicates</p>
+</section>
+<section id="example">
+<span id="duplicates-example"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../notebooks/data_introspection/familiarity_for_dataset_distribution.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">DNIKit Familiarity: Dataset Distribution</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../notebooks/data_introspection/duplicates.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Duplicates: Find Near Duplicate Data Samples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-usage">General Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-options">Config Options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-duplicates-results">Exploring Duplicates Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-harm-of-duplicates">The Harm of Duplicates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-api">Relevant API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

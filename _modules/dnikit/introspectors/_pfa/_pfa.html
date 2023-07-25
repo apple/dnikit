@@ -1,0 +1,767 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dnikit.introspectors._pfa._pfa &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dnikit/introspectors/_pfa/_pfa';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dnikit.introspectors._pfa._pfa</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright 2020 Apple Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">Producer</span><span class="p">,</span> <span class="n">Introspector</span>
+<span class="kn">from</span> <span class="nn">dnikit.exceptions</span> <span class="kn">import</span> <span class="n">DNIKitException</span>
+<span class="kn">from</span> <span class="nn">dnikit._logging</span> <span class="kn">import</span> <span class="n">_Logged</span>
+<span class="kn">from</span> <span class="nn">dnikit._availability</span> <span class="kn">import</span> <span class="n">_pandas_available</span><span class="p">,</span> <span class="n">_matplotlib_available</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._types</span> <span class="k">as</span> <span class="nn">t</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._dnikit_types</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="kn">from</span> <span class="nn">._recommendation</span> <span class="kn">import</span> <span class="n">PFARecipe</span><span class="p">,</span> <span class="n">PFAEnergyDiagnostics</span><span class="p">,</span> <span class="n">PFAKLDiagnostics</span>
+<span class="kn">from</span> <span class="nn">._covariances_calculator</span> <span class="kn">import</span> <span class="n">PFACovariancesResult</span><span class="p">,</span> <span class="n">_prepare_covariances</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_pfa_algorithms</span>
+<span class="kn">from</span> <span class="nn">._pfa_algorithms</span> <span class="kn">import</span> <span class="n">PFAStrategyType</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_pfa_units</span>
+<span class="kn">from</span> <span class="nn">._pfa_units</span> <span class="kn">import</span> <span class="n">PFAUnitSelectionStrategyType</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span> <span class="k">as</span> <span class="n">pdDataFrame</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">pdDataFrame</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">pd</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+    <span class="kn">from</span> <span class="nn">matplotlib.axes</span> <span class="kn">import</span> <span class="n">Axes</span> <span class="k">as</span> <span class="n">mplAxes</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">mpl</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mplAxes</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="PFA"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFA">[docs]</a><span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">PFA</span><span class="p">(</span><span class="n">Introspector</span><span class="p">,</span> <span class="n">_Logged</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Like other :class:`introspectors &lt;dnikit.base.Introspector&gt;`, use</span>
+<span class="sd">    :func:`PFA.introspect &lt;introspect&gt;` to instantiate.</span>
+
+<span class="sd">    Use PFA to discover highly correlated filter, or more generically unit,</span>
+<span class="sd">    responses within layers of a neural network. Exploit data to guide</span>
+<span class="sd">    `network compression` in order to decrease inference time</span>
+<span class="sd">    and memory footprint while improving generalization. See the DNIKit docs for more information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        failed_responses: do not instantiate ``PFA`` directly, use</span>
+<span class="sd">            :func:`PFA.introspect &lt;introspect&gt;`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PFA.Strategy"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.Strategy">[docs]</a>    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="k">class</span> <span class="nc">Strategy</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Bundled PFA strategies.  To implement a custom strategy, see :class:`PFAStrategyType`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">KL</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="n">_pfa_algorithms</span><span class="o">.</span><span class="n">KL</span>
+        <span class="n">Energy</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="n">_pfa_algorithms</span><span class="o">.</span><span class="n">Energy</span>
+        <span class="n">Size</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="n">_pfa_algorithms</span><span class="o">.</span><span class="n">Size</span></div>
+
+<div class="viewcode-block" id="PFA.UnitSelectionStrategy"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.UnitSelectionStrategy">[docs]</a>    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="k">class</span> <span class="nc">UnitSelectionStrategy</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Strategy for selecting the maximally correlated units.  To implement a custom</span>
+<span class="sd">        strategy, see :class:`PFAUnitSelectionStrategyType`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">AbsMax</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="n">_pfa_units</span><span class="o">.</span><span class="n">AbsMax</span>
+        <span class="n">AbsMin</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="n">_pfa_units</span><span class="o">.</span><span class="n">AbsMin</span>
+        <span class="n">L1Max</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="n">_pfa_units</span><span class="o">.</span><span class="n">L1Max</span>
+        <span class="n">L1Min</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="n">_pfa_units</span><span class="o">.</span><span class="n">L1Min</span>
+
+<div class="viewcode-block" id="PFA.UnitSelectionStrategy.get_algos"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.UnitSelectionStrategy.get_algos">[docs]</a>        <span class="nd">@classmethod</span>
+        <span class="k">def</span> <span class="nf">get_algos</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="n">PFAUnitSelectionStrategyType</span><span class="p">]:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Returns: a list of all registered unit selection strategies.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+                <span class="k">if</span> <span class="s2">&quot;_&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">member</span> <span class="ow">and</span> <span class="n">member</span> <span class="o">!=</span> <span class="s2">&quot;get_algos&quot;</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">member</span><span class="p">)()</span></div></div>
+
+<div class="viewcode-block" id="PFA.VisType"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.VisType">[docs]</a>    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="k">class</span> <span class="nc">VisType</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Type of visualization modality for PFA, available to visualize via :func:`PFA.show()`&quot;&quot;&quot;</span>
+
+        <span class="n">CHART</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="s1">&#39;chart&#39;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Chart comparing recommended vs. original unit counts per layer&quot;&quot;&quot;</span>
+
+        <span class="n">TABLE</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Final</span> <span class="o">=</span> <span class="s1">&#39;table&#39;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Table of all PFA result data&quot;&quot;&quot;</span></div>
+
+    <span class="n">failed_responses</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The names of any responses that failed to generate output.  This caused by layers with</span>
+<span class="sd">    insufficient data to support the analysis.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_covariance_result_by_response</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFACovariancesResult</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;a mapping from successful response name to PFACovariancesResult&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PFA.introspect"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.introspect">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">introspect</span><span class="p">(</span><span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                   <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+                   <span class="n">epsilon_inactive</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;PFA&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform Principal Filter Analysis on the responses</span>
+<span class="sd">        (:attr:`fields &lt;dnikit.base.Batch.fields&gt;`) generated by the ``producer``.</span>
+
+<span class="sd">        Caution:</span>
+<span class="sd">            The responses generated by ``producer`` are assumed to be 2D (Batch x C).</span>
+<span class="sd">            Thus it might be necessary to :class:`pipeline &lt;dnikit.base.pipeline&gt;` together</span>
+<span class="sd">            the :class:`Producer &lt;dnikit.base.Producer&gt;` with a</span>
+<span class="sd">            :class:`Processor &lt;dnikit.processors.Processor&gt;`</span>
+<span class="sd">            (e.g., :class:`Pooler &lt;dnikit.processors.Pooler&gt;`), that transforms each individual</span>
+<span class="sd">            response from multi-dimensional to mono-dimensional.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            producer: The producer of the responses (in :attr:`fields &lt;dnikit.base.Batch.fields&gt;`)</span>
+<span class="sd">                to be analyzed</span>
+<span class="sd">            batch_size: **[keyword arg, optional]** the batch size to use when consuming the</span>
+<span class="sd">                responses (via :attr:`batch.fields &lt;dnikit.base.Batch.fields&gt;`)</span>
+<span class="sd">            epsilon_inactive: **[keyword arg, optional]** factor used to identify inactive units</span>
+<span class="sd">                (whose ``var &lt; epsilon_inactive * np.max(var)``)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            an instance of ``PFA`` that can generate :class:`PFARecipes &lt;PFARecipe&gt;` using</span>
+<span class="sd">            a :class:`PFAStrategyType` (e.g., :class:`PFA.Strategy.KL`).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response_covariances</span> <span class="o">=</span> <span class="n">_prepare_covariances</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">producer</span><span class="p">)</span>
+
+        <span class="c1"># exclude responses that do not have enough data to support the covariance</span>
+        <span class="n">failed_responses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">successful_responses</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">response_name</span><span class="p">,</span> <span class="n">covariances_calculator</span> <span class="ow">in</span> <span class="n">response_covariances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">num_samples</span> <span class="o">=</span> <span class="n">covariances_calculator</span><span class="o">.</span><span class="n">get_count</span><span class="p">()</span>
+            <span class="n">num_features</span> <span class="o">=</span> <span class="n">covariances_calculator</span><span class="o">.</span><span class="n">get_original_output_counts</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">num_samples</span> <span class="o">&gt;=</span> <span class="n">num_features</span><span class="p">:</span>
+                <span class="n">successful_responses</span><span class="p">[</span><span class="n">response_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">covariances_calculator</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">warning_message</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Attempted to compute covariance of data matrix with &quot;</span>
+                    <span class="s2">&quot;less data points than features (data_point#, feature#) &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;= (</span><span class="si">{</span><span class="n">num_samples</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">num_features</span><span class="si">}</span><span class="s2">)&quot;</span>
+                <span class="p">)</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">warning_message</span><span class="p">)</span>
+                <span class="n">failed_responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_name</span><span class="p">)</span>
+
+        <span class="c1"># convert the good responses into `PFACovariancesResult`</span>
+        <span class="n">covariance_result_by_response</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">response_name</span><span class="p">:</span> <span class="n">covariances_calculator</span><span class="o">.</span><span class="n">_get_result</span><span class="p">(</span><span class="n">epsilon_inactive</span><span class="o">=</span><span class="n">epsilon_inactive</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">response_name</span><span class="p">,</span> <span class="n">covariances_calculator</span> <span class="ow">in</span> <span class="n">successful_responses</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">PFA</span><span class="p">(</span><span class="n">failed_responses</span><span class="p">,</span> <span class="n">covariance_result_by_response</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PFA.get_recipe"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.get_recipe">[docs]</a>    <span class="k">def</span> <span class="nf">get_recipe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">PFAStrategyType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                   <span class="n">unit_strategy</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">PFAUnitSelectionStrategyType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFARecipe</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a recipe using the given algorithm and unit strategy.</span>
+<span class="sd">        For more information refer to the `PFA` documentation page.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            strategy: **[keyword arg, optional]** The algorithm to use, :class:`PFAStrategyType`.</span>
+<span class="sd">                The default value is :class:`PFA.Strategy.KL`</span>
+<span class="sd">            unit_strategy: **[keyword arg, optional]** the :class:`PFAUnitSelectionStrategyType`</span>
+<span class="sd">                to use, default is :class:`PFA.UnitSelectionStrategy.L1Max`</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a mapping from response name to :class:`PFARecipe` for</span>
+<span class="sd">            the given :class:`algorithm &lt;Strategy&gt;` and</span>
+<span class="sd">            :class:`unit strategy &lt;UnitSelectionStrategy&gt;`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">strategy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">strategy</span> <span class="o">=</span> <span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">KL</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">unit_strategy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">unit_strategy</span> <span class="o">=</span> <span class="n">PFA</span><span class="o">.</span><span class="n">UnitSelectionStrategy</span><span class="o">.</span><span class="n">L1Max</span><span class="p">()</span>
+
+        <span class="n">covariances</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_covariance_result_by_response</span>
+
+        <span class="c1"># some algorithms optimize across all the responses so get the algorithm recipe first</span>
+        <span class="n">unfiltered_recipes</span> <span class="o">=</span> <span class="n">strategy</span><span class="p">(</span><span class="n">covariances</span><span class="p">)</span>
+
+        <span class="c1"># then apply the per-response filter</span>
+        <span class="n">filtered_recipes</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="n">recipe</span><span class="o">.</span><span class="n">_apply_unit_result</span><span class="p">(</span>
+                <span class="nb">list</span><span class="p">(</span><span class="n">unit_strategy</span><span class="p">(</span>
+                    <span class="n">covariances</span><span class="o">=</span><span class="n">covariances</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">num_units_to_keep</span><span class="o">=</span><span class="n">recipe</span><span class="o">.</span><span class="n">recommended_output_count</span>
+                <span class="p">))</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">recipe</span> <span class="ow">in</span> <span class="n">unfiltered_recipes</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">filtered_recipes</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_internal_result</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFACovariancesResult</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Access the internal PFACovariancesResult for each response.  This is useful for unit tests</span>
+<span class="sd">        or inspecting the internals of the PFA algorithm.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a mapping from successful response name to PFACovariancesResult</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_covariance_result_by_response</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_show_dataframe</span><span class="p">(</span><span class="n">recipe_result</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFARecipe</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span>
+                        <span class="n">include_columns</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">exclude_columns</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pdDataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create pandas dataframe of results to visualize in iPython / Jupyter notebook.</span>
+<span class="sd">        Requires pandas, installed via `pandas` or `dnikit[notebook]`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_pandas_available</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="s2">&quot;PIL not available, was &#39;dnikit[notebook]&#39; installed?&quot;</span><span class="p">)</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">recipe</span> <span class="ow">in</span> <span class="n">recipe_result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Create base result for a given layer from generic PFARecipe info</span>
+            <span class="n">layer_result</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;layer name&quot;</span><span class="p">:</span> <span class="n">layer_name</span><span class="p">,</span>
+                <span class="s2">&quot;original count&quot;</span><span class="p">:</span> <span class="n">recipe</span><span class="o">.</span><span class="n">original_output_count</span><span class="p">,</span>
+                <span class="s2">&quot;recommended count&quot;</span><span class="p">:</span> <span class="n">recipe</span><span class="o">.</span><span class="n">recommended_output_count</span><span class="p">,</span>
+                <span class="s2">&quot;units to keep&quot;</span><span class="p">:</span> <span class="p">(</span>
+                    <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">recipe</span><span class="o">.</span><span class="n">original_output_count</span><span class="p">))</span>
+                    <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">recipe</span><span class="o">.</span><span class="n">maximally_correlated_units</span><span class="p">)</span>
+                <span class="p">),</span>
+                <span class="s2">&quot;KL divergence&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;PFA strategy&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;units ratio&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kept energy&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span>
+            <span class="p">}</span>
+
+            <span class="c1"># Add diagnostic info for PFA KL and PFA Energy</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recipe</span><span class="o">.</span><span class="n">diagnostics</span><span class="p">,</span> <span class="n">PFAKLDiagnostics</span><span class="p">):</span>
+                <span class="n">layer_result</span><span class="p">[</span><span class="s1">&#39;KL divergence&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recipe</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">kl_divergence</span>
+                <span class="n">layer_result</span><span class="p">[</span><span class="s1">&#39;PFA strategy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;PFA KL&#39;</span>
+                <span class="n">layer_result</span><span class="p">[</span><span class="s1">&#39;units ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recipe</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">units_ratio</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recipe</span><span class="o">.</span><span class="n">diagnostics</span><span class="p">,</span> <span class="n">PFAEnergyDiagnostics</span><span class="p">):</span>
+                <span class="n">layer_result</span><span class="p">[</span><span class="s1">&#39;PFA strategy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;PFA Energy&#39;</span>
+                <span class="n">layer_result</span><span class="p">[</span><span class="s1">&#39;kept energy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recipe</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">total_kept_energy</span>
+
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">layer_result</span><span class="p">)</span>
+
+        <span class="n">pd_result</span> <span class="o">=</span> <span class="n">pdDataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+        <span class="c1"># Now prune returned columns based on `include_columns` and `exclude_columns` arguments</span>
+        <span class="n">column_titles</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pd_result</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">include_columns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Default to show these columns</span>
+            <span class="n">column_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;layer name&quot;</span><span class="p">,</span> <span class="s2">&quot;original count&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended count&quot;</span><span class="p">,</span> <span class="s2">&quot;units to keep&quot;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">include_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">column_titles</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">title</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">include_columns</span>
+                <span class="k">if</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">column_titles</span>
+            <span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">exclude_columns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">column_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">column_titles</span> <span class="k">if</span> <span class="n">title</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">exclude_columns</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">column_titles</span><span class="p">:</span>
+            <span class="c1"># Could happen if exclude columns exactly equals include columns</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span>
+                <span class="s2">&quot;No columns selected, are the `exclude columns` the same as the ones to `include`&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">pd_result</span><span class="p">[</span><span class="n">column_titles</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_is_old_matplotlib_version</span><span class="p">(</span><span class="n">version_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">version_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+        <span class="c1"># check major and minor versions</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">4</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_show_chart</span><span class="p">(</span><span class="n">recipe_result</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFARecipe</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">mplAxes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Chart a single PFA recipe comparing recommended output vs. original output counts</span>
+
+<span class="sd">        Note: Requires matplotlib, installed via `matplotlib` or `dnikit[notebook]`</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            recipe_result: result of :func:`PFA.introspect`, mapping of layer to :class:`PFARecipe`</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            matplotlib pyplot axis of PFA results from input recipes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_matplotlib_available</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="s2">&quot;matplotlib not available, was &#39;dnikit[notebook]&#39; installed?&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Collect data to plot from recipe</span>
+        <span class="n">compressed</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">original</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">recipe_result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">compressed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">recommended_output_count</span><span class="p">)</span>
+            <span class="n">original</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">original_output_count</span><span class="p">)</span>
+            <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="c1"># Plot original layer size vs. recommended (compressed) layer size</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Create a figure and an axes.</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">compressed</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;compressed&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;original&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">PFA</span><span class="o">.</span><span class="n">_is_old_matplotlib_version</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">__version__</span><span class="p">):</span>
+            <span class="c1"># Python 3.6 requires a lower version of matplotlib, which has a different API</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)))</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)),</span> <span class="n">names</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;layer name&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;number of units&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ax</span>
+
+<div class="viewcode-block" id="PFA.show"><a class="viewcode-back" href="../../../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.show">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">recipe_result</span><span class="p">:</span> <span class="n">dt</span><span class="o">.</span><span class="n">OneOrMany</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFARecipe</span><span class="p">]],</span> <span class="o">*</span><span class="p">,</span>
+             <span class="n">vis_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">VisType</span><span class="o">.</span><span class="n">TABLE</span><span class="p">,</span>
+             <span class="n">include_columns</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">exclude_columns</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">mplAxes</span><span class="p">,</span> <span class="n">pdDataFrame</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create table or chart to visualize PFA results in iPython / Jupyter notebook.</span>
+
+<span class="sd">        Note: Requires `pandas &lt;https://pandas.pydata.org/docs/&gt;`_</span>
+<span class="sd">        (``vis_type`` is :class:`PFA.VisType.TABLE`) or</span>
+<span class="sd">        `matplotlib &lt;https://matplotlib.org/stable/&gt;`_</span>
+<span class="sd">        (``vis_type`` is :class:`PFA.VisType.CHART`), which can be installed with</span>
+<span class="sd">        ``pip install &quot;dnikit[notebook]&quot;``</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            recipe_result: result of :func:`pfa.get_recipe &lt;PFA.get_recipe&gt;`, mapping of layer</span>
+<span class="sd">                to :class:`PFARecipe`.</span>
+<span class="sd">                When plotting for ``vis_type`` :class:`PFA.VisType.TABLE`, a sequence</span>
+<span class="sd">                of ``t.Mapping[str, PFARecipe]`` can be passed in to compare multiple results.</span>
+<span class="sd">            vis_type: **[keyword arg, optional]** determines visualization type.</span>
+<span class="sd">                :class:`PFA.VisType.TABLE` for pandas dataframe result or</span>
+<span class="sd">                :class:`PFA.VisType.CHART` for matplotlib pyplot of recommended vs.</span>
+<span class="sd">                original unit counts</span>
+<span class="sd">            include_columns: **[keyword arg, optional]** For ``vis_type``</span>
+<span class="sd">                as :class:`PFA.VisType.TABLE` only.</span>
+<span class="sd">                If included, only return :class:`pandas.DataFrame` with</span>
+<span class="sd">                these columns. Defaults to include all columns (value ``None``).</span>
+<span class="sd">                Options are: [``layer name``, ``original count``, ``recommended count``,</span>
+<span class="sd">                ``units to keep``, ``KL divergence``, ``PFA strategy``, ``units ratio``,</span>
+<span class="sd">                ``kept energy``].</span>
+<span class="sd">            exclude_columns: **[keyword arg, optional]** For ``vis_type``</span>
+<span class="sd">                as :class:`PFA.VisType.TABLE` only.</span>
+<span class="sd">                If included, return :class:`pandas.DataFrame` without these</span>
+<span class="sd">                columns (irrelevant if ``include_columns`` is specified). Defaults to ``None``.</span>
+<span class="sd">                Options are: [``layer name``, ``original count``, ``recommended count``,</span>
+<span class="sd">                ``units to keep``, ``KL divergence``, ``PFA strategy``, ``units ratio``,</span>
+<span class="sd">                ``kept energy``].</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            :class:`pandas.DataFrame` or :class:`matplotlib.axes.Axes` of PFA results</span>
+<span class="sd">            from input ``recipe_result``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recipe_result</span><span class="p">,</span> <span class="n">PFA</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span>
+                <span class="s2">&quot;The output of `PFA.introspect` has been passed into `PFA.show()`. Please pass the &quot;</span>
+                <span class="s2">&quot;output of `pfa.get_recipe` into `PFA.show()`. The default behavior can be used &quot;</span>
+                <span class="s2">&quot;by calling: `pfa = PFA.introspect(); recipe = pfa.get_recipe(); PFA.show(recipe)`&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">recipe_result</span> <span class="o">==</span> <span class="p">{}</span> <span class="ow">or</span> <span class="n">recipe_result</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;`recipe_result` parameter input is emtpy&quot;</span><span class="p">)</span>
+
+        <span class="c1"># This is a bit of mypy finessing, first defining the type and then assigning</span>
+        <span class="n">many_results</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PFARecipe</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recipe_result</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">):</span>
+            <span class="n">many_results</span> <span class="o">=</span> <span class="p">[</span><span class="n">recipe_result</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">many_results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">recipe_result</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">vis_type</span> <span class="o">==</span> <span class="n">PFA</span><span class="o">.</span><span class="n">VisType</span><span class="o">.</span><span class="n">TABLE</span><span class="p">:</span>
+            <span class="c1"># Concatenate results for multiple recipe results</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+                <span class="n">PFA</span><span class="o">.</span><span class="n">_show_dataframe</span><span class="p">(</span>
+                    <span class="n">single_result</span><span class="p">,</span>
+                    <span class="n">include_columns</span><span class="o">=</span><span class="n">include_columns</span><span class="p">,</span>
+                    <span class="n">exclude_columns</span><span class="o">=</span><span class="n">exclude_columns</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">single_result</span> <span class="ow">in</span> <span class="n">many_results</span>
+            <span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">vis_type</span> <span class="o">==</span> <span class="n">PFA</span><span class="o">.</span><span class="n">VisType</span><span class="o">.</span><span class="n">CHART</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">many_results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span>
+                    <span class="s2">&quot;Only one recipe&#39;s chart can be plotted at a time.&quot;</span>
+                    <span class="s2">&quot; Please pass only one recipe result for vis_type: `PFA.VisType.CHART`&quot;</span>
+                <span class="p">)</span>
+            <span class="k">return</span> <span class="n">PFA</span><span class="o">.</span><span class="n">_show_chart</span><span class="p">(</span><span class="n">many_results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">&#39;Unexpected input for parameter `vis_type`. Expected `PFA.VisType.CHART`&#39;</span>
+                <span class="s1">&#39; or `PFA.VisType.TABLE`&#39;</span>
+            <span class="p">)</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,994 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Principal Filter Analysis (PFA): Compression Basic Example for MobileNet on CIFAR-10 &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/model_introspection/principal_filter_analysis';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Finding a Model’s Inactive Units" href="../../introspectors/model_introspection/inactive_units.html" />
+    <link rel="prev" title="Network Compression with Principal Filter Analysis (PFA)" href="../../introspectors/model_introspection/network_compression.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../introspectors/model_introspection.html">Network Introspectors</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/model_introspection/principal_filter_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Principal Filter Analysis (PFA): Compression Basic Example for MobileNet on CIFAR-10</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-Use-DNIKit-to-run-inference-and-collect-responses-from-a-model">1. Use DNIKit to run inference and collect responses from a model</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1a.-Download-a-model,-MobileNet,-and-store-it-locally">1a. Download a model, MobileNet, and store it locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.b-Find-input-layers">1.b Find input layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.c-Find-Convolution-layers">1.c Find Convolution layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.d-Create-a-DNI-Dataset-wrapping-CIFAR-10">1.d Create a DNI Dataset wrapping CIFAR-10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.f-Run-inference">1.f Run inference</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Run-PFA-introspection">2. Run PFA introspection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-PFA-Energy">3. PFA-Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-PFA-KL">4. PFA KL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Unit-Selection">Unit Selection</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#AbsMax">AbsMax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#L1-MAX">L1-MAX</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Visualization">Visualization</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page was generated from a Jupyter notebook.
+The original can be downloaded from
+<a class="reference external" href="https://raw.github.com/apple/dnikit/main/notebooks/model_introspection/principal_filter_analysis.ipynb">here</a>.</p>
+</div>
+<section id="Principal-Filter-Analysis-(PFA):-Compression-Basic-Example-for-MobileNet-on-CIFAR-10">
+<h1>Principal Filter Analysis (PFA): Compression Basic Example for MobileNet on CIFAR-10<a class="headerlink" href="#Principal-Filter-Analysis-(PFA):-Compression-Basic-Example-for-MobileNet-on-CIFAR-10" title="Permalink to this heading">#</a></h1>
+<p>This notebook provides an example of how to apply <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/introspectors.html#dnikit.introspectors.PFA">PFA</a> to a model (MobileNet) using data from CIFAR-10 and obtain the recipes that PFA recommends to follow in order to re-architect the network and obtain a smaller model while trying to preserve accuracy.</p>
+<section id="1.-Use-DNIKit-to-run-inference-and-collect-responses-from-a-model">
+<h2>1. Use DNIKit to run inference and collect responses from a model<a class="headerlink" href="#1.-Use-DNIKit-to-run-inference-and-collect-responses-from-a-model" title="Permalink to this heading">#</a></h2>
+<p>In order to run PFA, it’s necessary to run inference using some data and collect the responses from the layers to analyze and compress. See the docs for more information about how to <a class="reference external" href="https://apple.github.io/dnikit/how_to/connect_model.html">load a model</a> into DNIKit.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">dnikit.base</span> <span class="kn">import</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ImageFormat</span><span class="p">,</span> <span class="n">ResponseInfo</span>
+<span class="kn">from</span> <span class="nn">dnikit_tensorflow</span> <span class="kn">import</span> <span class="n">TFModelExamples</span><span class="p">,</span> <span class="n">TFDatasetExamples</span>
+<span class="kn">from</span> <span class="nn">dnikit.processors</span> <span class="kn">import</span> <span class="n">ImageResizer</span><span class="p">,</span> <span class="n">Pooler</span>
+
+<span class="kn">from</span> <span class="nn">dnikit.exceptions</span> <span class="kn">import</span> <span class="n">enable_deprecation_warnings</span>
+<span class="n">enable_deprecation_warnings</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># treat DNIKit deprecation warnings as errors</span>
+</pre></div>
+</div>
+</div>
+<section id="1a.-Download-a-model,-MobileNet,-and-store-it-locally">
+<h3>1a. Download a model, MobileNet, and store it locally<a class="headerlink" href="#1a.-Download-a-model,-MobileNet,-and-store-it-locally" title="Permalink to this heading">#</a></h3>
+<p>This will be the model to analyze with PFA. <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit_tensorflow/index.html#dnikit_tensorflow.TFModelExamples">TFModelExamples</a> are used to <a class="reference external" href="https://apple.github.io/dnikit/how_to/connect_model.html">load the model</a>, which loads the model from memory using <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/tensorflow.html#dnikit_tensorflow.load_tf_model_from_memory">dnikit_tensorflow.load_tf_model_from_memory</a> under the hood.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load MobileNet</span>
+<span class="n">mobilenet</span> <span class="o">=</span> <span class="n">TFModelExamples</span><span class="o">.</span><span class="n">MobileNet</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2023-08-03 12:42:11.000611: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M1 Pro
+2023-08-03 12:42:11.000632: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 32.00 GB
+2023-08-03 12:42:11.000635: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 10.67 GB
+2023-08-03 12:42:11.000665: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:303] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2023-08-03 12:42:11.000678: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:269] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -&gt; physical PluggableDevice (device: 0, name: METAL, pci bus id: &lt;undefined&gt;)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+WARNING:tensorflow:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/private/tmp/dnikit-2.0.0/lib/python3.9/site-packages/keras/src/engine/training.py:3000: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save(&#39;my_model.keras&#39;)`.
+  saving_api.save_model(
+</pre></div></div>
+</div>
+</section>
+<section id="1.b-Find-input-layers">
+<h3>1.b Find input layers<a class="headerlink" href="#1.b-Find-input-layers" title="Permalink to this heading">#</a></h3>
+<p>The name of the input placeholder is needed to tell DNIKit where data needs to be fed. The following loop shows how all layers can be filtered to find the Input name.</p>
+<p>The input name will be <code class="docutils literal notranslate"><span class="pre">input_1</span></code>, later this information will be used when inference is run.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">possible_input_layers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">info</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">mobilenet</span><span class="o">.</span><span class="n">response_infos</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">kind</span> <span class="ow">is</span> <span class="n">ResponseInfo</span><span class="o">.</span><span class="n">LayerKind</span><span class="o">.</span><span class="n">PLACEHOLDER</span>
+    <span class="ow">and</span> <span class="s1">&#39;input&#39;</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">name</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">possible_input_layers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;input_1&#39;]
+</pre></div></div>
+</div>
+</section>
+<section id="1.c-Find-Convolution-layers">
+<h3>1.c Find Convolution layers<a class="headerlink" href="#1.c-Find-Convolution-layers" title="Permalink to this heading">#</a></h3>
+<p>Similarly to the prior cell, here all layers are parsed in search of <code class="docutils literal notranslate"><span class="pre">Conv2D</span></code> layers. This is the set of layers that to analyze using PFA. If the list of names of the layers to analyze is already known, it can be passed directly to the loaded model (see step 1.f).</p>
+<p>Notice that the output layer (whose name is <code class="docutils literal notranslate"><span class="pre">conv_preds</span></code>) is excluded, since its size is determined by the number of classes of this problem.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conv2d_responses</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">info</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">mobilenet</span><span class="o">.</span><span class="n">response_infos</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="n">ResponseInfo</span><span class="o">.</span><span class="n">LayerKind</span><span class="o">.</span><span class="n">CONV_2D</span>
+    <span class="ow">and</span> <span class="s1">&#39;preds&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">name</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">conv2d_responses</span><span class="p">:</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">mobilenet</span><span class="o">.</span><span class="n">response_infos</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+conv1 (Dimension(None), Dimension(112), Dimension(112), Dimension(32))
+conv_dw_1 (Dimension(None), Dimension(112), Dimension(112), Dimension(32))
+conv_pw_1 (Dimension(None), Dimension(112), Dimension(112), Dimension(64))
+conv_pad_2 (Dimension(None), Dimension(113), Dimension(113), Dimension(64))
+conv_dw_2 (Dimension(None), Dimension(56), Dimension(56), Dimension(64))
+conv_pw_2 (Dimension(None), Dimension(56), Dimension(56), Dimension(128))
+conv_dw_3 (Dimension(None), Dimension(56), Dimension(56), Dimension(128))
+conv_pw_3 (Dimension(None), Dimension(56), Dimension(56), Dimension(128))
+conv_pad_4 (Dimension(None), Dimension(57), Dimension(57), Dimension(128))
+conv_dw_4 (Dimension(None), Dimension(28), Dimension(28), Dimension(128))
+conv_pw_4 (Dimension(None), Dimension(28), Dimension(28), Dimension(256))
+conv_dw_5 (Dimension(None), Dimension(28), Dimension(28), Dimension(256))
+conv_pw_5 (Dimension(None), Dimension(28), Dimension(28), Dimension(256))
+conv_pad_6 (Dimension(None), Dimension(29), Dimension(29), Dimension(256))
+conv_dw_6 (Dimension(None), Dimension(14), Dimension(14), Dimension(256))
+conv_pw_6 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_dw_7 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_pw_7 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_dw_8 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_pw_8 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_dw_9 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_pw_9 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_dw_10 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_pw_10 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_dw_11 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_pw_11 (Dimension(None), Dimension(14), Dimension(14), Dimension(512))
+conv_pad_12 (Dimension(None), Dimension(15), Dimension(15), Dimension(512))
+conv_dw_12 (Dimension(None), Dimension(7), Dimension(7), Dimension(512))
+conv_pw_12 (Dimension(None), Dimension(7), Dimension(7), Dimension(1024))
+conv_dw_13 (Dimension(None), Dimension(7), Dimension(7), Dimension(1024))
+conv_pw_13 (Dimension(None), Dimension(7), Dimension(7), Dimension(1024))
+</pre></div></div>
+</div>
+</section>
+<section id="1.d-Create-a-DNI-Dataset-wrapping-CIFAR-10">
+<h3>1.d Create a DNI Dataset wrapping CIFAR-10<a class="headerlink" href="#1.d-Create-a-DNI-Dataset-wrapping-CIFAR-10" title="Permalink to this heading">#</a></h3>
+<p>Download CIFAR-10 data and only use 2000 images for the example, so inference is faster.</p>
+<p>In order to be able to use CIFAR-10 in DNIKit, it’s necessary to wrap the data into a <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/base.html#dnikit.base.Producer">Producer</a> (if these were normal images, <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/base.html#dnikit.base.ImageProducer">ImageProducer</a> could be used with an input path).</p>
+<p>Moreover, MobileNet accepts images of size <code class="docutils literal notranslate"><span class="pre">224x224</span></code>, so the CIFAR-10 images need to be pre-processed by resizing them from <code class="docutils literal notranslate"><span class="pre">32x32</span></code> to <code class="docutils literal notranslate"><span class="pre">224x224</span></code>. DNIKit provides a set of processors in the module <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/processors.html">dnikit.processors</a>. <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/processors.html#dnikit.processors.ImageResizer">ImageResizer</a> is used and passed into a new
+<a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/base.html#dnikit.base.pipeline">pipeline</a> that applies such pre-processing on top of CIFAR-10.</p>
+<p><strong>Note:</strong> <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit_tensorflow/index.html#dnikit_tensorflow.TFDatasetExamples">TFDatasetExamples</a> are used here to load the data. To learn how to write a custom Producer that conforms to the <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/base.html#dnikit.base.Producer">Producer</a> protocol, see <a class="reference external" href="https://apple.github.io/dnikit/how_to/connect_data.html">load data</a> in the documentation.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load CIFAR10 from DNIKit&#39;s TF examples</span>
+<span class="n">cifar10_dataset</span> <span class="o">=</span> <span class="n">TFDatasetExamples</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">max_samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="n">cifar10_dataset</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()</span>
+
+<span class="c1"># Here, use the standard MobileNet preprocessor,</span>
+<span class="c1"># which was loaded into the &quot;preprocessor&quot; property when MobileNet was loaded:</span>
+<span class="n">mobilenet_preprocessor</span> <span class="o">=</span> <span class="n">mobilenet</span><span class="o">.</span><span class="n">preprocessing</span>
+<span class="k">assert</span> <span class="n">mobilenet_preprocessor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+<span class="c1"># Next, define an ImageResizer to 224x224.</span>
+<span class="n">resizer</span> <span class="o">=</span> <span class="n">ImageResizer</span><span class="p">(</span><span class="n">pixel_format</span><span class="o">=</span><span class="n">ImageFormat</span><span class="o">.</span><span class="n">HWC</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+
+<span class="c1"># Wrap the dataset that was just created with preprocessors,</span>
+<span class="c1"># so DataBatches are pre-processed accordingly every time they are requested.</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">cifar10_dataset</span><span class="p">,</span> <span class="n">mobilenet_preprocessor</span><span class="p">,</span> <span class="n">resizer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="1.f-Run-inference">
+<h3>1.f Run inference<a class="headerlink" href="#1.f-Run-inference" title="Permalink to this heading">#</a></h3>
+<p>Now run the data generated by the <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/base.html#dnikit.base.pipeline">pipeline</a> and collect statistics regarding the activation of the units in the layers to analyze.</p>
+<p>Here is where it’s important to know how to map the data field <code class="docutils literal notranslate"><span class="pre">&quot;images&quot;</span></code> from the <code class="docutils literal notranslate"><span class="pre">Batch</span></code> to the input of the network <code class="docutils literal notranslate"><span class="pre">&quot;input_1&quot;</span></code>. This mapping is done by the <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/processors.html#dnikit.processors.FieldRenamer">FieldRenamer</a>. This feeds into the <code class="docutils literal notranslate"><span class="pre">dnikit_model</span></code> defined earlier to perform inference.</p>
+<p><img alt="577d5d3f860742fd8c3d12e7c7690aa4" class="no-scaled-link" src="../../_images/Inference.png" style="width: 400px;" /></p>
+<p>PFA expects data to be of the form (<code class="docutils literal notranslate"><span class="pre">number_of_samples</span></code> x <code class="docutils literal notranslate"><span class="pre">number_of_units</span></code>) for each layer. This means that the response obtained after inference needs to be post-processed. The typical post-processing operation used is max-pooling. This is the task performed using a DNIKit <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/processors.html#dnikit.processors.Processor">Processor</a>, specifically, a <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/processors.html#dnikit.processors.Pooler">Pooler</a>.</p>
+<p><img alt="8dcc0efc63d749fba4f50ca2621c5e0d" class="no-scaled-link" src="../../_images/Pooling.png" style="width: 400px;" /></p>
+<p>The inference and pooling steps are repeated for all input data and the pooled responses are collected.</p>
+<p>Note: although this section is titled “run inference”, this actually defines <em>how</em> to run inference. Until the data is pulled through the pipeline (later when PFA introspection is run). Inference is not actually <em>run</em> here.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.processors</span> <span class="kn">import</span> <span class="n">Pooler</span><span class="p">,</span> <span class="n">FieldRenamer</span>
+
+<span class="n">producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+    <span class="c1"># the resized images</span>
+    <span class="n">dataset</span><span class="p">,</span>
+
+    <span class="c1"># the loaded tensorflow model -- tell the model which responses to collect (computed earlier)</span>
+    <span class="n">mobilenet</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">conv2d_responses</span><span class="p">),</span>
+
+    <span class="c1"># perform spatial max pooling on the result</span>
+    <span class="n">Pooler</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="n">Pooler</span><span class="o">.</span><span class="n">Method</span><span class="o">.</span><span class="n">MAX</span><span class="p">),</span>
+<span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="2.-Run-PFA-introspection">
+<h2>2. Run PFA introspection<a class="headerlink" href="#2.-Run-PFA-introspection" title="Permalink to this heading">#</a></h2>
+<p>Notice that until this point the information has only been provided for DNIKit to load data, run inference, and post-process the responses, but nothing has happened yet. Only once the <code class="docutils literal notranslate"><span class="pre">Introspector</span></code> calls introspect will all the operations actually be executed.</p>
+<p>Notice also that if the responses were already stored somewhere, there would be no need to re-run inference and re-compute them. A <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/base.html#dnikit.base.CachedProducer">CachedProducer</a> can load them from disk or a custom <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/base.html#dnikit.base.Producer">Producer</a> can be written that loads the responses (and post-process them, if needed) and yields them (similar to how the images were loaded earlier).</p>
+<p><img alt="41ed612e72564c70bff263bce56ff193" class="no-scaled-link" src="../../_images/ResponseMatrix.png" style="width: 600px;" /></p>
+<p>Once all responses have been collected the covariance matrix of the pooled responses is computed per each layer. From the covariance matrix, also extract its eigenvalues. The next step will use them to understand how to compress each layer.</p>
+<p><img alt="c6c24f9ee4304caabcd61a50e43d92a7" class="no-scaled-link" src="../../_images/Eigenvalues.png" style="width: 600px;" /></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">PFA</span><span class="p">,</span> <span class="n">PFARecipe</span>
+
+<span class="c1"># this runs the pipeline defined for producer and analyzes the results</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Analyzing responses, this may take a few minutes...&#39;</span><span class="p">)</span>
+<span class="n">pfa</span> <span class="o">=</span> <span class="n">PFA</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Analyzing responses, this may take a few minutes...
+Done.
+</pre></div></div>
+</div>
+</section>
+<section id="3.-PFA-Energy">
+<h2>3. PFA-Energy<a class="headerlink" href="#3.-PFA-Energy" title="Permalink to this heading">#</a></h2>
+<p>Now the key ingredient of PFA is computed: the eigenvalues. PFA provides three algorithms to compress a network: Energy, KL and Size. First, start with <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/introspectors.html#dnikit.introspectors.PFA.Strategy.Energy">PFA.Strategy.Energy</a>. The energy threshold tells PFA how much of the original energy to preserve. This involves computing how many eigenvalues should be kept in order to capture the desired amount of energy in each layer. In the following
+figure the energy threshold is set to 0.8 (i.e., 80% of the original energy) so, for each layer a different number of eigenvalues are selected so that their total energy amount to 80% of their original energy value.</p>
+<p><img alt="86d36675d5154c94b2d3fb9c589abcac" class="no-scaled-link" src="../../_images/Energy.png" style="width: 400px;" /></p>
+<p>The result is a dictionary of response name to <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/introspectors.html#dnikit.introspectors.PFARecipe">PFARecipe</a>. The recipe provides: - the original number of units; - the suggested number of units according to the current energy threshold; - additional diagnostics such as the actual energy level preserved.</p>
+<p>If there is insufficient data to compute the covariance, a layer may be omitted – this can also queried via <code class="docutils literal notranslate"><span class="pre">pfa.failed_responses</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">PFA.show</span></code> method is used to visualize the results, which produces, by default, a pandas DataFrame of the results. Here, specify which columns of the results to visualize and then add an additional column that defines the input energy level used, and concatenate the results of the two energy levels together into one dataframe.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># produce a list of energy, layer, counts that can be examined</span>
+
+<span class="c1"># Run energy levels 0.8 and 0.99</span>
+<span class="n">energy_8_recipes</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Energy</span><span class="p">(</span><span class="n">energy_threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">min_kept_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">energy_99_recipes</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Energy</span><span class="p">(</span><span class="n">energy_threshold</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">min_kept_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done running PFA Energy&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display both results in the same data frame using PFA.show</span>
+<span class="n">results_table</span> <span class="o">=</span> <span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">((</span><span class="n">energy_8_recipes</span><span class="p">,</span> <span class="n">energy_99_recipes</span><span class="p">))</span>
+
+<span class="c1"># Add a column to display the energy level</span>
+<span class="n">results_table</span><span class="p">[</span><span class="s1">&#39;Energy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0.8&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">energy_8_recipes</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;0.99&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">energy_99_recipes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results_table</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Done running PFA Energy
+   layer name  original count  recommended count  \
+0  conv_pad_2              64                  6
+1  conv_pad_4             128                 28
+2       conv1              32                  4
+3  conv_dw_13            1024                193
+4   conv_dw_5             256                 58
+
+                                       units to keep Energy
+0                              {0, 1, 3, 41, 47, 62}    0.8
+1  {0, 3, 5, 9, 14, 15, 22, 28, 29, 60, 62, 64, 7...    0.8
+2                                     {17, 2, 5, 15}    0.8
+3  {0, 3, 515, 7, 13, 529, 532, 24, 536, 26, 537,...    0.8
+4  {2, 130, 4, 8, 9, 10, 136, 12, 17, 146, 23, 25...    0.8
+</pre></div></div>
+</div>
+</section>
+<section id="4.-PFA-KL">
+<h2>4. PFA KL<a class="headerlink" href="#4.-PFA-KL" title="Permalink to this heading">#</a></h2>
+<p>The KL strategy, a.k.a <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/introspectors.html#dnikit.introspectors.PFA.Strategy.KL">PFA.Strategy.KL</a>, is a recipe that does not require any user input parameter. The details of how this algorithm works are not needed to run PFA, however, here is a brief explanation. To understand how the recipe is computed it’s important to understand what is the “ideal” eigenvalues set. If a user desires decorrelated and equally contributing units, then the empirical
+eigenvalue distribution should be flat: this means that all units should be preserved. The opposite scenario is when only a single eigenvalue is non-zero: this means that the same task can be performed equivalently well by a single unit.</p>
+<p><img alt="0401fce9748e4bf7b29e1cfa4813fe23" class="no-scaled-link" src="../../_images/Eig_dist.png" style="width: 600px;" /></p>
+<p>In practice the observed distribution will be in-between the two extreme cases. In order to determine how many units should be kept given an observed distribution the “distance” (the Kullback-Leibler divergence, KL, in this case) between the observed and the ideal distribution is computed. If the distance is 0 then keep all the units. If the distance is equal to the distance between the maximally correlated and the ideal distribution then keep only 1 unit. In all the intermediate cases,
+interpolate between the two extremes in order to map a distance “x” to the number of units to keep “b”.</p>
+<p><img alt="856f65c6b72e4e498aeb0e811b4f2008" class="no-scaled-link" src="../../_images/KL.png" style="width: 600px;" /></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># can also be written as pfa.get_recipe(strategy=PFA.Strategy.KL())</span>
+<span class="n">pfa_kl_recipe</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">()</span>
+
+<span class="c1"># Display kl recipe results</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">pfa_kl_recipe</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   layer name  original count  recommended count  \
+0  conv_pad_2              64                 35
+1  conv_pad_4             128                 93
+2       conv1              32                 15
+3  conv_dw_13            1024                802
+4   conv_dw_5             256                192
+
+                                       units to keep
+0  {0, 1, 2, 3, 7, 8, 9, 11, 12, 14, 15, 17, 19, ...
+1  {0, 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14, 1...
+2  {1, 2, 5, 7, 10, 12, 13, 15, 17, 19, 22, 26, 2...
+3  {0, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 16, 17...
+4  {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16...
+</pre></div></div>
+</div>
+<p>Note: to only show a subset of the information:</p>
+<ol class="arabic simple">
+<li><p>select specific columns to include, or</p></li>
+<li><p>select all available information to show</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select specific columns to include</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+    <span class="n">pfa_kl_recipe</span><span class="p">,</span>
+    <span class="n">include_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;layer_name&#39;</span><span class="p">,</span> <span class="s1">&#39;original count&#39;</span><span class="p">,</span> <span class="s1">&#39;recommended count&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   original count  recommended count
+0              64                 35
+1             128                 93
+2              32                 15
+3            1024                802
+4             256                192
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show all data by setting &#39;include_columns&#39; to &#39;[]&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+    <span class="n">pfa_kl_recipe</span><span class="p">,</span>
+    <span class="n">include_columns</span><span class="o">=</span><span class="p">[]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   layer name  original count  recommended count  \
+0  conv_pad_2              64                 35
+1  conv_pad_4             128                 93
+2       conv1              32                 15
+3  conv_dw_13            1024                802
+4   conv_dw_5             256                192
+
+                                       units to keep  KL divergence  \
+0  {0, 1, 2, 3, 7, 8, 9, 11, 12, 14, 15, 17, 19, ...       1.898266
+1  {0, 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14, 1...       1.351204
+2  {1, 2, 5, 7, 10, 12, 13, 15, 17, 19, 22, 26, 2...       1.907966
+3  {0, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 16, 17...       1.506620
+4  {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16...       1.407504
+
+  PFA strategy  units ratio kept energy
+0       PFA KL     0.543563         N/A
+1       PFA KL     0.721518         N/A
+2       PFA KL     0.449477         N/A
+3       PFA KL     0.782641         N/A
+4       PFA KL     0.746175         N/A
+</pre></div></div>
+</div>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">print</span></code> is unnecessary in the preceding cells. E.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PFA.show(
+    pfa_kl_recipe,
+    include_columns=[]
+)
+</pre></div>
+</div>
+<p>Is also appropriate. <code class="docutils literal notranslate"><span class="pre">print</span></code> is included to assist with displaying the notebook output within the DNIKit documentation.</p>
+</section>
+<section id="Unit-Selection">
+<h2>Unit Selection<a class="headerlink" href="#Unit-Selection" title="Permalink to this heading">#</a></h2>
+<p>The recipes computed earlier specify how many units each analyzed layer should have and provide some additional diagnostic information that could be useful for introspection.</p>
+<p>Something they do not provide is <em>which</em> units should be kept and which should be removed. This task is performed by the <em>unit selection</em> strategy.</p>
+<p>Again, the details of how these algorithms work are not needed to run PFA with unit selection, however, here is a brief explanation.</p>
+<p>All unit selection strategies are based on the Pearson’s correlation coefficients that can be extracted from the covariance matrix computed before. The Pearson’s correlation coefficients provide a measure of the strength of the linear relationship between pairs of variables (in this case pairs of units): the higher the coefficient the stronger the correlation.</p>
+<p><img alt="facfed9092924b809ce968d095fb85a2" class="no-scaled-link" src="../../_images/pearsons.png" style="width: 700px;" /></p>
+<p>PFA is equipped with a few strategies but here two of them are explored: <code class="docutils literal notranslate"><span class="pre">`AbsMax</span></code> &lt;<a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/introspectors.html#dnikit.introspectors.PFA.UnitSelectionStrategy.AbsMax">https://apple.github.io/dnikit/api/dnikit/introspectors.html#dnikit.introspectors.PFA.UnitSelectionStrategy.AbsMax</a>&gt;`__ and <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/introspectors.html#dnikit.introspectors.PFA.UnitSelectionStrategy.L1Max">`L1Max</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting selection. This may take several seconds&quot;</span><span class="p">)</span>
+
+<span class="c1"># Run two strategies, AbsMax and L1Max</span>
+<span class="n">abs_max_recipes</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span><span class="n">unit_strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">UnitSelectionStrategy</span><span class="o">.</span><span class="n">AbsMax</span><span class="p">())</span>
+<span class="n">l1_max_recipes</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span><span class="n">unit_strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">UnitSelectionStrategy</span><span class="o">.</span><span class="n">L1Max</span><span class="p">())</span>
+
+<span class="c1"># Display results via pandas dataframe + add strategy column</span>
+<span class="n">results_table</span> <span class="o">=</span> <span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">((</span><span class="n">abs_max_recipes</span><span class="p">,</span> <span class="n">l1_max_recipes</span><span class="p">))</span>
+<span class="n">results_table</span><span class="p">[</span><span class="s1">&#39;strategy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ABS MAX&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">abs_max_recipes</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;L1 MAX&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">l1_max_recipes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results_table</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Starting selection. This may take several seconds
+   layer name  original count  recommended count  \
+0  conv_pad_2              64                 35
+1  conv_pad_4             128                 93
+2       conv1              32                 15
+3  conv_dw_13            1024                802
+4   conv_dw_5             256                192
+
+                                       units to keep strategy
+0  {0, 1, 2, 5, 7, 9, 11, 12, 15, 16, 17, 19, 23,...  ABS MAX
+1  {0, 1, 2, 5, 6, 8, 9, 10, 11, 13, 14, 15, 17, ...  ABS MAX
+2  {1, 2, 5, 6, 9, 10, 13, 22, 23, 24, 25, 26, 27...  ABS MAX
+3  {2, 3, 4, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, ...  ABS MAX
+4  {0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 15, 16, 1...  ABS MAX
+</pre></div></div>
+</div>
+<section id="AbsMax">
+<h3>AbsMax<a class="headerlink" href="#AbsMax" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/introspectors.html#dnikit.introspectors.PFA.UnitSelectionStrategy.AbsMax">PFA.UnitSelectionStrategy.AbsMax</a> strategy iteratively selects the pair of units with the highest correlation coefficients (in absolute value). In order to disambiguate which unit of the selected pair should be removed, look at the second, third, etc… coefficients until a choice can be made. Remove the unit from the covariance, recompute the coefficients and repeat until
+the number of units recommended by the recipe is reached. <img alt="58022d67a291428386a848ceacbcfea9" class="no-scaled-link" src="../../_images/max.png" style="width: 700px;" /></p>
+</section>
+<section id="L1-MAX">
+<h3>L1-MAX<a class="headerlink" href="#L1-MAX" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://apple.github.io/dnikit/api/dnikit/introspectors.html#dnikit.introspectors.PFA.UnitSelectionStrategy.L1Max">PFA.UnitSelectionStrategy.L1Max</a> strategy iteratively selects the unit with the highest sum of all its correlation coefficients. Remove the unit from the covariance, recompute the coefficients and repeat until the number of units recommended by the recipe is reached. <img alt="04252561a7e04bb1b6c87ec6e5406d2d" class="no-scaled-link" src="../../_images/l1.png" style="width: 500px;" /></p>
+</section>
+</section>
+<section id="Visualization">
+<h2>Visualization<a class="headerlink" href="#Visualization" title="Permalink to this heading">#</a></h2>
+<p>As a wrap up, take a look at the compression achieved using, for example, PFA KL.</p>
+<p>Here is a plot with the number of units per layer for the original model and the compressed one. The figure shows the amount of compression per layer recommended by PFA.</p>
+<p>Interestingly, layer <code class="docutils literal notranslate"><span class="pre">conv_pw_11</span></code> gets compressed a lot compared to other layers, meaning that a high amount of correlation is present in that layer. Keep in mind that only 2,000 images out of 50,000 were used. An interesting experiment (encouraged) is to increase the number of images, or just feed images from a single class, in order to get more insights from PFA.</p>
+<p><em>Hint: By feeding images of only one class one should expect higher compression</em>.</p>
+<p>This matplotlib plot can be viewed using <code class="docutils literal notranslate"><span class="pre">PFA.show</span></code>, with added parameter <code class="docutils literal notranslate"><span class="pre">vis_type</span></code> set to <code class="docutils literal notranslate"><span class="pre">PFA.VisType.CHART</span></code> instead of the default <code class="docutils literal notranslate"><span class="pre">PFA.VisType.TABLE</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">pfa_kl_recipe</span><span class="p">,</span> <span class="n">vis_type</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">VisType</span><span class="o">.</span><span class="n">CHART</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;Axes: xlabel=&#39;layer name&#39;, ylabel=&#39;number of units&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_model_introspection_principal_filter_analysis_27_1.png" src="../../_images/notebooks_model_introspection_principal_filter_analysis_27_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../introspectors/model_introspection/network_compression.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Network Compression with Principal Filter Analysis (PFA)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../introspectors/model_introspection/inactive_units.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Finding a Model’s Inactive Units</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-Use-DNIKit-to-run-inference-and-collect-responses-from-a-model">1. Use DNIKit to run inference and collect responses from a model</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1a.-Download-a-model,-MobileNet,-and-store-it-locally">1a. Download a model, MobileNet, and store it locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.b-Find-input-layers">1.b Find input layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.c-Find-Convolution-layers">1.c Find Convolution layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.d-Create-a-DNI-Dataset-wrapping-CIFAR-10">1.d Create a DNI Dataset wrapping CIFAR-10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.f-Run-inference">1.f Run inference</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Run-PFA-introspection">2. Run PFA introspection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-PFA-Energy">3. PFA-Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-PFA-KL">4. PFA KL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Unit-Selection">Unit Selection</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#AbsMax">AbsMax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#L1-MAX">L1-MAX</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Visualization">Visualization</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,740 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dnikit.base._cached_producer &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dnikit/base/_cached_producer';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dnikit.base._cached_producer</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright 2020 Apple Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+
+<span class="kn">from</span> <span class="nn">._batch._batch</span> <span class="kn">import</span> <span class="n">Batch</span>
+<span class="kn">from</span> <span class="nn">._pipeline</span> <span class="kn">import</span> <span class="n">PipelineStage</span>
+<span class="kn">from</span> <span class="nn">._producer</span> <span class="kn">import</span> <span class="n">Producer</span><span class="p">,</span> <span class="n">_resize_batches</span>
+<span class="kn">from</span> <span class="nn">dnikit._logging</span> <span class="kn">import</span> <span class="n">_Logged</span>
+<span class="kn">from</span> <span class="nn">dnikit.exceptions</span> <span class="kn">import</span> <span class="n">DNIKitException</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._types</span> <span class="k">as</span> <span class="nn">t</span>
+
+
+<span class="k">def</span> <span class="nf">_get_pickled_files</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterator</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="n">storage_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.pkl&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_cache_dir_marker</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">storage_path</span> <span class="o">/</span> <span class="s2">&quot;.dni_cache_dir&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_get_caching_done_marker</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">storage_path</span> <span class="o">/</span> <span class="s2">&quot;.cache.done&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_has_cached_files</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">_get_cache_dir_marker</span><span class="p">(</span><span class="n">storage_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+        <span class="ow">or</span> <span class="n">_get_caching_done_marker</span><span class="p">(</span><span class="n">storage_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+        <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">_get_pickled_files</span><span class="p">(</span><span class="n">storage_path</span><span class="p">)))</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_create_cache_dir</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">storage_path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="n">storage_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">_get_cache_dir_marker</span><span class="p">(</span><span class="n">storage_path</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_save_batch</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
+                <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">,</span>
+                <span class="n">batch</span><span class="p">:</span> <span class="n">Batch</span><span class="p">,</span>
+                <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Saves a Batch to disk as a pickle file (eg: &#39;127.pkl&#39; if index is 127)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">storage_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">.pkl&quot;</span>
+    <span class="n">filename</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">batch</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pickled batch with index: </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_batch_loader</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
+                      <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Producer</span><span class="p">:</span>
+    <span class="c1"># Collect all pickled files</span>
+    <span class="n">pickled_paths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_get_pickled_files</span><span class="p">(</span><span class="n">storage_path</span><span class="p">))</span>
+    <span class="c1"># Sort them by index (which happens to be the stem of the file)</span>
+    <span class="n">pickled_paths</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pickled_paths</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">stem</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">file_batch_loader</span><span class="p">(</span><span class="n">paths</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Batch</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading batch from: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="n">_resize_batches</span><span class="p">(</span><span class="n">file_batch_loader</span><span class="p">(</span><span class="n">pickled_paths</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_mark_caching_done</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">_get_caching_done_marker</span><span class="p">(</span><span class="n">storage_path</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_done_caching</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_get_caching_done_marker</span><span class="p">(</span><span class="n">storage_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Cacher"><a class="viewcode-back" href="../../../utils/pipeline_stages.html#dnikit.base.Cacher">[docs]</a><span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="k">class</span> <span class="nc">Cacher</span><span class="p">(</span><span class="n">PipelineStage</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ``Cacher`` is a :class:`PipelineStage &lt;dnikit.base.PipelineStage&gt;` that will cache to disk</span>
+<span class="sd">    the batches produced by the previous :class:`Producer &lt;dnikit.base.Producer&gt;` in a pipeline</span>
+<span class="sd">    created with :func:`pipeline() &lt;dnikit.base.pipeline&gt;`.</span>
+
+<span class="sd">    The first time a pipeline with a ``Cacher`` is executed, ``Cacher`` store the batches to disk.</span>
+<span class="sd">    Every time the pipeline is called after that, batches will be read directly from disk, without</span>
+<span class="sd">    doing any computation for previous stages.</span>
+
+<span class="sd">    Note that batches may be quite large and this may require a large portion of available</span>
+<span class="sd">    disk space. Be mindful when using ``Cacher``.</span>
+
+<span class="sd">    If the data from the ``producer`` does not have</span>
+<span class="sd">    :attr:`Batch.StdKeys.IDENTIFIER &lt;dnikit.base.Batch.StdKeys.IDENTIFIER&gt;`, this class</span>
+<span class="sd">    will assign a numeric identifier.  This cannot be used across calls to ``Cacher``</span>
+<span class="sd">    but will be consistent for all uses of the ``pipelined_producer``.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            producer = ... # create a valid dnikit Producer</span>
+<span class="sd">            processor = ... # create a valid dnikit Processor</span>
+<span class="sd">            cacher = Cacher()</span>
+
+<span class="sd">            # Pipeline everything</span>
+<span class="sd">            pipelined_producer = pipeline(producer, processor, cacher)</span>
+
+<span class="sd">            # No results have been cached</span>
+<span class="sd">            cacher.cached  # returns False</span>
+
+<span class="sd">            # Trigger pipeline</span>
+<span class="sd">            batches = list(pipelined_producer(batch_size=32)) # producer and processor are invoked.</span>
+
+<span class="sd">            # Results have been cached</span>
+<span class="sd">            cacher.cached  # returns True</span>
+
+<span class="sd">            # Trigger pipeline again (fast, because batch_size has the same value as before)</span>
+<span class="sd">            list(pipelined_producer(batch_size=32))  # producer and processor are NOT invoked</span>
+
+<span class="sd">            # Trigger pipeline once more (slower, because batch_size is different from first time)</span>
+<span class="sd">            list(pipelined_producer(batch_size=48))  # producer and processor are NOT invoked</span>
+
+
+<span class="sd">    The typical use-case for this class is to cache the results of expensive computation (such as</span>
+<span class="sd">    inference and post-processing) to avoid re-doing said computation more than once.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        Just as with :class:`Model &lt;dnikit.base.Model&gt;`, and :class:`Processor` no computation</span>
+<span class="sd">        (or in this case, caching) will be executed until the pipeline is triggered.</span>
+
+<span class="sd">    See also:</span>
+<span class="sd">        :func:`dnikit.base.multi_introspect()` which allows several introspectors to</span>
+<span class="sd">        use the same batches without storing them in the file-system.</span>
+<span class="sd">        :func:`multi_introspect() &lt;dnikit.base.multi_introspect()&gt;` may</span>
+<span class="sd">        be a better option for very large datasets.</span>
+
+<span class="sd">    Warning:</span>
+<span class="sd">        ``Cacher`` has the ability to resize batches if batches of different sizes are requested</span>
+<span class="sd">        (see example). However, doing so is relatively computationally expensive since it involves</span>
+<span class="sd">        concatenating and splitting batches. Therefore it&#39;s recommended to use this feature</span>
+<span class="sd">        sparingly.</span>
+
+<span class="sd">    Warning:</span>
+<span class="sd">        Unlike other :class:`PipelineStage &lt;dnikit.base.PipelineStage&gt;`, ``Cacher`` will raise</span>
+<span class="sd">        a :class:`DNIKitException &lt;dnikit.exceptions.DNIKitException&gt;` if it is used</span>
+<span class="sd">        with more than one pipeline. This is to avoid</span>
+<span class="sd">        reading batches generated from another pipeline with different characteristics.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        storage_path: **[optional ]** If set, ``Cacher`` will store batches in `storage_path`,</span>
+<span class="sd">            otherwise it will create a random temporary directory.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Cacher.clear"><a class="viewcode-back" href="../../../api/dnikit/processors.html#dnikit.base.Cacher.clear">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="n">storage_path</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clears files produced by :class:`Cacher` and</span>
+<span class="sd">        :class:`CachedProducer &lt;dnikit.base.CachedProducer&gt;`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            storage_path: if ``None`` (default case), function will clear **all** dnikit caches</span>
+<span class="sd">                under a system&#39;s temporary directory. Otherwise it will clear **all** dnikit</span>
+<span class="sd">                caches under the specified directory.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotADirectoryError: if ``storage_path`` is not a valid directory.</span>
+
+<span class="sd">        Warning:</span>
+<span class="sd">             Make sure to only call this function once pipelines are no longer needed (or before</span>
+<span class="sd">             pipelines are used at all). Otherwise, a cache that is already in</span>
+<span class="sd">             use may be destroyed!</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">storage_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">())</span> <span class="k">if</span> <span class="n">storage_path</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">storage_path</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">storage_path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">NotADirectoryError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">storage_path</span><span class="si">}</span><span class="s2"> is not a valid directory&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Gather paths for deletion</span>
+        <span class="n">to_delete</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">path</span>
+            <span class="c1"># Consider storage_path and its children as candidates for deletion</span>
+            <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="n">storage_path</span><span class="p">],</span> <span class="n">storage_path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())</span>
+            <span class="c1"># Will delete directories that have a cache marker</span>
+            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span> <span class="ow">and</span> <span class="n">_get_cache_dir_marker</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">to_delete</span><span class="p">:</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">storage_path</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a ``Cacher``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            storage_path: If set, ``Cacher`` will store batches in `storage_path`, otherwise it will</span>
+<span class="sd">                create a random temporary directory.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">storage_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;dnikit-cacher-&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span> <span class="o">=</span> <span class="n">storage_path</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_already_pipelined</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_identifier</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="n">_has_cached_files</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Path </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="si">}</span><span class="s2"> already contains caching files.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">_create_cache_dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">storage_path</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The (absolute) path where the batches are being cached.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cached</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;True if all the batches have already been cached.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_done_caching</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_add_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Batch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">IDENTIFIER</span> <span class="ow">in</span> <span class="n">batch</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">batch</span>
+
+        <span class="c1"># add a numeric Batch.StdKeys.IDENTIFIER</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_identifier</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">batch</span><span class="o">.</span><span class="n">batch_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_identifier</span> <span class="o">=</span> <span class="n">end</span>
+
+        <span class="n">builder</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">batch</span><span class="p">)</span>
+        <span class="n">builder</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">IDENTIFIER</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="n">make_batch</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_get_batch_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Batch</span><span class="p">],</span> <span class="n">Batch</span><span class="p">]:</span>
+        <span class="c1"># No need to implement this one since this is overriding pipeline</span>
+        <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="s1">&#39;Should never call this function in CachedProducer&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">producer</span><span class="p">:</span> <span class="n">Producer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Producer</span><span class="p">:</span>
+        <span class="c1"># Do NOT use the same cacher in more than one pipeline</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_already_pipelined</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span>
+                <span class="s2">&quot;Cacher already used in a pipeline. Either create a new Cacher to cache results &quot;</span>
+                <span class="s2">&quot;from another pipeline or call as_producer() to create a CachedProducer which &quot;</span>
+                <span class="s2">&quot;to reuse the results from this pipeline.&quot;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_already_pipelined</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># NB new_producer is technically stateful, but:</span>
+        <span class="c1"># * _storage_path is final and cannot be modified after being set</span>
+        <span class="c1"># * _logger doesn&#39;t have any state</span>
+        <span class="c1"># * _already_pipelined won&#39;t change anymore</span>
+        <span class="k">def</span> <span class="nf">new_producer</span><span class="p">(</span><span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Batch</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cached</span><span class="p">:</span>  <span class="c1"># If results are cached load from disk...</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Using cached batches. Attempting to retrieve values..&#39;</span><span class="p">)</span>
+                <span class="n">batch_loader</span> <span class="o">=</span> <span class="n">_get_batch_loader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">)</span>
+                <span class="k">yield from</span> <span class="n">batch_loader</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># Otherwise load from producer and save batches to disk</span>
+                <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">producer</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)):</span>
+                    <span class="c1"># attach Batch.StdKeys.IDENTIFIER if not present</span>
+                    <span class="n">batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_identifier</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+                    <span class="n">_save_batch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+                    <span class="k">yield</span> <span class="n">batch</span>
+                <span class="n">_mark_caching_done</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_producer</span>
+
+<div class="viewcode-block" id="Cacher.as_producer"><a class="viewcode-back" href="../../../api/dnikit/processors.html#dnikit.base.Cacher.as_producer">[docs]</a>    <span class="k">def</span> <span class="nf">as_producer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;CachedProducer&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a :class:`CachedProducer &lt;dnikit.base.CachedProducer&gt;` which loads the batches</span>
+<span class="sd">        stored by this ``Cacher``.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DNIKitException: if called before caching has been completed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">cached</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="s2">&quot;Caching must be complete before converting to a CachedProducer.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">CachedProducer</span><span class="p">(</span><span class="n">storage_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_path</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="CachedProducer"><a class="viewcode-back" href="../../../api/dnikit/base.html#dnikit.base.CachedProducer">[docs]</a><span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="k">class</span> <span class="nc">CachedProducer</span><span class="p">(</span><span class="n">Producer</span><span class="p">,</span> <span class="n">_Logged</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ``CachedProducer`` is a :class:`Producer` that reads batches already cached on disk.</span>
+
+<span class="sd">    Refer to :class:`Cacher &lt;dnikit.processors.Cacher&gt;` to cache the</span>
+<span class="sd">    :class:`batches &lt;Batch&gt;` produced by other :class:`producers &lt;Producer&gt;` and</span>
+<span class="sd">    :class:`pipelines &lt;pipeline&gt;`.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        Just as with :class:`ImageProducer` (and, in general, any :class:`Producer`) no computation</span>
+<span class="sd">        (or in this loading of cached batches) will be executed until the :func:`__call__` method</span>
+<span class="sd">        (or an associated pipeline) is invoked.</span>
+
+<span class="sd">    Warning:</span>
+<span class="sd">        ``CachedProducer`` has the ability to resize batches if batches of</span>
+<span class="sd">        different sizes are requested in comparison to the ones stored on disk.</span>
+<span class="sd">        However, doing so is relatively computationally</span>
+<span class="sd">        expensive since it involves concatenating and splitting batches. Therefore it&#39;s recommended</span>
+<span class="sd">        to use this feature sparingly.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        storage_path: path in disk where the cached batches are stored.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        DNIKitException: if ``storage_path`` does not contain cached batches.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">storage_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span> <span class="o">=</span> <span class="n">storage_path</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_get_caching_done_marker</span><span class="p">(</span><span class="n">storage_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">storage_path</span><span class="si">}</span><span class="s2"> does not contain cached batches. Cannot create CachedProducer.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">storage_path</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The path from where this ``CachedProducer`` will read batches.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span>
+
+<div class="viewcode-block" id="CachedProducer.__call__"><a class="viewcode-back" href="../../../api/dnikit/base.html#dnikit.base.CachedProducer.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Batch</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Produce :class:`Batch` with ``batch_size`` elements by loading previously cached batches</span>
+<span class="sd">        from disk.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            batch_size: number of elements in every batch to be streamed.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: if ``batch_size`` is a non-positive number</span>
+<span class="sd">            DNIKitException: if cached files have been erased from disk since ``CachedProducer``</span>
+<span class="sd">                             initialization.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">batch_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Batch size has to be a greater than 0, got </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_done_caching</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="s2">&quot;Batch data cleared since CachedProducer was initialised&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Using cached batches. Attempting to retrieve values..&#39;</span><span class="p">)</span>
+        <span class="n">batch_loader</span> <span class="o">=</span> <span class="n">_get_batch_loader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">batch_loader</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CachedProducer.copy_to"><a class="viewcode-back" href="../../../api/dnikit/base.html#dnikit.base.CachedProducer.copy_to">[docs]</a>    <span class="k">def</span> <span class="nf">copy_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;CachedProducer&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Copy the cached files used by this ``CachedProducer`` to another local path.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            new_path: Destination path</span>
+<span class="sd">            overwrite: **[keyword arg, optional]** overwrite cache files in ``new_path``</span>
+<span class="sd">                (if they exist) [default=False]</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a new ``CachedProducer`` which will read elements from ``new_path``.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DNIKitException: if batch data has been cleared from file after initialization or</span>
+<span class="sd">                if ``new_path`` contains cache files and ``overwrite`` is False.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_done_caching</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="s2">&quot;Batch data cleared since CachedProducer was initialised&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">new_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">_has_cached_files</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Path </span><span class="si">{</span><span class="n">new_path</span><span class="si">}</span><span class="s2"> already contains caching files. &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Either call with overwrite=True or choose another destination directory.&quot;</span>
+                <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Deal with cache file markers</span>
+        <span class="n">_get_cache_dir_marker</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+        <span class="n">_get_caching_done_marker</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+
+        <span class="c1"># Copy all pickle files</span>
+        <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">_get_pickled_files</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage_path</span><span class="p">):</span>
+            <span class="n">new_filename</span> <span class="o">=</span> <span class="n">new_path</span> <span class="o">/</span> <span class="n">filename</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">new_filename</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">CachedProducer</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,909 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Network Compression with Principal Filter Analysis (PFA) &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introspectors/model_introspection/network_compression';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Principal Filter Analysis (PFA): Compression Basic Example for MobileNet on CIFAR-10" href="../../notebooks/model_introspection/principal_filter_analysis.html" />
+    <link rel="prev" title="Network Introspection" href="../model_introspection.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../model_introspection.html">Network Introspectors</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Network Compression with PFA</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/introspectors/model_introspection/network_compression.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Network Compression with Principal Filter Analysis (PFA)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-usage">General Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-options">Config options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-strategies">PFA  Strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-energy">PFA Energy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-size">PFA Size</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-kl">PFA KL</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-selection">Unit Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#abs-max">ABS-Max</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-max">L1-Max</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evidence">Evidence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-workflow">Suggested workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-for-transfer-learning">PFA for Transfer Learning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-api">Relevant API</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="network-compression-with-principal-filter-analysis-pfa">
+<span id="network-compression"></span><h1>Network Compression with Principal Filter Analysis (PFA)<a class="headerlink" href="#network-compression-with-principal-filter-analysis-pfa" title="Permalink to this heading">#</a></h1>
+<p>Discover highly correlated filter, or more generically unit,
+responses within layers of a neural network. Guide network compression by
+removing redundant filter in order to decrease inference time
+and memory footprint while improving generalization.</p>
+<p>For a more thorough discussion of this algorithm and its use, see the
+<a class="reference internal" href="#pfa-description"><span class="std std-ref">Description</span></a> below.</p>
+<section id="general-usage">
+<h2>General Usage<a class="headerlink" href="#general-usage" title="Permalink to this heading">#</a></h2>
+<p>Assuming a <a class="reference internal" href="../../api/dnikit/base.html#dnikit.base.pipeline" title="dnikit.base.pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pipeline</span></code></a> has been
+set up to produce responses from a model,
+<a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA" title="dnikit.introspectors.PFA"><code class="xref py py-class docutils literal notranslate"><span class="pre">PFA</span></code></a> can be run like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dnikit.introspectors</span> <span class="kn">import</span> <span class="n">PFA</span>
+
+<span class="n">producer</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># pipeline setup here</span>
+
+<span class="c1"># Run PFA analysis on responses from a producer</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">PFA</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span><span class="n">producer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For PFA, like <a class="reference internal" href="inactive_units.html#inactive-units"><span class="std std-ref">IUA</span></a>,
+inputs to introspection should be prepared by selecting which
+<strong>layer responses</strong> to analyze for compression. For instance, for a model
+that uses Conv2D layers, one option could be selecting all the responses
+for those layers by reviewing the DNIKit <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code>’s
+<a class="reference internal" href="../../api/dnikit/base.html#dnikit.base.Model.response_infos" title="dnikit.base.Model.response_infos"><code class="xref py py-func docutils literal notranslate"><span class="pre">.response_infos()</span></code></a> and passing them where the model is
+used in the pipeline, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dnikit_model</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># load model here</span>
+
+<span class="c1"># Find only conv2d layer responses</span>
+<span class="n">response_infos</span> <span class="o">=</span> <span class="n">dnikit_model</span><span class="o">.</span><span class="n">response_infos</span><span class="p">()</span>
+<span class="n">conv_response_names</span> <span class="o">=</span> <span class="p">[</span>
+     <span class="n">info</span><span class="o">.</span><span class="n">name</span>
+     <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">response_infos</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+     <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="n">ResponseInfo</span><span class="o">.</span><span class="n">LayerKind</span><span class="o">.</span><span class="n">CONV_2D</span>
+<span class="p">]</span>
+
+<span class="n">producer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+     <span class="n">dataset</span><span class="p">,</span>
+     <span class="o">...</span>
+     <span class="c1"># Tell the model which responses to look at</span>
+     <span class="n">dnikit_model</span><span class="p">(</span><span class="n">conv_response_names</span><span class="p">),</span>
+     <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>After running PFA, the results cannot be seen yet.
+Instead, the output is a new <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA" title="dnikit.introspectors.PFA"><code class="xref py py-class docutils literal notranslate"><span class="pre">PFA</span></code></a>
+object with information attached to build a “<strong>recipe</strong>” using a
+particular <a class="reference internal" href="#pfa-config-options"><span class="std std-ref">compression strategy</span></a>.
+Here is an example of how to build and show a recipe using the default “KL” strategy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">()</span>
+<span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">recipe</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Other strategies, including Energy, Size, and showing specific
+units to keep are explained in <a class="reference internal" href="#pfa-config-options"><span class="std std-ref">Config Options</span></a>.</p>
+<p><strong>Note that PFA does not compress a network directly!</strong> It’s important to
+instead retrain the network model with the suggested layer sizes.
+The benefit of PFA is that it uses data passing through the model
+to make smart suggestions on how to revise layer sizes while
+(as much as possible) retaining accuracy.</p>
+<p>For more detailed examples of PFA,
+see the <a class="reference internal" href="#pfa-suggested-workflow"><span class="std std-ref">suggested workflow</span></a>
+or <a class="reference internal" href="#pfa-example"><span class="std std-ref">example notebooks</span></a>.</p>
+</section>
+<section id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.show" title="dnikit.introspectors.PFA.show"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PFA.show</span></code></a> method will by default print a table
+(in a Jupyter notebook) of the suggested new layer sizes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="n">vis_type</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">VisType</span><span class="o">.</span><span class="n">TABLE</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="A Pandas DataFrame of PFA results, showing rows of layer names, and the original vs. recommended unit count for that layer." class="bot-margin" src="../../_images/pfa_show_example.png" />
+<p>It’s also possible to use the <code class="code docutils literal notranslate"><span class="pre">PFA.VisType.CHART</span></code> option to display
+a graph comparing recommended vs. original unit counts per layer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="n">vis_type</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">VisType</span><span class="o">.</span><span class="n">CHART</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In addition, to compare a number of different compression recipes,
+it’s possible to pass a list of recipes into <code class="code docutils literal notranslate"><span class="pre">show</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe_KL</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">()</span>
+<span class="n">recipe_energy_80</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Energy</span><span class="p">(</span><span class="n">energy_threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">min_kept_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">PFA</span><span class="o">.</span><span class="n">show</span><span class="p">([</span><span class="n">recipe_KL</span><span class="p">,</span> <span class="n">recipe_energy_80</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>For more options, see the <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.show" title="dnikit.introspectors.PFA.show"><code class="xref py py-class docutils literal notranslate"><span class="pre">API</span></code></a>.</p>
+</section>
+<section id="config-options">
+<span id="pfa-config-options"></span><h2>Config options<a class="headerlink" href="#config-options" title="Permalink to this heading">#</a></h2>
+<p>The main configuration of PFA analysis is not done on the <code class="xref py py-func docutils literal notranslate"><span class="pre">introspect()</span></code> method
+directly, but in PFA’s <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.get_recipe" title="dnikit.introspectors.PFA.get_recipe"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_recipe</span></code></a> method,
+which is passed the return object of <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.introspect" title="dnikit.introspectors.PFA.introspect"><code class="xref py py-func docutils literal notranslate"><span class="pre">introspect</span></code></a>. <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.get_recipe" title="dnikit.introspectors.PFA.get_recipe"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_recipe</span></code></a> has
+a number of configuration options, named “strategies,” to choose from.</p>
+<section id="pfa-strategies">
+<h3>PFA  Strategies<a class="headerlink" href="#pfa-strategies" title="Permalink to this heading">#</a></h3>
+<p>PFA has different <a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.Strategy" title="dnikit.introspectors.PFA.Strategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">strategies</span></code></a> that can be chosen in order to satisfy a specific target while identifying how many units are least correlated.
+The strategies available are <strong>PFA Size</strong>, <strong>PFA Energy</strong>, and <strong>PFA KL</strong>.</p>
+<section id="pfa-energy">
+<h4>PFA Energy<a class="headerlink" href="#pfa-energy" title="Permalink to this heading">#</a></h4>
+<p>PFA Energy is analogous to the idea of PCA where the user specifies the amount of <em>energy</em> that should be preserved.
+Similarly, in PFA Energy the user specifies how much energy of the existing responses should be preserved
+(in terms of eigenvalues of the covariance matrix). An energy of 1.0 will provide a recipe that contains almost all
+current units, the closer the energy value is to 0.0 the less number of units will be suggested as non-redundant.</p>
+<img alt="PFA Energy example demonstrating that a higher energy preserves more of the network." class="align-center" src="../../_images/Energy.png" />
+<p>The code to use the PFA Energy with energy level equal to 0.7 of the original energy,
+while ensuring that at least 3 units are always considered non-redundant is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe_dictionary</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">compression</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Energy</span><span class="p">(</span>
+        <span class="n">energy_threshold</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+        <span class="n">min_kept_count</span><span class="o">=</span><span class="mi">3</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="pfa-size">
+<h4>PFA Size<a class="headerlink" href="#pfa-size" title="Permalink to this heading">#</a></h4>
+<p>PFA Size allows the user to specify the percentage of the weights (of the current model) that should be used in order to
+extract the same information extracted by the current model. For example, 1.0 means use the same number of weights of
+the current model, while 0.5 means that the algorithm will find the least correlated units such
+that the overall number of weights is half of the weights of all analyzed layers.</p>
+<dl class="simple">
+<dt>The code to use the PFA Size strategy that uses 0.8 of the original weights, it ensures that at least 2 units are always</dt><dd><p>considered non-redundant, and it ensures that at least 0.6 of the energy is preserved, is:</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe_dictionary</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span>
+        <span class="n">relative_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+        <span class="n">min_kept_count</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">epsilon_energy</span><span class="o">=</span><span class="mf">0.6</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="pfa-kl">
+<h4>PFA KL<a class="headerlink" href="#pfa-kl" title="Permalink to this heading">#</a></h4>
+<p>PFA KL (also known as PFA-Zero) is a heuristic that does not require any user input parameter
+and tries to find the number of uncorrelated units.
+In order to understand how this strategy works it’s important to understand
+<em>ideal</em> eigenvalues set. If completely uncorrelated and equally contributing units are desired,
+then the empirical eigenvalue distribution should be flat: this means that all units are
+uncorrelated. The opposite scenario is when only a single eigenvalue is non-zero: this means that
+the same task can be performed equivalently well by a single unit.</p>
+<img alt="Eigenvalue distribution example showing that ideally, all layers are not correlated at all. Typically there are certain layers highly correlated with others." class="align-center" src="../../_images/Eig_dist.png" />
+<p>In practice the observed distribution will be in-between the two extreme cases. In order to
+determine how many units should be selected given an observed distribution, PFA relies on the
+<em>distance</em> (the Kullback-Leibler divergence, KL, is used) between the observed and the ideal
+distribution. If the distance is 0 then all units are uncorrelated. If the distance is equal to the
+distance between the maximally correlated and the ideal distribution then all units are correlated.
+In all the intermediate case, PFA interpolates between the two extremes in order to map a
+distance <em>x</em> to the number <em>b</em> of <code class="docutils literal notranslate"><span class="pre">uncorrelated</span></code> units.</p>
+<img alt="PFA KL example, showing that PFA interpolates between the two extremes in order to map a distance x to the number b of uncorrelated units." class="align-center" src="../../_images/KL.png" />
+<p>The code to use the PFA KL strategy follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe_dictionary</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">KL</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="unit-selection">
+<h3>Unit Selection<a class="headerlink" href="#unit-selection" title="Permalink to this heading">#</a></h3>
+<p>The recipes computed so far specify how many uncorrelated units each analyzed layer has, and provide some additional diagnostic
+information that could be useful for introspection (such as the KL-divergence between the normalized eigenvalues of the covariance
+matrix and the uniform distribution). However, they do not provide the information about <em>which</em> units
+are uncorrelated. This task is performed by the unit selection step.</p>
+<p>All unit selection strategies are based on the Pearson’s correlation coefficients that can be extracted from the
+covariance matrix computed before. The Pearson’s correlation coefficients provide a measure of the strength of the
+linear relationship between pairs of variables (in this case pairs of units): the higher the coefficient the
+stronger the correlation.</p>
+<img alt="An illustration of Pearson's Correlation Coefficients for Unit Selection" class="align-center" src="../../_images/pearsons.png" />
+<p>Once the correlation matrix is computed PFA provides two greedy strategies to identify which units are uncorrelated, and which units are redundant:
+<strong>ABS-Max</strong> and <strong>L1-Max</strong>. When one of these strategies is employed the PFA recipe will contain also the indexes of the units
+that PFA identifies as uncorrelated (or more precisely as least correlated).</p>
+<img alt="Pandas DataFrame of PFA output showing columns of strategy type, layer name, original unit count, recommended unit count, and which unit indices recommended to keep." class="align-center" src="../../_images/pfa_recipe_with_fs.png" />
+<section id="abs-max">
+<h4>ABS-Max<a class="headerlink" href="#abs-max" title="Permalink to this heading">#</a></h4>
+<p>ABS-Max identifies the pair of units with the highest amount of correlation (maximum absolute value
+of among the correlation coefficients). In order to disambiguate which unit of the selected pair should be considered redundant,
+it looks at the second highest, third highest, etc… coefficients until a choice can be made.</p>
+<img alt="Illustration of the ABS-Max unit selection strategy" class="align-center" src="../../_images/max.png" />
+<p>The code in order to use the ABS-Max unit selection strategy is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe_dictionary</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">SOME_STRATEGY</span><span class="p">,</span>
+    <span class="n">unit_strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">UnitSelectionStrategy</span><span class="o">.</span><span class="n">AbsMax</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="l1-max">
+<h4>L1-Max<a class="headerlink" href="#l1-max" title="Permalink to this heading">#</a></h4>
+<p>L1Max strategy iteratively selects as redundant the unit with the highest sum of all its correlation coefficients.
+It identifies such unit as redundant, removes it from the correlation matrix, recompute the correlation matrix and iterates. In the rare, but theoretically possible, case that
+more than one unit have the same L1 sum of the correlation coefficients, the strategy switches to ABS-Max to select
+which unit should be considered redundant among the sub-set identified by the L1-Max strategy.</p>
+<img alt="Illustration of L1-Max unit selection strategy" class="align-center" src="../../_images/l1.png" />
+<p>The code in order to use the L1-Max unit selection strategy is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe_dictionary</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">SOME_STRATEGY</span><span class="p">,</span>
+    <span class="n">unit_strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">UnitSelectionStrategy</span><span class="o">.</span><span class="n">L1Max</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="description">
+<span id="pfa-description"></span><h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<p>Modern neural networks tend to be big, making them challenging to deploy in resource-constrained
+devices. To reduce model size, network compression algorithms are often used.
+However, these algorithms can be controlled by hyper-parameters that are difficult
+to interpret and fine-tune. Compounding the problem, the size of each network layer is often
+chosen arbitrarily by following simple conventions rather than evidenced principles.</p>
+<p>Principal Filter Analysis (PFA) is a compression algorithm that
+uses the data passing through a network to guide compression
+and propose alternative architectures. It can be used to quantify
+the correlation between units responses in a particular layer,
+when performing inference on some relevant dataset (typically the training set).
+PFA selects the dimension of the new layer, and optionally also which units should be preserved
+(this can speed up the retraining), by eliminating units that are redundant
+given the correlation found in the responses of such layer.
+The hyper parameters of PFA are thoroughly documented and
+relate to the final compressed model so characteristics such as footprint
+or inference time can be quantified even before running the algorithm.</p>
+<section id="evidence">
+<span id="pfa-evidence"></span><h3>Evidence<a class="headerlink" href="#evidence" title="Permalink to this heading">#</a></h3>
+<p>PFA applied to network compression shows considerable compression rates
+without compromising accuracy, e.g., for VGG-16 on CIFAR-10, CIFAR-100
+and ImageNet, PFA achieves a compression rate of 8x, 3x, and 1.4x with
+an accuracy gain of 0.4%, 1.4% points, and 2.4% respectively. In
+tests, it’s also shown that networks compressed with PFA achieve an accuracy
+that is very close to the empirical upper bound for a given compression ratio.</p>
+<p>While most of the results in the PFA paper <a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> are based on CNNs
+and images, there are also successful results of PFA with non-image data using
+RNNs as well as Transformers <a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+</section>
+<section id="algorithm">
+<h3>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h3>
+<p>Principal Filter Analysis (PFA) <a class="footnote-reference brackets" href="#id4" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> is an algorithm that, given a dataset and a trained model, it
+introspects the responses of the model in order to identify units (i.e, filters in convolutional
+layers or individual neurons in fully connected layers)
+that produce correlated responses.</p>
+<section id="correlation">
+<h4>Correlation<a class="headerlink" href="#correlation" title="Permalink to this heading">#</a></h4>
+<p>Most of the time the output of the last layer of neural networks is most interesting, however,
+analyzing its intermediate responses provides a unique glimpse on how the network perceives
+data throughout the different stages of the computation. Given a dataset, PFA analyzes the
+responses of a layer and recommends a subset of units required to preserve the information
+extracted by such layer while reducing redundancy among the units of the layer.</p>
+<img alt="An animated gift showing how correlation between network activations are measured as input data is fed through a model." class="align-center" src="../../_images/dni-pfa-correlation.gif" />
+<p>The <em>key</em> ingredient of PFA is the set of eigenvalues extracted from the empirical covariance
+matrix computed from the responses.</p>
+<img alt="An illustration of how Eigenvalues are pulled from the covariance matrix." class="align-center" src="../../_images/Eigenvalues_data.png" />
+<p>Intuitively, in the ideal scenario all eigenvalues should be equally distributed, on the other hand,
+very small eigenvalues are indicative of a high amount of correlation among the responses, which in
+turns, means that a smaller set of units should be able to produce responses that contain the same
+amount of information as those produced by the current layer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PFA can be applied to the output response of any layer with no knowledge of the training
+procedure or the loss function. All PFA needs are the responses generated by the current layer.</p>
+</div>
+</section>
+</section>
+<section id="suggested-workflow">
+<span id="pfa-suggested-workflow"></span><h3>Suggested workflow<a class="headerlink" href="#suggested-workflow" title="Permalink to this heading">#</a></h3>
+<p>This section describes how PFA can be applied to the layers of a trained model in order to extract
+information about the correlation present in their responses.</p>
+<p><strong>1</strong>. Train a neural network.</p>
+<p><strong>2</strong>. Run inference using a random subset of the training set (or the whole training set if time
+allows) and extract the responses of the layers that should be analyzed. It is the user who chooses
+which layer to analyze, the analysis can target a specific layer, or include all convolutional and
+fully connected layers. This step can be performed using any external
+tool or with the DNIKit inference tools.</p>
+<img alt="Illustration of intermediate network layers, which could consist of a number of channels, height, and width." class="align-center" src="../../_images/Inference.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DNIKit supports models from several frameworks, to see the complete list of supported framework visit the
+<a class="reference internal" href="../../general/installation.html#installation"><span class="std std-ref">Installation</span></a> page. When using a non-supported framework, it’s still possible to use PFA (as well as all other DNIKit
+introspectors) by running inference (step 2) and collecting the responses without the help of DNIKit. This then requires
+building a custom <a class="reference internal" href="../../api/dnikit/base.html#dnikit.base.Producer" title="dnikit.base.Producer"><code class="xref py py-class docutils literal notranslate"><span class="pre">DNIKit</span> <span class="pre">Producer</span></code></a> to passes the responses to the PFA
+introspector or any other introspector (see <a class="reference internal" href="../../utils/data_producers.html#creating-custom-producer"><span class="std std-ref">create a custom</span></a>).</p>
+</div>
+<p><strong>3</strong>. Perform a response reduction. This step is only needed for convolutional layers. Once the response from a
+convolutional layer is obtained 1 value per each filter is extracted. A common reduction algorithm is
+Max or Avg pooling. Like for the previous step, DNIKit provides tools to perform this part of the pipeline
+(the most common pooling operations are already implemented, other can be implemented by extending a
+<a class="reference internal" href="../../api/dnikit/processors.html#processors-api"><span class="std std-ref">Processor</span></a>, however, one can choose to process the responses using external tools).</p>
+<img alt="Illustration of pooling for each channel to reduce response dimensionality." class="align-center" src="../../_images/Pooling.png" />
+<p><strong>4</strong>. Run PFA to introspect the responses. For each layer under analysis, this step will build the empirical
+covariance matrix and compute its eigenvalues. The code to compute this introspection is shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pfa</span> <span class="o">=</span> <span class="n">PFA</span><span class="o">.</span><span class="n">introspect</span><span class="p">(</span>
+    <span class="n">producer</span><span class="o">=</span><span class="n">response_producer</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="An illustration of how Eigenvalues are pulled from the covariance matrix." class="align-center" src="../../_images/Eigenvalues_data.png" />
+<p><strong>5</strong>. Apply a PFA strategy in order to obtain a recipe that will indicate how many units are needed for each analyzed
+layer in order to minimize correlation while achieving a specific <em>target</em>. The target depends on the strategy used. There are
+three strategies available: <strong>PFA Energy</strong>, <strong>PFA Size</strong>, and <strong>PFA KL</strong>. See <a class="reference internal" href="#pfa-strategies"><span class="std std-ref">PFA  Strategies</span></a> for details on each of the strategies.
+Once PFA has performed the introspection step, a recipe can be obtained by requesting it with one of the strategies listed earlier. For
+example, to use PFA Energy with an energy level of 0.7 but ensure that at least 3 units are always considered non-redundant the
+code would be the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe_dictionary</span> <span class="o">=</span> <span class="n">pfa</span><span class="o">.</span><span class="n">get_recipe</span><span class="p">(</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">PFA</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Energy</span><span class="p">(</span>
+        <span class="n">energy_threshold</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+        <span class="n">min_kept_count</span><span class="o">=</span><span class="mi">3</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Up to this point, the recipe only specifies some information about the correlation found in the analyzed layers and
+how many units are needed to minimize correlation while achieving the target specified by the strategy. No information
+is yet provided regarding <em>which</em> units are the least redundant. Below is an example of the recipe produced by PFA:</p>
+<img alt="Pandas DataFrame to show a PFA recipe, with columns of layer name, original unit count, and recommended unit count." class="align-center" src="../../_images/pfa_recipe_example.png" />
+<p>In order to identify which units are identified as least redundant see the section about <a class="reference internal" href="../../notebooks/model_introspection/principal_filter_analysis.html#Unit-Selection"><span class="std std-ref">Unit Selection</span></a>.</p>
+<p><strong>6</strong>. Use the information of the recipe. This steps depends on the target application.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The user is responsible for steps 1 and 6,
+while all the other steps can be done within DNIKit.</p>
+</div>
+</section>
+<section id="pfa-for-transfer-learning">
+<h3>PFA for Transfer Learning<a class="headerlink" href="#pfa-for-transfer-learning" title="Permalink to this heading">#</a></h3>
+<p>PFA can also be used for simultaneous compression and transfer learning by using the data of a
+new target task as input to the algorithm, where the model was trained on a different original task.</p>
+<p>In transfer learning usually a model pre-trained on some dataset (original task) is fine-tuned on
+a different dataset (target task). Taking advantage of the first training has been shown to have
+advantages especially if the dataset available for the target task is limited in size.
+The problem with this approach is that the original model might contain much more information
+than what is needed to solve the final task. This is fine if there are no constraints on memory
+and inference time but it could become an issue if there are resource-constraints while also
+wanting to take advantage of transfer learning.</p>
+<p>PFA is an introspector that can be used to drive the compression by analyzing responses to a
+specific dataset, rather than simply removing weights with small magnitude. Therefore, the
+compressed networks become specialized for the dataset used to generate the responses: depending
+on the dataset, the compressed architecture will change.</p>
+<p>All is needed is to run PFA with the dataset that corresponds to the target task instead of the
+original task. Running PFA on the target task will let the algorithm choose which part of the
+network is most relevant for the final target task, and which part is
+unnecessary, resulting in simultaneous compression and transfer learning.</p>
+<p>To demonstrate the effectiveness of PFA in the task of simultaneous compression and transfer
+learning, the following experiment has been performed.</p>
+<p>Let <span class="math notranslate nohighlight">\(D_a\)</span> denote the dataset that corresponds to the original task used for training the full
+model. In this test, <span class="math notranslate nohighlight">\(D_a\)</span> is <a class="reference external" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-100</a>. Let <span class="math notranslate nohighlight">\(D_z\)</span> denote the dataset that corresponds
+to the target task. Different <span class="math notranslate nohighlight">\(D_z`s are generated by randomly sampling classes out
+of the original 100 classes contained in CIFAR-100. Two targets :math:`D_z\)</span> of 10 classes each
+(<span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span>) are generated, alongside four targets <span class="math notranslate nohighlight">\(D_z\)</span> of 2 classes each
+(<span class="math notranslate nohighlight">\(S_1\)</span>, <span class="math notranslate nohighlight">\(S_2\)</span>, <span class="math notranslate nohighlight">\(S_3\)</span> and <span class="math notranslate nohighlight">\(S_4\)</span>).
+For each adaptation <span class="math notranslate nohighlight">\(D_a\)</span> → <span class="math notranslate nohighlight">\(D_z\)</span> the following experiments are performed using
+a VGG-16 model:</p>
+<ul class="simple">
+<li><p><cite>Full scratch</cite>: Train from scratch with the target task <span class="math notranslate nohighlight">\(D_z\)</span> (this does not include transfer learning);</p></li>
+<li><p><cite>Full fine</cite>: Train from scratch with the original task <span class="math notranslate nohighlight">\(D_a\)</span> and fine-tune with <span class="math notranslate nohighlight">\(D_z\)</span> (traditional transfer learning);</p></li>
+<li><p><cite>PFA scratch</cite>: Train from scratch with the original task <span class="math notranslate nohighlight">\(D_a\)</span>, run <a class="reference internal" href="#pfa-kl"><span class="std std-ref">PFA KL</span></a> with <span class="math notranslate nohighlight">\(D_z\)</span> and train the compressed architecture from scratch with <span class="math notranslate nohighlight">\(D_z\)</span>;</p></li>
+<li><p><cite>PFA fine</cite>: Train from scratch with the original task <span class="math notranslate nohighlight">\(D_a\)</span>, run <a class="reference internal" href="#pfa-kl"><span class="std std-ref">PFA KL</span></a> with <span class="math notranslate nohighlight">\(D_z\)</span> and train the compressed architecture using <a class="reference internal" href="../../notebooks/model_introspection/principal_filter_analysis.html#Unit-Selection"><span class="std std-ref">Unit Selection</span></a> with <span class="math notranslate nohighlight">\(D_z\)</span>.</p></li>
+</ul>
+<p>The results in the figure below show how the <cite>PFA fine</cite> strategy (red bars) performs similarly to
+the <cite>Full fine</cite> model (green bars), while obtaining models that are more than 4 times smaller
+(the footprint is indicated by the percentage values overlaid on top of the yellow and red bars).
+Moreover, the <cite>PFA fine</cite> strategy significantly outperforms the full model trained from scratch on
+the target domain (<cite>Full scratch</cite>, blue bars).</p>
+<img alt="Graphical version of the PFA results on simultaneous compression and transfer learning (accuracies)." class="align-center" src="../../_images/domain_c100.pdf" />
+<p>The compressed architectures generated by PFA, shown in the image below, are different depending on
+the complexity of the target task. Note how PFA obtains architectures with more filters for the
+10 class subsets (<span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span>) than for the 2 class subset
+(<span class="math notranslate nohighlight">\(S_1\)</span>, <span class="math notranslate nohighlight">\(S_2\)</span>, <span class="math notranslate nohighlight">\(S_3\)</span> and <span class="math notranslate nohighlight">\(S_4\)</span>). Even among the 2 class subset, there is a
+small variation in the final architecture, reflecting the different level of difficulty to
+distinguish between the two target classes. These results show how by analyzing the responses rather
+than the weights, PFA is able to compress a network while specializing it to different target tasks.</p>
+<img alt="Graphical version of PFA results on simultaneous compression and transfer learning (architectures)" class="align-center" src="../../_images/domain_recipes_c100.pdf" />
+</section>
+</section>
+<section id="example">
+<span id="pfa-example"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</div>
+</section>
+<section id="relevant-api">
+<h2>Relevant API<a class="headerlink" href="#relevant-api" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA" title="dnikit.introspectors.PFA"><code class="xref py py-class docutils literal notranslate"><span class="pre">PFA</span> <span class="pre">Introspector</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.Strategy" title="dnikit.introspectors.PFA.Strategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">PFA</span> <span class="pre">Compression</span> <span class="pre">Strategies</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.UnitSelectionStrategy" title="dnikit.introspectors.PFA.UnitSelectionStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">PFA</span> <span class="pre">Unit</span> <span class="pre">Selection</span> <span class="pre">Strategies</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../api/dnikit/introspectors.html#dnikit.introspectors.PFA.get_recipe" title="dnikit.introspectors.PFA.get_recipe"><code class="xref py py-func docutils literal notranslate"><span class="pre">PFA</span> <span class="pre">Recipe</span></code></a></p></li>
+</ul>
+<p class="rubric">References</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id4" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>Suau, X., Zappella, L., &amp; Apostoloff, N. (2018). Filter Distillation for Network Compression. <a class="reference external" href="https://arxiv.org/pdf/1807.10585.pdf">https://arxiv.org/pdf/1807.10585.pdf</a></p>
+</aside>
+<aside class="footnote brackets" id="id5" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Hinton, G., Vinyals, O. &amp; Dean, J. (2015). Distilling the Knowledge in a Neural Network. <a class="reference external" href="https://arxiv.org/pdf/1503.02531.pdf">https://arxiv.org/pdf/1503.02531.pdf</a></p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../model_introspection.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Network Introspection</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../notebooks/model_introspection/principal_filter_analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Principal Filter Analysis (PFA): Compression Basic Example for MobileNet on CIFAR-10</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-usage">General Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-options">Config options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-strategies">PFA  Strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-energy">PFA Energy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-size">PFA Size</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-kl">PFA KL</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-selection">Unit Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#abs-max">ABS-Max</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-max">L1-Max</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evidence">Evidence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-workflow">Suggested workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pfa-for-transfer-learning">PFA for Transfer Learning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-api">Relevant API</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

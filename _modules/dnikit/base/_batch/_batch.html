@@ -1,0 +1,1587 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dnikit.base._batch._batch &#8212; DNIKit 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dnikit/base/_batch/_batch';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DNIKit 2.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/example_notebooks.html">Example Jupyter Notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/dnikit_concepts.html">1. DNIKit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_model.html">2. Load a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/connect_data.html">3. Load data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to/introspect.html">4. Introspect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection.html">Data Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dataset_report.html">Dataset Report</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dataset_report.html">Jupyter Notebook: Dataset Report</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/familiarity.html">Familiarity</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_rare_data_discovery.html">Jupyter Notebook: Familiarity for Rare Data Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/familiarity_for_dataset_distribution.html">Jupyter Notebook: Familiarity for Comparison of Dataset Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/duplicates.html">Duplicates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/duplicates.html">Jupyter Notebook: Find Near-Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/data_introspection/dimension_reduction.html">Dimension Reduction</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/data_introspection/dimension_reduction.html">Jupyter Notebook: Dimension Reduction Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection.html">Network Introspectors</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/network_compression.html">Network Compression with PFA</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/principal_filter_analysis.html">Jupyter Notebook: Principal Filter Analysis (PFA)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../introspectors/model_introspection/inactive_units.html">Find Inactive Units with IUA</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/model_introspection/inactive_unit_analysis.html">Jupyter Notebook: Inactive Unit Analysis (IUA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/data_producers.html">Data Producers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils/pipeline_stages.html">Batch Processors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/index.html">DNIKit API</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../api/dnikit/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/base.html">Base API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/processors.html">Processors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/introspectors.html">Introspectors API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/dnikit/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tensorflow/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_tensorflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/torch/index.html"><code class="docutils literal notranslate"><span class="pre">dnikit_torch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/how_to_cite.html">Citing DNIKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/support.html">Support</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/contributing.html">Contributor’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/changelog.html">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dnikit.base._batch._batch</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright 2020 Apple Inc.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">dataclasses</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">overload</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">._fields</span> <span class="kn">import</span> <span class="n">_Fields</span>
+<span class="kn">from</span> <span class="nn">._storage</span> <span class="kn">import</span> <span class="n">_BatchStorage</span><span class="p">,</span> <span class="n">_subset_batch</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_metadata_storage</span> <span class="k">as</span> <span class="n">_meta</span>
+<span class="kn">from</span> <span class="nn">dnikit.exceptions</span> <span class="kn">import</span> <span class="n">DNIKitException</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._types</span> <span class="k">as</span> <span class="nn">t</span>
+<span class="kn">import</span> <span class="nn">dnikit.typing._dnikit_types</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="c1"># Used only for metadata typing</span>
+<span class="n">_T</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_T&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_clean_snapshots</span><span class="p">(</span><span class="n">snapshots</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Batch&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;_BatchStorage&quot;</span><span class="p">]:</span>
+    <span class="c1"># Creates a shallow copy of snapshots. Used when going from Builder to Batch,</span>
+    <span class="c1"># otherwise it&#39;d be possible to break the invariance constraint on Batch (since Builder</span>
+    <span class="c1"># would hold on to a mutable reference of the snapshots in Batch)</span>
+    <span class="c1"># Additionally, it avoids recursive snapshots (a snapshot is not allowed to have snapshots).</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">_BatchStorage</span><span class="p">(</span>
+            <span class="n">fields</span><span class="o">=</span><span class="n">_Fields</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">fields</span><span class="p">)),</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="n">snap</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_storage</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">snap</span> <span class="ow">in</span> <span class="n">snapshots</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">_get_meta_keys_view</span><span class="p">(</span><span class="n">storage</span><span class="p">:</span> <span class="n">_meta</span><span class="o">.</span><span class="n">_AnyMetadataStorage</span>
+                        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">KeysView</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">]]:</span>
+    <span class="c1"># Cast result, assume there&#39;s a 1:1 correspondence between</span>
+    <span class="c1"># _MetaKeyProtocol &lt;-&gt; Batch.MetaKey &amp; _DictMetaKeyProtocol &lt;-&gt; Batch.DictMetaKey</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">KeysView</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">Batch</span><span class="o">.</span><span class="n">MetaKey</span><span class="p">,</span> <span class="n">Batch</span><span class="o">.</span><span class="n">DictMetaKey</span><span class="p">]],</span>
+        <span class="n">storage</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="Batch"><a class="viewcode-back" href="../../../../api/dnikit/base.html#dnikit.base.Batch">[docs]</a><span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Batch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ``Batch`` is DNIKit&#39;s class to store input and output data.</span>
+
+<span class="sd">    At its most basic, a ``Batch`` contains as an immutable dictionary between a label and a</span>
+<span class="sd">    :class:`numpy.ndarray`. This dictionary is stored in the ``fields`` attribute of ``Batch``.</span>
+<span class="sd">    Each field in ``fields`` is then composed of a label and a numpy array, with the label</span>
+<span class="sd">    describing the data contained in the :class:`numpy.ndarray` (the label may be named after the</span>
+<span class="sd">    layer that produced the response or for the input data name). The numpy array contains the data</span>
+<span class="sd">    with its zero-th dimension representing the number  of elements (ie dimension 0 is **always**</span>
+<span class="sd">    the batch dimension).</span>
+
+<span class="sd">    :attr:`Batch.fields` can be used just like a ``Mapping[str, np.ndarray]``:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        # Print fields present in Batch</span>
+<span class="sd">        print(list(batch.fields.keys()))</span>
+
+<span class="sd">        # Retrieve batch data</span>
+<span class="sd">        images = batch.fields[&quot;input_images&quot;] # type is numpy.ndarray</span>
+
+<span class="sd">        # Loop through elements in batch</span>
+<span class="sd">        for k, v in batch.fields.items():</span>
+<span class="sd">            print(f&quot;field {k} has shape {v.shape}&quot;)</span>
+
+<span class="sd">    It&#39;s possible to create a new ``Batch`` by simply passing a dictionary (or any other mapping)</span>
+<span class="sd">    from ``str`` to ``numpy.ndarray``. For more advanced options (like ``snapshots`` or</span>
+<span class="sd">    ``metadata``), see below use on how to use :class:`Batch.Builder` instead.</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        new_batch = Batch({&quot;images&quot; : numpy.zeros((32, 3, 64, 64))})</span>
+
+<span class="sd">    Warning:</span>
+<span class="sd">        The number of elements (ie. the batch size) of all :class:`numpy.ndarray` in a ``Batch``</span>
+<span class="sd">        **must** be the same for all arrays.</span>
+
+<span class="sd">    Lookup the number of elements in a ``Batch`` by calling :attr:`Batch.batch_size`.</span>
+
+<span class="sd">    Additionally, ``Batch`` has two extra attributes for advanced users: :attr:`Batch.metadata` and</span>
+<span class="sd">    :attr:`Batch.snapshots`.</span>
+
+<span class="sd">    :attr:`Batch.snapshots` behaves like an immutable mapping from a label to another ``Batch`` and</span>
+<span class="sd">    is often used in conjunction with :func:`pipeline()` and</span>
+<span class="sd">    :class:`SnapshotSaver &lt;dnikit.processors.SnapshotSaver&gt;` to store the</span>
+<span class="sd">    state of a ``Batch`` before transforming it.</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        # Check if a snapshot is available in batch</span>
+<span class="sd">        assert &quot;origin&quot; in batch.snapshots</span>
+
+<span class="sd">        # Retrieve the snapshot</span>
+<span class="sd">        origin_batch = batch.snapshots[&quot;origin&quot;]  # type is Batch</span>
+
+<span class="sd">        # origin_batch is a regular Batch and may contain different fields</span>
+<span class="sd">        original_data = origin_batch.fields[&quot;data&quot;]  # type is np.ndarray</span>
+
+<span class="sd">        # The batch_size of a snapshot always matches the current batch&#39;s batch_size.</span>
+<span class="sd">        assert batch.batch_size == origin_batch.batch_size</span>
+
+<span class="sd">    :attr:`Batch.metadata` is used to store metadata about certain aspects of the batch. There are</span>
+<span class="sd">    many types of metadata and three built-in metadata keys (see :class:`Batch.StdKeys`) that can</span>
+<span class="sd">    be used to attach and use metadata. Custom metadata keys can also be defined</span>
+<span class="sd">    (see :class:`Batch.MetaKey` and :class:`Batch.DictMetaKey`). To use metadata, it&#39;s</span>
+<span class="sd">    necessary to have both a meta key, and –if using a :class:`Batch.DictMetaKey`– a</span>
+<span class="sd">    string identifier.</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        # Flat metadata</span>
+<span class="sd">        # ---------------</span>
+<span class="sd">        # Instantiate a Batch.MetaKey (key to store and retrieve flat metadata in a batch)</span>
+<span class="sd">        META_KEY = Batch.MetaKey[int](&quot;META_KEY&quot;)</span>
+
+<span class="sd">        # Retrieve metadata</span>
+<span class="sd">        flat_metadata = batch.metadata[META_KEY]  # type is Sequence[int]</span>
+
+<span class="sd">        # The number of elements in metadata is always the number of elements in a batch.</span>
+<span class="sd">        assert len(flat_metadata) == batch.batch_size</span>
+
+<span class="sd">        # Dict metadata</span>
+<span class="sd">        # ---------------</span>
+<span class="sd">        # Instantiate a Batch.DictMetaKey (key to store and retrieve dict-metadata in a batch)</span>
+<span class="sd">        DICT_META_KEY = Batch.DictMetaKey[float](&quot;DICT_META_KEY&quot;)</span>
+
+<span class="sd">        # Retrieve metadata</span>
+<span class="sd">        dict_metadata = batch.metadata[DICT_META_KEY][&quot;key&quot;]  # type is Sequence[float]</span>
+
+<span class="sd">        # The number of elements in metadata is always the number of elements in a batch.</span>
+<span class="sd">        assert len(dict_metadata) == batch.batch_size</span>
+
+<span class="sd">    Use :class:`Batch.Builder` to make *new* instances of ``Batch`` with ``metadata`` or</span>
+<span class="sd">    ``snapshots``. Note that DNIKit ships with many processors to modify metadata and snapshots</span>
+<span class="sd">    in existing Batches, such as :class:`SnapshotSaver &lt;dnikit.processors.SnapshotSaver&gt;` and</span>
+<span class="sd">    :class:`SnapshotRemover &lt;dnikit.processors.SnapshotRemover&gt;`.</span>
+
+<span class="sd">    Warning:</span>
+<span class="sd">        The number of elements of every metadata and every snapshot **must** always be the same</span>
+<span class="sd">        as the number of elements in **every field**.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        To add ``snapshots`` or ``metadata`` use :class:`Batch.Builder`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fields: initial values for ``Batch`` in the form of a ``Mapping`` (dictionary) from</span>
+<span class="sd">            ``str`` to ``numpy.ndarray``.</span>
+<span class="sd">        _storage: internal use only, do not use.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If ``Batch`` is initialized without any data.</span>
+<span class="sd">        DNIKitException: If the zero-th dimension (ie batch size) of any field, any metadata or</span>
+<span class="sd">            any snapshot do not agree.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Data members of Batch</span>
+    <span class="n">_storage</span><span class="p">:</span> <span class="n">_BatchStorage</span>
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fields</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]):</span> <span class="o">...</span>
+    <span class="nd">@overload</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">_storage</span><span class="p">:</span> <span class="n">_BatchStorage</span><span class="p">):</span> <span class="o">...</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">fields</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">_storage</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_BatchStorage</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">_storage</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">fields</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot initialize Batch without any fields&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">_storage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">fields</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot provide both `fields` and `storage` arguments&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">fields</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">storage</span> <span class="o">=</span> <span class="n">_BatchStorage</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="n">_Fields</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">fields</span><span class="p">)))</span>
+        <span class="k">elif</span> <span class="n">_storage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">storage</span> <span class="o">=</span> <span class="n">_storage</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Unreachable code&quot;</span>
+
+        <span class="c1"># Set frozen instance properties</span>
+        <span class="c1"># https://docs.python.org/3/library/dataclasses.html#frozen-instances</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_storage&quot;</span><span class="p">,</span> <span class="n">storage</span><span class="p">)</span>
+        <span class="c1"># Check invariants &amp; freeze numpy arrays</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">check_invariants</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">freeze_arrays</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fields</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve ``fields`` contained in this batch.</span>
+
+<span class="sd">        A ``field`` is just a :class:`mapping &lt;collections.abc.Mapping&gt;` between a</span>
+<span class="sd">        label (:class:`str`) and a value (:class:`numpy.ndarray`). Fields can images, audio samples,</span>
+<span class="sd">        temporal sequences, model responses, etc..</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">fields</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Batch&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve ``snapshots`` associated with this batch.</span>
+
+<span class="sd">        Snapshots are a mapping from a label to a batch (``Mapping[str, Batch]``).</span>
+<span class="sd">        Note that snapshots are read-only. To add snapshots to a :func:`pipeline`</span>
+<span class="sd">        refer to :class:`SnapshotSaver &lt;dnikit.processors.SnapshotSaver&gt;`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">Batch</span><span class="p">(</span><span class="n">_storage</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">snapshots</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Batch.MetadataType&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :class:`Metadata &lt;Batch.Metadata&gt;` associated with this batch.</span>
+
+<span class="sd">        See description of :class:`Batch.MetadataType` to check which operations are supported.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Batch</span><span class="o">.</span><span class="n">MetadataType</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">batch_size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Current batch size (i.e., number of samples in batch).</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            Batch size will be the batch size for all fields in the batch, for all fields in all</span>
+<span class="sd">            types of metadata and for all fields in all snapshots.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">batch_size</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">elements</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Batch.ElementsView&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attribute that enables traversal of this ``Batch`` by element index.</span>
+
+<span class="sd">        See description of :class:`Batch.ElementsView` to check what operations are supported.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Batch</span><span class="o">.</span><span class="n">ElementsView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+
+    <span class="c1"># Batch.ElementsView</span>
+    <span class="c1"># ----------------------------------------------------------------------------------------------</span>
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">ElementsView</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class to use :class:`Batch &lt;dnikit.base.Batch&gt;` elements by index.</span>
+
+<span class="sd">        Do not instantiate this class directly, instead use</span>
+<span class="sd">        :attr:`Batch.elements &lt;dnikit.base.Batch.elements&gt;`.</span>
+
+<span class="sd">        ``Batch.ElementsView`` allows for:</span>
+<span class="sd">        :func:`traversal &lt;__iter__&gt;`, as well as</span>
+<span class="sd">        :func:`indexing and slicing &lt;__getitem__&gt;`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_storage</span><span class="p">:</span> <span class="n">_BatchStorage</span>
+
+        <span class="nd">@overload</span>
+        <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Batch.ElementType&quot;</span><span class="p">:</span> <span class="o">...</span>
+        <span class="nd">@overload</span>
+        <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;Batch&quot;</span><span class="p">:</span> <span class="o">...</span>
+        <span class="nd">@overload</span>
+        <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="nb">slice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Batch&quot;</span><span class="p">:</span> <span class="o">...</span>
+
+        <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+                        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.ElementType&quot;</span><span class="p">]:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Indexing and slicing operator for ``Batch.ElementsView``.</span>
+
+<span class="sd">            :attr:`Batch.elements &lt;dnikit.base.Batch.elements&gt;` can also be used to directly index</span>
+<span class="sd">            one or more elements of the batch.</span>
+
+<span class="sd">            Indexing with a single :class:`int` returns a</span>
+<span class="sd">            :class:`Batch.ElementType &lt;dnikit.base.Batch.ElementType&gt;` corresponding to that</span>
+<span class="sd">            element. Otherwise, indexing with a ``Sequence[int]`` of indices returns</span>
+<span class="sd">            a :class:`Batch &lt;dnikit.base.Batch&gt;` with the selected elements.</span>
+
+<span class="sd">            Just like with :class:`lists &lt;list&gt;`, negative items are read as starting from the end</span>
+<span class="sd">            of the elements.</span>
+
+<span class="sd">            .. code-block:: python</span>
+
+<span class="sd">                element = batch.elements[42]  # type is Batch.ElementType</span>
+<span class="sd">                subset = batch.elements[-1, 1, 2, 3, 5, 8]  # type is Batch</span>
+
+<span class="sd">            Finally, :attr:`Batch.elements &lt;dnikit.base.Batch.elements&gt;` enables slicing the</span>
+<span class="sd">            batch as well. Slicing operations always return a :class:`Batch &lt;dnikit.base.Batch&gt;`.</span>
+
+<span class="sd">            .. code-block:: python</span>
+
+<span class="sd">                # Get elements 10, 12, 14...30 of the Batch</span>
+<span class="sd">                subset = batch.elements[10:30:2]  # type is Batch</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                selector: specifies how to select subsamples from Batch. See prior example.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">                :class:`Batch &lt;dnikit.base.Batch&gt;` with specified subset, or single</span>
+<span class="sd">                :class:`Batch element &lt;dnikit.base.Batch.ElementType&gt;`.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">selector</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">Batch</span><span class="o">.</span><span class="n">ElementType</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">selector</span><span class="p">)</span>
+            <span class="c1"># For advanced selector</span>
+            <span class="n">new_storage</span> <span class="o">=</span> <span class="n">_subset_batch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">selector</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Batch</span><span class="p">(</span><span class="n">_storage</span><span class="o">=</span><span class="n">new_storage</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterator</span><span class="p">[</span><span class="s2">&quot;Batch.ElementType&quot;</span><span class="p">]:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Iteration operator for :class:`Batch.ElementsView &lt;dnikit.base.Batch.ElementsView&gt;`.</span>
+
+<span class="sd">            :attr:`Batch.elements &lt;dnikit.base.Batch.elements&gt;` can be used in a for-loop or to</span>
+<span class="sd">            get an iterator. Each element of the iteration will be of type</span>
+<span class="sd">            :class:`Batch.ElementType &lt;dnikit.base.Batch.ElementType&gt;`.</span>
+
+<span class="sd">            .. code-block:: python</span>
+
+<span class="sd">                for element in batch.elements:</span>
+<span class="sd">                    assert isinstance(element, Batch.ElementType)</span>
+<span class="sd">                    # Can retrieve fields, snapshots &amp; metadata for a single element</span>
+<span class="sd">                    element.fields[&quot;data&quot;]</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">_BatchIterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">batch_size</span>
+
+    <span class="c1"># Batch.Element</span>
+    <span class="c1"># ----------------------------------------------------------------------------------------------</span>
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">ElementType</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class to hold a single element from a :class:`Batch &lt;dnikit.base.Batch&gt;`.</span>
+
+<span class="sd">        This class should not be instantiated directly. Instead, receive</span>
+<span class="sd">        a ``Batch.ElementType`` by iterating or indexing</span>
+<span class="sd">        :attr:`Batch.elements &lt;dnikit.base.Batch.elements&gt;`.</span>
+
+<span class="sd">        Just like :class:`Batch &lt;dnikit.base.Batch&gt;`, ``Batch.ElementType`` has three attributes:</span>
+<span class="sd">        :attr:`fields &lt;dnikit.base.Batch.ElementType.fields&gt;`,</span>
+<span class="sd">        :attr:`snapshots &lt;dnikit.base.Batch.ElementType.snapshots&gt;`</span>
+<span class="sd">        and :attr:`metadata &lt;dnikit.base.Batch.ElementType.metadata&gt;`.</span>
+
+<span class="sd">        The main difference is that these properties will return data about a single element in the</span>
+<span class="sd">        :class:`Batch &lt;dnikit.base.Batch&gt;`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_storage</span><span class="p">:</span> <span class="n">_BatchStorage</span>
+        <span class="n">_index</span><span class="p">:</span> <span class="nb">int</span>
+
+        <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">batch_size</span>
+
+        <span class="nd">@property</span>
+        <span class="k">def</span> <span class="nf">fields</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">]]:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Retrieve ``fields`` contained in this batch element.</span>
+
+<span class="sd">            See :attr:`Batch.fields &lt;dnikit.base.Batch.fields&gt;` for more information.</span>
+
+<span class="sd">            Note:</span>
+<span class="sd">                The return type of this operation depends whether the underlying field</span>
+<span class="sd">                has more than one dimension. If the field, has dimensions ``B x D1 x .. x Dn``</span>
+<span class="sd">                the return type will be a :class:`numpy.ndarray` with shape ``D1 x .. x Dn``,</span>
+<span class="sd">                otherwise if the field has dimensions ``B`` then this property will return</span>
+<span class="sd">                a :class:`numpy.number`.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">_Fields</span><span class="p">({</span>
+                <span class="n">field</span><span class="p">:</span> <span class="n">value</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">})</span>
+
+        <span class="nd">@property</span>
+        <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Batch.ElementType&quot;</span><span class="p">]:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Retrieve ``snapshots`` contained in this batch element.</span>
+
+<span class="sd">            See :attr:`Batch.snapshots &lt;dnikit.base.Batch.snapshots&gt;` for more information.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="n">name</span><span class="p">:</span> <span class="n">Batch</span><span class="o">.</span><span class="n">ElementType</span><span class="p">(</span><span class="n">snapshot</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">snapshot</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">snapshots</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">}</span>
+
+        <span class="nd">@property</span>
+        <span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Batch.MetadataType.ElementType&quot;</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Retrieve ``metadata`` contained in this batch element.</span>
+
+<span class="sd">            See :attr:`Batch.metadata &lt;dnikit.base.Batch.metadata&gt;` for more information.</span>
+<span class="sd">            Similarly check</span>
+<span class="sd">            :attr:`Batch.MetadataType.ElementType &lt;dnikit.base.Batch.MetadataType.ElementType&gt;`</span>
+<span class="sd">            to see which operations are supported.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">Batch</span><span class="o">.</span><span class="n">MetadataType</span><span class="o">.</span><span class="n">ElementType</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">print_string</span> <span class="o">=</span> <span class="p">{</span><span class="n">field</span><span class="p">:</span> <span class="n">value</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">]</span>
+                            <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Batch.ElementType(_storage=</span><span class="si">{</span><span class="n">print_string</span><span class="si">}</span><span class="s2">, _index=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="c1"># Batch.MetaKey</span>
+    <span class="c1"># ----------------------------------------------------------------------------------------------</span>
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">MetaKey</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">Generic</span><span class="p">[</span><span class="n">_T</span><span class="p">],</span> <span class="n">_meta</span><span class="o">.</span><span class="n">_MetaKeyTrait</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class to represent different types of simple metadata in :class:`Batch &lt;dnikit.base.Batch&gt;`,</span>
+<span class="sd">        where simple means a single metadata value per data sample for this metadata key.</span>
+
+<span class="sd">        Most of the time, ``Batch.MetaKey`` will only be used to store and retrieve</span>
+<span class="sd">        metadata from a :class:`Batch &lt;dnikit.base.Batch&gt;`.</span>
+<span class="sd">        See :attr:`Batch.metadata &lt;dnikit.base.Batch.metadata&gt;` and</span>
+<span class="sd">        :class:`Batch.MetadataType &lt;dnikit.base.Batch.MetadataType&gt;` to</span>
+<span class="sd">        see how to do so.</span>
+
+<span class="sd">        Metadata keyed by ``Batch.MetaKey`` will be stored as a</span>
+<span class="sd">        :class:`Sequence &lt;collections.abc.Sequence&gt;` of payloads of the same length as the</span>
+<span class="sd">        :attr:`batch (batch_size) &lt;dnikit.base.Batch.batch_size&gt;`.</span>
+
+<span class="sd">        ``Batch.MetaKey`` can be instantiated just like a regular Python class:</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            key_untyped = Batch.MetaKey(&quot;example&quot;)</span>
+
+<span class="sd">        It&#39;s also possible to provide type annotations to inform a type checker of the payload type:</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            key_typed = Batch.MetaKey[int](&quot;example2&quot;)</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            ``Batch.MetaKey`` is a generic type that allows static-type analyzers to keep track</span>
+<span class="sd">            the metadata payload type. For instance:</span>
+
+<span class="sd">            - ``Batch.MetaKey[bool]``: signifies that the metadata will be stored as a</span>
+<span class="sd">              :class:`sequences&lt;collections.abc.Sequence&gt;` of :class:`bool` instances.</span>
+
+<span class="sd">            - ``Batch.MetaKey[Hashable]``: signifies that the metadata will be stored as</span>
+<span class="sd">              :class:`sequences&lt;collections.abc.Sequence&gt;` of</span>
+<span class="sd">              :class:`Hashable&lt;collections.abc.Hashable&gt;` instances.</span>
+
+<span class="sd">            This payload type information is only used by static-type checkers and will not</span>
+<span class="sd">            be verified at runtime.</span>
+
+<span class="sd">        Warning:</span>
+<span class="sd">            Make sure the name of the ``Batch.MetaKey`` is unique.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: Unique name for this ``Batch.MetaKey``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Unique name for this ``Batch.MetaKey``&quot;&quot;&quot;</span>
+
+    <span class="c1"># Batch.DictMetaKey</span>
+    <span class="c1"># ----------------------------------------------------------------------------------------------</span>
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">DictMetaKey</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">Generic</span><span class="p">[</span><span class="n">_T</span><span class="p">],</span> <span class="n">_meta</span><span class="o">.</span><span class="n">_DictMetaKeyTrait</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class to represent different types of dictionary metadata in</span>
+<span class="sd">        :class:`Batch &lt;dnikit.base.Batch&gt;`.</span>
+
+<span class="sd">        Most of the time, ``Batch.DictMetaKey`` will only be used to store and retrieve</span>
+<span class="sd">        metadata from a :class:`Batch`. See :attr:`Batch.metadata &lt;dnikit.base.Batch.metadata&gt;`</span>
+<span class="sd">        and :class:`Batch.MetadataType &lt;dnikit.base.Batch.MetadataType&gt;` to see how to do so.</span>
+
+<span class="sd">        Metadata keyed by ``Batch.DictMetaKey`` will be stored as a</span>
+<span class="sd">        :class:`Mapping&lt;collections.abc.Mapping&gt;` from :class:`strings&lt;str&gt;` to</span>
+<span class="sd">        :class:`Sequence &lt;collections.abc.Sequence&gt;` of payloads of the same length as the</span>
+<span class="sd">        :attr:`batch (batch_size) &lt;dnikit.base.Batch.batch_size&gt;`.</span>
+
+<span class="sd">        ``Batch.DictMetaKey`` can be instantiated just like a regular Python class:</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            key_untyped = Batch.DictMetaKey(&quot;example&quot;)</span>
+
+<span class="sd">        It&#39;s also possible to provide type annotations to inform a type checker of the payload type:</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            key_typed = Batch.DictMetaKey[int](&quot;example2&quot;)</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            ``DictMetaKey`` is a generic type that allows static-type analyzers to keep track</span>
+<span class="sd">            the metadata payload type. For instance:</span>
+
+<span class="sd">            - ``Batch.DictMetaKey[int]``: signifies that the metadata will be stored as a</span>
+<span class="sd">              ``Mapping[str, Sequence[int]]``.</span>
+
+<span class="sd">            - ``Batch.DictMetaKey[t.Union[str, float]]``: signifies that the metadata will be stored</span>
+<span class="sd">              as ``Mapping[str, Sequence[t.Union[str, float]]``.</span>
+
+<span class="sd">            This payload type information is only used by static-type checkers and will not</span>
+<span class="sd">            be verified at runtime.</span>
+
+<span class="sd">        Warning:</span>
+<span class="sd">            Make sure the name of the ``Batch.DictMetaKey`` is unique.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: Unique name for this ``Batch.DictMetaKey``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Unique name for this ``Batch.DictMetaKey``.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Batch.Metadata</span>
+    <span class="c1"># ----------------------------------------------------------------------------------------------</span>
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">MetadataType</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class to store metadata associated with a :class:`Batch &lt;dnikit.base.Batch&gt;`.</span>
+
+<span class="sd">        Most likely, ``Batch.MetadataType`` will only need to be used in conjunction with the</span>
+<span class="sd">        :attr:`metadata attribute &lt;dnikit.base.Batch.metadata&gt;`. from</span>
+<span class="sd">        :class:`Batch &lt;dnikit.base.Batch&gt;`.</span>
+
+<span class="sd">        ``Batch.Metadata`` supports :func:`indexing &lt;dnikit.base.Batch.MetadataType.__getitem__&gt;`,</span>
+<span class="sd">        :func:`membership tests &lt;dnikit.base.Batch.MetadataType.__contains__&gt;`, and</span>
+<span class="sd">        :func:`truth value tests &lt;dnikit.base.Batch.MetadataType.__bool__&gt;`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_storage</span><span class="p">:</span> <span class="n">_meta</span><span class="o">.</span><span class="n">_MetadataStorage</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+
+        <span class="nd">@overload</span>
+        <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="s2">&quot;Batch.MetaKey[_T]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">_T</span><span class="p">]:</span> <span class="o">...</span>
+
+        <span class="nd">@overload</span>
+        <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="s2">&quot;Batch.DictMetaKey[_T]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">_T</span><span class="p">]]:</span> <span class="o">...</span>
+
+        <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Indexing operator for ``Batch.MetadataType``.</span>
+
+<span class="sd">            Indexing behaves differently depending on whether a</span>
+<span class="sd">            :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">            :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;` is used.</span>
+
+<span class="sd">            If a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` is used, the metadata will be</span>
+<span class="sd">            stored as a :class:`Sequence &lt;collections.abc.Sequence&gt;` of the payloads type</span>
+<span class="sd">            indicated in the :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;`:</span>
+
+<span class="sd">            .. code-block:: python</span>
+
+<span class="sd">                # Obtain a key for MetaKey, with payload int</span>
+<span class="sd">                FLAT_META_KEY = Batch.MetaKey[int](&quot;FLAT_META_KEY&quot;)</span>
+
+<span class="sd">                # Retrieve metadata associated with FLAT_META_KEY</span>
+<span class="sd">                my_metadata = batch.metadata[FLAT_META_KEY]  # type is Sequence[int]</span>
+
+<span class="sd">            On the other hand, if a :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`</span>
+<span class="sd">            is used, the metadata will be stored</span>
+<span class="sd">            as a mapping from ``str`` to a sequence of payloads (as declared in the</span>
+<span class="sd">            :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`):</span>
+
+<span class="sd">            .. code-block:: python</span>
+
+<span class="sd">                # Obtain a key for DictMetaKey, with payload float</span>
+<span class="sd">                DICT_META_KEY = Batch.DictMetaKey[float](&quot;DICT_META_KEY&quot;)</span>
+
+<span class="sd">                # Retrieve metadata associated with DICT_META_KEY</span>
+<span class="sd">                my_metadata = batch.metadata[DICT_META_KEY]  # type is Mapping[str, Sequence[float]]</span>
+
+<span class="sd">                # Retrieve a specific entry in metadata</span>
+<span class="sd">                field_metadata = my_metadata[&quot;key&quot;]  # type is Sequence[float]</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                key: a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">                    :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`, to use</span>
+<span class="sd">                    metadata in the batch</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">_meta</span><span class="o">.</span><span class="n">_get_metadata_item</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Membership operator for ``Batch.MetadataType``.</span>
+
+<span class="sd">            It&#39;s possible to check whether a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">            :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;` are</span>
+<span class="sd">            present in :attr:`Batch.metadata &lt;dnikit.base.Batch.metadata&gt;` just as expected</span>
+<span class="sd">            in Python:</span>
+
+<span class="sd">            .. code-block:: python</span>
+
+<span class="sd">                FLAT_META_KEY = Batch.MetaKey[int](&quot;FLAT_META_KEY&quot;)</span>
+<span class="sd">                DICT_META_KEY = Batch.DictMetaKey[float](&quot;DICT_META_KEY&quot;)</span>
+
+<span class="sd">                flat_metadata_present = FLAT_META_KEY in batch.metadata</span>
+<span class="sd">                dict_metadata_present = DICT_META_KEY in batch.metadata</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                key: a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">                    :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`, to see if</span>
+<span class="sd">                    it exists in the batch metadata</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span>
+
+        <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Truth value operator for ``Batch.MetadataType``</span>
+
+<span class="sd">            It&#39;s possible to check whether</span>
+<span class="sd">            :attr:`Batch.metadata &lt;dnikit.base.Batch.metadata&gt;` is empty</span>
+<span class="sd">            by requesting its truth value (will return ``False`` if empty, ``True`` otherwise):</span>
+
+<span class="sd">            .. code-block:: python</span>
+
+<span class="sd">                bool(batch.metadata)  # False if empty, True otherwise</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">KeysView</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">]]:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Return all instances of :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` and</span>
+<span class="sd">            :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;` contained</span>
+<span class="sd">            within this instance.</span>
+
+<span class="sd">            Warning:</span>
+<span class="sd">                The :class:`MetaKeys &lt;dnikit.base.Batch.MetaKey&gt;` and</span>
+<span class="sd">                :class:`DictMetaKeys &lt;dnikit.base.Batch.DictMetaKey&gt;`</span>
+<span class="sd">                returned will be **type-erased** which means a type checker will not understand</span>
+<span class="sd">                the type of the payload. It&#39;s recommended to use this method for debugging purposes</span>
+<span class="sd">                or adding the type information back with :func:`typing.cast`.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">                a view of each :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` and</span>
+<span class="sd">                :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;` contained in</span>
+<span class="sd">                the metadata.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">_get_meta_keys_view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+
+        <span class="c1"># Batch.MetadataType.ElementType</span>
+        <span class="c1"># ------------------------------------------------------------------------------------------</span>
+        <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+        <span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">class</span> <span class="nc">ElementType</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Class to store metadata associated with a single</span>
+<span class="sd">            :class:`Batch &lt;dnikit.base.Batch&gt;` element.</span>
+
+<span class="sd">            As a user, ``Batch.MetadataType.ElementType`` will really only be encountered through</span>
+<span class="sd">            the :attr:`metadata attribute &lt;dnikit.base.Batch.ElementType.metadata&gt;` of</span>
+<span class="sd">            :class:`Batch.ElementType &lt;dnikit.base.Batch.ElementType&gt;` which itself will</span>
+<span class="sd">            likely only be used through :attr:`Batch.elements &lt;dnikit.base.Batch.elements&gt;`.</span>
+
+<span class="sd">            ``Batch.MetadataType.ElementType`` supports the same</span>
+<span class="sd">            :func:`indexing &lt;dnikit.base.Batch.MetadataType.ElementType.__getitem__&gt;`,</span>
+<span class="sd">            :func:`membership tests &lt;dnikit.base.Batch.MetadataType.ElementType.__contains__&gt;` and</span>
+<span class="sd">            :func:`truth value tests &lt;dnikit.base.Batch.MetadataType.ElementType.__bool__&gt;` as</span>
+<span class="sd">            :class:`Batch.MetadataType &lt;dnikit.base.Batch.MetadataType&gt;`.</span>
+
+<span class="sd">            The main difference is that where</span>
+<span class="sd">            :class:`Batch.MetadataType &lt;dnikit.base.Batch.MetadataType&gt;` returns a sequence of</span>
+<span class="sd">            elements, ``Batch.MetadataType.ElementType`` will return a single item.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+            <span class="n">_storage</span><span class="p">:</span> <span class="n">_meta</span><span class="o">.</span><span class="n">_MetadataStorage</span>
+            <span class="n">_index</span><span class="p">:</span> <span class="nb">int</span>
+
+            <span class="nd">@overload</span>
+            <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_key</span><span class="p">:</span> <span class="s2">&quot;Batch.MetaKey[_T]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_T</span><span class="p">:</span>
+                <span class="o">...</span>
+
+            <span class="nd">@overload</span>
+            <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_key</span><span class="p">:</span> <span class="s2">&quot;Batch.DictMetaKey[_T]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_T</span><span class="p">]:</span>
+                <span class="o">...</span>
+
+            <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_key</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Indexing operator for ``Batch.MetadataType.ElementType``.</span>
+
+<span class="sd">                Behaves the same as</span>
+<span class="sd">                :func:`Batch.MetadataType&#39;s indexing &lt;dnikit.base.Batch.MetadataType.__getitem__&gt;`</span>
+<span class="sd">                operator, but returns a single instance of the payload rather than a sequence.</span>
+
+<span class="sd">                .. code-block:: python</span>
+
+<span class="sd">                    # Instantiate a MetaKey and  DictMetaKey</span>
+<span class="sd">                    FLAT_META_KEY = Batch.MetaKey[int](&quot;FLAT_META_KEY&quot;)</span>
+
+<span class="sd">                    DICT_META_KEY = Batch.DictMetaKey[float](&quot;DICT_META_KEY&quot;)</span>
+
+<span class="sd">                    # Get a single batch_element</span>
+<span class="sd">                    batch_element = batch.elements[0]</span>
+
+<span class="sd">                    # Retrieve metadata</span>
+<span class="sd">                    simple_metadata = batch_element.metadata[SIMPLE_META_KEY]</span>
+<span class="sd">                    # type is int</span>
+<span class="sd">                    dict_metadata = batch_element.metadata[DICT_META_KEY]</span>
+<span class="sd">                    # type is Mapping[str, float]</span>
+
+<span class="sd">                Args:</span>
+<span class="sd">                    key: a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">                        :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`, to use</span>
+<span class="sd">                        metadata in the batch element</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="n">_meta</span><span class="o">.</span><span class="n">_get_metadata_element_item</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">meta_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Membership operator for ``Batch.MetadataType.ElementType``.</span>
+
+<span class="sd">                Behaves the same as the</span>
+<span class="sd">                :func:`Batch.MetadataType membership &lt;dnikit.base.Batch.MetadataType.__contains__&gt;`</span>
+<span class="sd">                operator.</span>
+
+<span class="sd">                .. code-block:: python</span>
+
+<span class="sd">                    flat_meta_key_present = FLAT_META_KEY in batch_element.metadata</span>
+<span class="sd">                    dict_meta_key_present = DICT_META_KEY in batch_element.metadata</span>
+
+<span class="sd">                Args:</span>
+<span class="sd">                    key: a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">                        :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`, to see if</span>
+<span class="sd">                        it exists in the batch element&#39;s metadata</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span>
+
+            <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Truth value operator for ``Batch.MetadataType.ElementType``</span>
+
+<span class="sd">                It&#39;s possible to check whether an instance of</span>
+<span class="sd">                ``Batch.MetadataType.ElementType`` is empty by</span>
+<span class="sd">                requesting its truth value (will return ``False`` if empty, ``True`` otherwise):</span>
+
+<span class="sd">                .. code-block:: python</span>
+
+<span class="sd">                    bool(batch_element.metadata)  # False if empty, True otherwise</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">KeysView</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">]]:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Return all instances of :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;`</span>
+<span class="sd">                and :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`</span>
+<span class="sd">                contained within this instance.</span>
+
+<span class="sd">                Warning:</span>
+<span class="sd">                    The :class:`MetaKeys &lt;dnikit.base.Batch.MetaKey&gt;` and</span>
+<span class="sd">                    :class:`DictMetaKeys &lt;dnikit.base.Batch.DictMetaKey&gt;` returned will be</span>
+<span class="sd">                    **type-erased** which means a type checker will not understand the type</span>
+<span class="sd">                    of the payload. It&#39;s recommended to use this method for debugging purposes or</span>
+<span class="sd">                    adding the type information back with :func:`typing.cast`.</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                    a view of each :class:`Batch.MetaKey` and :class:`Batch.DictMetaKey` contained</span>
+<span class="sd">                    in this ``Batch.MetadataType.ElementType``.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="n">_get_meta_keys_view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="n">print_string</span> <span class="o">=</span> <span class="p">{</span><span class="n">field</span><span class="p">:</span> <span class="n">value</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span>
+                                <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Batch.MetadataType.ElementType(_storage=</span><span class="si">{</span><span class="n">print_string</span><span class="si">}</span><span class="s2">, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;_index=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="si">}</span><span class="s2">)&quot;</span>
+                <span class="p">)</span>
+
+    <span class="c1"># Batch.Builder</span>
+    <span class="c1"># ----------------------------------------------------------------------------------------------</span>
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+    <span class="k">class</span> <span class="nc">Builder</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ``Batch.Builder`` is a helper class to aid in the creation of new</span>
+<span class="sd">        :class:`Batch &lt;dnikit.base.Batch&gt;` instances.</span>
+
+<span class="sd">        From a high-level perspective, ``Batch.Builder`` has similar capabilities to</span>
+<span class="sd">        :class:`Batch &lt;dnikit.base.Batch&gt;`, but all its attributes are **mutable**.</span>
+
+<span class="sd">        That means that it&#39;s possible to directly add or modify ``fields`` in the builder:</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            # Create a new builder</span>
+<span class="sd">            builder = Batch.Builder()</span>
+
+<span class="sd">            # Add a new field</span>
+<span class="sd">            builder.fields[&quot;images&quot;] = numpy.zeros((32, 64, 64, 3))</span>
+
+<span class="sd">            # Modify existing field</span>
+<span class="sd">            builder.fields[&quot;images&quot;][:, :, :, 0] = 1.0</span>
+
+<span class="sd">            # Remove field</span>
+<span class="sd">            del builder.fields[&quot;images&quot;]</span>
+
+<span class="sd">        Similarly, it&#39;s possible to directly add or modify ``snapshots`` or ``metadata``:</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            # Remove an existing snapshot</span>
+<span class="sd">            del builder.snapshots[&quot;origin&quot;]</span>
+
+<span class="sd">            # Add a new snapshot</span>
+<span class="sd">            builder.snapshots[&quot;snapshot&quot;] = previous_batch</span>
+
+<span class="sd">            # Add metadata</span>
+<span class="sd">            FLAT_META_KEY = Batch.MetaKey[int](&quot;FLAT_META_KEY&quot;)</span>
+<span class="sd">            builder.metadata[FLAT_META_KEY] = list(range(32))</span>
+
+<span class="sd">        After modifying ``Batch.Builder``, to obtain a fully-baked</span>
+<span class="sd">        :class:`Batch &lt;dnikit.base.Batch&gt;`,</span>
+<span class="sd">        call :func:`make_batch() &lt;dnikit.base.Batch.Builder.make_batch&gt;`.</span>
+
+<span class="sd">        **Note:** the resulting ``Batch`` must have non-empty ``fields`` or ``metadata``.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            fields: **[optional]** initial values for this ``Batch.Builder``.</span>
+<span class="sd">            base: **[keyword arg, optional]** ``Batch`` instance whose fields, metadata</span>
+<span class="sd">                and snapshots will be copied into this ``Batch.Builder``. This is useful to modify</span>
+<span class="sd">                only a few aspects of a ``Batch`` but leave most of it intact. Using this</span>
+<span class="sd">                argument alongside ``fields`` is not allowed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fields</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">MutableMapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve and set ``fields`` associated with this builder.</span>
+
+<span class="sd">        This is a mutable version of :attr:`Batch.fields &lt;dnikit.base.Batch.fields&gt;`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">snapshots</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">MutableMapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Batch&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve and set ``snapshots`` associated with this builder.</span>
+
+<span class="sd">        This is a mutable version of :attr:`Batch.snapshots &lt;dnikit.base.Batch.snapshots&gt;`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">metadata</span><span class="p">:</span> <span class="s2">&quot;Batch.Builder.MutableMetadataType&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :class:`metadata &lt;dnikit.base.Batch.Builder.MutableMetadataType&gt;`</span>
+<span class="sd">        associated with this builder.</span>
+
+<span class="sd">        This is a mutable version of :attr:`Batch.metadata &lt;dnikit.base.Batch.metadata&gt;`. See</span>
+<span class="sd">        :class:`Batch.Builder.MutableMetadataType &lt;dnikit.base.Batch.Builder.MutableMetadataType&gt;`</span>
+<span class="sd">        for a description of operation supported.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                     <span class="n">fields</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">MutableMapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                     <span class="n">base</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;Batch&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">fields</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">base</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Use either `fields` or `base` argument, not both&quot;</span><span class="p">)</span>
+
+            <span class="c1"># catch Batch.Builder(batch) which looks correct but is using batch</span>
+            <span class="c1"># as a generic dictionary (not permitted)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">Batch</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Batch.Builder(batch) is not supported -- use &quot;</span>
+                                 <span class="s2">&quot;Batch.Builder(base=batch) to create a builder from an &quot;</span>
+                                 <span class="s2">&quot;existing batch.&quot;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span> <span class="k">if</span> <span class="n">fields</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">snapshots</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">Builder</span><span class="o">.</span><span class="n">MutableMetadataType</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">base</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">snapshots</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">snapshots</span><span class="p">)</span>
+                <span class="n">_meta</span><span class="o">.</span><span class="n">_update_metadata_storage</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">make_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Batch&quot;</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Return a fully-baked (and immutable) :class:`Batch &lt;dnikit.base.Batch&gt;` with the same</span>
+<span class="sd">            data, metadata and snapshots as this instance of ``Batch.Builder``.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">Batch</span><span class="p">(</span><span class="n">_storage</span><span class="o">=</span><span class="n">_BatchStorage</span><span class="p">(</span>
+                <span class="n">fields</span><span class="o">=</span><span class="n">_Fields</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">)),</span>
+                <span class="n">snapshots</span><span class="o">=</span><span class="n">_clean_snapshots</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">snapshots</span><span class="p">),</span>
+                <span class="n">metadata</span><span class="o">=</span><span class="n">_meta</span><span class="o">.</span><span class="n">_copy_metadata_storage</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+            <span class="p">))</span>
+
+        <span class="c1"># Batch.Builder.Metadata</span>
+        <span class="c1"># ------------------------------------------------------------------------------------------</span>
+        <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+        <span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+        <span class="k">class</span> <span class="nc">MutableMetadataType</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Class to store **mutable** metadata associated with a</span>
+<span class="sd">            :class:`Batch.Builder &lt;dnikit.base.Batch.Builder&gt;`.</span>
+
+<span class="sd">            Most likely ``Batch.Builder.MutableMetadataType`` will only have to be used in</span>
+<span class="sd">            conjunction with the :attr:`metadata attribute &lt;dnikit.base.Batch.Builder.metadata&gt;`</span>
+<span class="sd">            from :class:`Batch.Builder &lt;dnikit.base.Batch.Builder&gt;`.</span>
+
+<span class="sd">            Just like :class:`Batch.MetadataType &lt;dnikit.base.Batch.MetadataType&gt;`,</span>
+<span class="sd">            ``Batch.Builder.MutableMetadataType`` supports</span>
+<span class="sd">            :func:`indexing &lt;dnikit.base.Batch.Builder.MutableMetadataType.__getitem__&gt;`,</span>
+<span class="sd">            :func:`membership tests &lt;dnikit.base.Batch.Builder.MutableMetadataType.__contains__&gt;`,</span>
+<span class="sd">            and :func:`truth value tests &lt;dnikit.base.Batch.Builder.MutableMetadataType.__bool__&gt;`.</span>
+<span class="sd">            It also adds the ability to</span>
+<span class="sd">            :func:`modify values &lt;dnikit.base.Batch.Builder.MutableMetadataType.__setitem__&gt;` and</span>
+<span class="sd">            :func:`delete items &lt;dnikit.base.Batch.Builder.MutableMetadataType.__delitem__&gt;`.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">_storage</span><span class="p">:</span> <span class="n">_meta</span><span class="o">.</span><span class="n">_MutableMetadataStorage</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span>
+                <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">default_factory</span><span class="o">=</span><span class="n">_meta</span><span class="o">.</span><span class="n">_new_mutable_metadata_storage</span>
+            <span class="p">)</span>
+
+            <span class="k">def</span> <span class="nf">_rename_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                               <span class="n">mapping</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+                               <span class="n">meta_keys</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">AbstractSet</span><span class="p">[</span><span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Rename the keys associated with each</span>
+<span class="sd">                :class:`DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;` to the mapping from old to</span>
+<span class="sd">                new. If ``meta_keys`` is not ``None``, operation will only be applied to specified</span>
+<span class="sd">                meta_keys.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="n">_meta</span><span class="o">.</span><span class="n">_rename_dict_metakey_fields</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">meta_keys</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="nf">_remove_simple_meta_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                         <span class="n">meta_keys</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">AbstractSet</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">],</span>
+                                         <span class="n">keep</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Delete the metadata associated with the given keys/field combination. If ``keep`` is</span>
+<span class="sd">                ``True`` then only the mentioned keys/fields will be kept.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="n">_meta</span><span class="o">.</span><span class="n">_remove_meta_keys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">meta_keys</span><span class="p">,</span> <span class="n">keep</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="nf">_remove_dict_meta_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                       <span class="n">meta_keys</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">AbstractSet</span><span class="p">[</span><span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">],</span>
+                                       <span class="n">keys</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">AbstractSet</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+                                       <span class="n">keep</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Delete the metadata associated with the given keys/field combination. If ``keep`` is</span>
+<span class="sd">                ``True`` then only the mentioned keys/fields will be kept.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="n">_meta</span><span class="o">.</span><span class="n">_remove_dict_meta_keys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">meta_keys</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">keep</span><span class="p">)</span>
+
+            <span class="nd">@overload</span>
+            <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="s2">&quot;Batch.MetaKey[_T]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">MutableSequence</span><span class="p">[</span><span class="n">_T</span><span class="p">]:</span>
+                <span class="o">...</span>
+
+            <span class="nd">@overload</span>
+            <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="s2">&quot;Batch.DictMetaKey[_T]&quot;</span>
+                            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">MutableMapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">MutableSequence</span><span class="p">[</span><span class="n">_T</span><span class="p">]]:</span>
+                <span class="o">...</span>
+
+            <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Indexing operator for ``Batch.Builder.MutableMetadataType``.</span>
+
+<span class="sd">                Behaves the same as the</span>
+<span class="sd">                :func:`Batch.MetadataType indexing &lt;dnikit.base.Batch.MetadataType.__getitem__&gt;`</span>
+<span class="sd">                operator (but returning mutable versions of the containers).</span>
+
+<span class="sd">                .. code-block:: python</span>
+
+<span class="sd">                    # Instantiate a MetaKey, ...</span>
+<span class="sd">                    FLAT_META_KEY = Batch.MetaKey[int](&quot;FLAT_META_KEY&quot;)</span>
+
+<span class="sd">                    # ... and a DictMetaKey</span>
+<span class="sd">                    DICT_META_KEY = Batch.DictMetaKey[float](&quot;DICT_META_KEY&quot;)</span>
+
+<span class="sd">                    # Retrieve metadata</span>
+<span class="sd">                    flat_metadata = builder.metadata[FLAT_META_KEY]</span>
+<span class="sd">                    # type is MutableSequence[int]</span>
+<span class="sd">                    dict_metadata = builder.metadata[DICT_META_KEY]</span>
+<span class="sd">                    # type is MutableMapping[str, MutableSequence[int]]</span>
+
+<span class="sd">                Args:</span>
+<span class="sd">                    key: a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">                        :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`, to use</span>
+<span class="sd">                        metadata in the batch</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="n">_meta</span><span class="o">.</span><span class="n">_get_metadata_item</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+            <span class="nd">@overload</span>
+            <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="s2">&quot;Batch.MetaKey[_T]&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">_T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="o">...</span>
+
+            <span class="nd">@overload</span>
+            <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="s2">&quot;Batch.DictMetaKey[_T]&quot;</span><span class="p">,</span>
+                            <span class="n">value</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">_T</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="o">...</span>
+
+            <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">],</span>
+                            <span class="n">value</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Mutation operator for ``Batch.Builder.MutableMetadataType``.</span>
+
+<span class="sd">                The behavior of metadata mutation varies depending whether a</span>
+<span class="sd">                :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">                :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;` is used.</span>
+
+<span class="sd">                Metadata keyed by</span>
+<span class="sd">                :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` can be set with:</span>
+
+<span class="sd">                .. code-block:: python</span>
+
+<span class="sd">                    # Instantiate a MetaKey</span>
+<span class="sd">                    FLAT_META_KEY = Batch.MetaKey[int](&quot;FLAT_META_KEY&quot;)</span>
+
+<span class="sd">                    # Set metadata for FLAT_META_KEY</span>
+<span class="sd">                    builder.metadata[FLAT_META_KEY] = [2, 7, 1, 8, ...]</span>
+
+<span class="sd">                If using :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`,</span>
+<span class="sd">                the metadata can be set like this:</span>
+
+<span class="sd">                .. code-block:: python</span>
+
+<span class="sd">                    # And a DictMetaKey</span>
+<span class="sd">                    DICT_META_KEY = Batch.DictMetaKey[float](&quot;DICT_META_KEY&quot;)</span>
+
+<span class="sd">                    # Set all keys and values for a DICT_META_KEY</span>
+<span class="sd">                    builder.metadata[DICT_META_KEY] = {</span>
+<span class="sd">                        &quot;digits&quot;: [1., 2., 3., 4., ...]</span>
+<span class="sd">                        &quot;tens&quot;: [10., 20., 30., 40., ...]</span>
+<span class="sd">                    }</span>
+<span class="sd">                    # Set a particular key for DICT_META_KEY</span>
+<span class="sd">                    builder.metadata[DICT_META_KEY][&quot;hundreds&quot;] = [100., 200., 300., 400., ...]</span>
+
+<span class="sd">                Args:</span>
+<span class="sd">                    key: a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">                        :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`, to indicate</span>
+<span class="sd">                        what key to list the metadata under</span>
+<span class="sd">                    value: metadata value to be used with ``key``</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="n">_meta</span><span class="o">.</span><span class="n">_set_metadata_item</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Deletion operator for ``Batch.Builder.MutableMetadataType``.</span>
+
+<span class="sd">                The `del` keyword can be used in combination with normal indexing rules to delete</span>
+<span class="sd">                any metadata elements:</span>
+
+<span class="sd">                .. code-block:: python</span>
+
+<span class="sd">                    # Delete FLAT_META_KEY</span>
+<span class="sd">                    del builder.metadata[FLAT_META_KEY]</span>
+<span class="sd">                    # Delete DICT_META_KEY</span>
+<span class="sd">                    del builder.metadata[DICT_META_KEY]</span>
+<span class="sd">                    # Delete a specific entry from a DICT_META_KEY</span>
+<span class="sd">                    del builder.metadata[DICT_META_KEY][&quot;key&quot;]</span>
+
+<span class="sd">                Args:</span>
+<span class="sd">                    key: a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">                        :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`, to indicate</span>
+<span class="sd">                        which of the batch metadata to delete</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+            <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Membership operator for ``Batch.Builder.MutableMetadataType``.</span>
+
+<span class="sd">                Behaves the same as the</span>
+<span class="sd">                :func:`Batch.MetadataType membership &lt;dnikit.base.Batch.MetadataType.__contains__&gt;`</span>
+<span class="sd">                operator.</span>
+
+<span class="sd">                .. code-block:: python</span>
+
+<span class="sd">                    flat_meta_key_present = FLAT_META_KEY in builder.metadata</span>
+<span class="sd">                    dict_meta_key_present = DICT_META_KEY in builder.metadata</span>
+
+<span class="sd">                Args:</span>
+<span class="sd">                    key: a :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` or a</span>
+<span class="sd">                        :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;`, to see if</span>
+<span class="sd">                        it exists in the batch metadata</span>
+
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span>
+
+            <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Truth value operator for ``Batch.Builder.MutableMetadataType``</span>
+
+<span class="sd">                It&#39;s possible to whether an instance of</span>
+<span class="sd">                ``Batch.Builder.MutableMetadataType`` is empty</span>
+<span class="sd">                by requesting its truth value (will return ``False`` if empty, ``True`` otherwise):</span>
+
+<span class="sd">                .. code-block:: python</span>
+
+<span class="sd">                    bool(builder.metadata)  # False if empty, True otherwise</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">KeysView</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Batch.MetaKey&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch.DictMetaKey&quot;</span><span class="p">]]:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Return all instances of :class:`Batch.MetaKey` and :class:`Batch.DictMetaKey`</span>
+<span class="sd">                contained within this instance.</span>
+
+<span class="sd">                Warning:</span>
+<span class="sd">                    The :class:`MetaKeys &lt;dnikit.base.Batch.MetaKey&gt;` and</span>
+<span class="sd">                    :class:`DictMetaKeys &lt;dnikit.base.Batch.DictMetaKey&gt;` returned will be</span>
+<span class="sd">                    **type-erased** which means a type checker will not understand the type of</span>
+<span class="sd">                    the payload. It&#39;s recommended to use this method for debugging purposes or</span>
+<span class="sd">                    to add the type information back with :func:`typing.cast`.</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                    a view of each :class:`Batch.MetaKey &lt;dnikit.base.Batch.MetaKey&gt;` and</span>
+<span class="sd">                    :class:`Batch.DictMetaKey &lt;dnikit.base.Batch.DictMetaKey&gt;` contained</span>
+<span class="sd">                    in this ``Batch.Builder.MutableMetadataType``.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="n">_get_meta_keys_view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">)</span>
+
+    <span class="c1"># Batch.StdKeys</span>
+    <span class="c1"># ----------------------------------------------------------------------------------------------</span>
+    <span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+    <span class="k">class</span> <span class="nc">StdKeys</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Standard metadata keys that are useful across many domains.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Note: see the end of the file for where these are initialized.</span>
+        <span class="c1"># In the class scope it&#39;s not possible to refer to the outer type (Batch)</span>
+        <span class="c1"># so these can&#39;t be initialized here.  A method scope _can_</span>
+        <span class="c1"># refer to the outer type FWIW.</span>
+
+        <span class="n">IDENTIFIER</span><span class="p">:</span> <span class="s2">&quot;Batch.MetaKey[t.Hashable]&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metadata key that uniquely identifies a data element.  This should only be</span>
+<span class="sd">        used to provide a unique identifier for each data element.  Code that</span>
+<span class="sd">        needs to store per-element data can use this value as a key, for</span>
+<span class="sd">        example in a dictionary.</span>
+
+<span class="sd">        Use case 1:</span>
+
+<span class="sd">        CIFAR image data is loaded from numpy arrays.  It would be reasonable</span>
+<span class="sd">        to use the index into those arrays as the ``IDENTIFIER``.</span>
+
+<span class="sd">        Use case 2:</span>
+
+<span class="sd">        Images are loaded from files.  As long as files are not duplicated</span>
+<span class="sd">        in the elements, the path to the file would make a good identifier.</span>
+<span class="sd">        Note that it is better to use the path than the filename (the last</span>
+<span class="sd">        part of the path) because that may not be unique enough.  Consider</span>
+<span class="sd">        also storing the path in :attr:`PATH`.</span>
+
+<span class="sd">        Use case 3:</span>
+
+<span class="sd">        Face detection use cases might have a file and a crop rect.  The file</span>
+<span class="sd">        may be used multiple times: once for each face.  In this case using</span>
+<span class="sd">        a tuple to hold the path and crop rect will provide a unique identifier.</span>
+<span class="sd">        Other metadata fields should be used if it&#39;s also necessary to use a</span>
+<span class="sd">        crop rect or filename apart from the unique identifier (in particular</span>
+<span class="sd">        do not try to decompose the ``IDENTIFIER``):</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            builder.metadata[Batch.StdKeys.IDENTIFIER] = [</span>
+<span class="sd">                (d.path, d.crop_x, d.crop_y, d.crop_w, d.crop_h)</span>
+<span class="sd">                for d in dataset</span>
+<span class="sd">            ]</span>
+<span class="sd">            builder.metadata[Batch.StdKeys.PATH] = [</span>
+<span class="sd">                d.path</span>
+<span class="sd">                for d in dataset</span>
+<span class="sd">            ]</span>
+
+<span class="sd">            # probably a custom key for the crop rect as well</span>
+<span class="sd">            CROP = Batch.MetaKey[t.Tuple[int, int, int, int]](&quot;crop&quot;)</span>
+<span class="sd">            builder.metadata[CROP] = [</span>
+<span class="sd">                (d.crop_x, d.crop_y, d.crop_w, d.crop_h)</span>
+<span class="sd">                for d in dataset</span>
+<span class="sd">            ]</span>
+
+<span class="sd">        Use case 4:</span>
+
+<span class="sd">        If there isn&#39;t any suitable natural identifier, a UUID or sequence value (int)</span>
+<span class="sd">        is a good way to go.</span>
+
+<span class="sd">        The built in :class:`ImageProducer &lt;dnikit.base.ImageProducer&gt;` can provide both</span>
+<span class="sd">        ``IDENTIFIER`` and :attr:`PATH`.  The built in :class:`Cacher &lt;dnikit.processors.Cacher&gt;`</span>
+<span class="sd">        can provide a unique sequence ``IDENTIFIER`` for any producers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">PATH</span><span class="p">:</span> <span class="s2">&quot;Batch.MetaKey[dt.PathOrStr]&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metadata key that identifies the path (either a ``str`` or a :class:`pathlib.Path`)</span>
+<span class="sd">        that the element represents.  This can be used by a</span>
+<span class="sd">        :class:`PipelineStage &lt;dnikit.base.PipelineStage&gt;`</span>
+<span class="sd">        to load data, or simply be used to associate results with an input file.</span>
+
+<span class="sd">        The built in :class:`ImageProducer &lt;dnikit.base.ImageProducer&gt;` can provide both</span>
+<span class="sd">        :attr:`IDENTIFIER` and ``PATH``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">LABELS</span><span class="p">:</span> <span class="s2">&quot;Batch.DictMetaKey[t.Hashable]&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metadata key to set of labels. Maps label_category_name (e.g. shape) to label (e.g. square).</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            For example, samples may be labeled across multiple dimensions:</span>
+
+<span class="sd">            .. code-block:: python</span>
+
+<span class="sd">                builder.metadata[Batch.StdKeys.LABELS] = {</span>
+<span class="sd">                    &quot;shape&quot;: [ &quot;square&quot;, &quot;square&quot;, &quot;triangle&quot;, ... ],</span>
+<span class="sd">                    &quot;color&quot;: [ &quot;blue&quot;, &quot;red&quot;, &quot;green&quot;, ... ],</span>
+<span class="sd">                }</span>
+
+<span class="sd">                labels_shapes = batch.metadata[Batch.StdKeys.LABELS][&quot;shape&quot;]</span>
+<span class="sd">                labels_colors = batch.metadata[Batch.StdKeys.LABELS][&quot;color&quot;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DNIKitException</span><span class="p">(</span><span class="s2">&quot;Do not instantiate Batch.StdKeys&quot;</span><span class="p">)</span></div>
+
+
+<span class="c1"># _BatchIterator private helper</span>
+<span class="c1"># --------------------------------------------------------------------------------------------------</span>
+<span class="nd">@t</span><span class="o">.</span><span class="n">final</span>
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">_BatchIterator</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">Iterator</span><span class="p">[</span><span class="n">Batch</span><span class="o">.</span><span class="n">ElementType</span><span class="p">]):</span>
+    <span class="n">_storage</span><span class="p">:</span> <span class="n">_BatchStorage</span>
+    <span class="n">_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="o">.</span><span class="n">ElementType</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="o">.</span><span class="n">batch_size</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Batch</span><span class="o">.</span><span class="n">ElementType</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">)</span>
+
+
+<span class="c1"># initialize StdKeys -- unable to do this inline because of type visibility issues</span>
+<span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">IDENTIFIER</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">MetaKey</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Hashable</span><span class="p">](</span><span class="s1">&#39;dnikit.base.Batch.StdKeys.identifier&#39;</span><span class="p">)</span>
+<span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">PATH</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">MetaKey</span><span class="p">[</span><span class="n">dt</span><span class="o">.</span><span class="n">PathOrStr</span><span class="p">](</span><span class="s1">&#39;dnikit.base.Batch.StdKeys.path&#39;</span><span class="p">)</span>
+<span class="n">Batch</span><span class="o">.</span><span class="n">StdKeys</span><span class="o">.</span><span class="n">LABELS</span> <span class="o">=</span> <span class="n">Batch</span><span class="o">.</span><span class="n">DictMetaKey</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">Hashable</span><span class="p">](</span><span class="s1">&#39;dnikit.base.Batch.StdKeys.labels&#39;</span><span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Apple, Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023 Apple Inc. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
