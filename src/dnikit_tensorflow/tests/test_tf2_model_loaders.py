@@ -26,7 +26,11 @@ from dnikit.samples import StubImageDataset
 from dnikit.processors import FieldRenamer
 from dnikit_tensorflow import load_tf_model_from_memory
 from dnikit_tensorflow.samples import get_simple_cnn_model
-from dnikit_tensorflow._tensorflow._tf2_model import _Tensorflow2ModelDetails
+from dnikit_tensorflow._tensorflow._tf2_model import (
+    _Tensorflow2ModelDetails,
+    _convert_tf_operation,
+    _get_tensor_dtype_and_shape,
+)
 from dnikit_tensorflow._tensorflow._tf2_loading import (
     TF2LoadingChain
 )
@@ -83,6 +87,23 @@ def _test_loading(model_path: pathlib.Path) -> t.Type[_TFLoader]:
     _test_model(Model(loaded_model))
 
     return loader
+
+
+def test_get_tensor_dtype_and_shape_without_type_spec() -> None:
+    class Tensor:
+        dtype = tf.float32
+        shape = (None, 32, 32, 3)
+
+    dtype, shape = _get_tensor_dtype_and_shape(Tensor())
+
+    assert dtype == tf.float32
+    assert shape == (None, 32, 32, 3)
+
+
+def test_convert_tf_operation_uses_layer_metadata_when_output_name_is_generic() -> None:
+    kind = _convert_tf_operation("keras_tensor_1", "conv0_conv", "Conv2D")
+
+    assert kind is ResponseInfo.LayerKind.CONV_2D
 
 
 @pytest.mark.skipif(running_tf_1(), reason="Skipping TF2 tests because TF1 is running.")
